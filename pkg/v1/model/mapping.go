@@ -1,7 +1,9 @@
 package model
 
 type PointMapping struct {
-	FlowNetworkName string   `json:"flow_network_name"`
-	PluginsList     []string `json:"plugins_list"`
-	Point           *Point   `json:"point"`
+	AutoMappingNetworksSelection []string `json:"auto_mapping_networks_selection"` //user selected networks
+	AutoMappingFlowNetworkName   string   `json:"auto_mapping_flow_network_name"`  //user can send name
+	AutoMappingFlowNetworkUUID   string   `json:"auto_mapping_flow_network_uuid"`
+	SourceNetworkUUID            string
+	Point                        *Point `json:"point"`
 }
