@@ -119,6 +119,18 @@ const (
 	ReadOnlyNoPriorityArrayRequired PointPriorityArrayMode = "read_only_no_priority_array_required" //This is a point like a modbus read only point, which doesn't need a priority array, only a present value
 )
 
+type WriteMode string
+
+const (
+	ReadOnce          WriteMode = "read_once"            //Only Read Point Value Once.
+	ReadOnly          WriteMode = "read_only"            //Only Read Point Value (poll rate defined by setting).
+	WriteOnce         WriteMode = "write_once"           //Write the value on COV, don't Read.
+	WriteOnceReadOnce WriteMode = "write_once_read_once" //Write the value on COV, Read Once.
+	WriteAlways       WriteMode = "write_always"         //Write the value on every poll (poll rate defined by setting).
+	WriteOnceThenRead WriteMode = "write_once_then_read" //Write the value on COV, then Read on each poll (poll rate defined by setting).
+	WriteAndMaintain  WriteMode = "write_and_maintain"   //Write the value on COV, then Read on each poll (poll rate defined by setting). If the Read value does not match the Write value, Write the value again.
+)
+
 //Point table
 type Point struct {
 	CommonUUID
@@ -135,13 +147,10 @@ type Point struct {
 	WriteValue             *float64               `json:"write_value"`          //writeValue was added so if user wanted to do a math function on the point write
 	WriteValueOriginal     *float64               `json:"write_value_original"` //writeValue was added so if user wanted to do a math function on the point write
 	CurrentPriority        *int                   `json:"current_priority,omitempty"`
-	InSync                 *bool                  `json:"in_sync"`                    //is set to false when a new value is written from the user example: if its false then modbus would write the new value. if user edits the point it will disable the COV for one time
-	WriteValueOnce         *bool                  `json:"write_value_once,omitempty"` //when point is used for polling and if it's a writeable point and WriteValueOnce is true then on a successful write it will set the WriteValueOnceSync to true and on the next poll cycle it will not send the write value
-	WriteValueOnceSync     *bool                  `json:"write_value_once_sync,omitempty"`
+	InSync                 *bool                  `json:"in_sync"` //is set to false when a new value is written from the user example: if its false then modbus would write the new value. if user edits the point it will disable the COV for one time
 	Fallback               *float64               `json:"fallback"`
 	DeviceUUID             string                 `json:"device_uuid,omitempty" gorm:"TYPE:string REFERENCES devices;not null;default:null"`
-	EnableWriteable        *bool                  `json:"writeable,omitempty"`
-	IsOutput               *bool                  `json:"is_output,omitempty"`
+	EnableWriteable        *bool                  `json:"writeable,omitempty"`             //UI should hide the `write` action if not enabled
 	MathOnPresentValue     string                 `json:"math_on_present_value,omitempty"` // x+100
 	MathOnWriteValue       string                 `json:"math_on_write_value,omitempty"`   // x*100
 	COV                    *float64               `json:"cov"`
@@ -166,11 +175,13 @@ type Point struct {
 	UnitTo                 *string                `json:"unit_to,omitempty"` //with take the unit and convert to, this would affect the presentValue and the original value will be stored in the raw
 	IsProducer             *bool                  `json:"is_producer,omitempty"`
 	IsConsumer             *bool                  `json:"is_consumer,omitempty"`
-	ValueRaw               string                 `json:"value_raw,omitempty"`
 	Priority               *Priority              `json:"priority,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                   []*Tag                 `json:"tags,omitempty" gorm:"many2many:points_tags;constraint:OnDelete:CASCADE"`
 	ValueUpdatedFlag       *bool                  `json:"value_updated_flag,omitempty"`      //This is used when a plugin updates the PresentValue (not from priority array) and it triggers UpdatePointValue() to broadcast to producers. Should only be set to FALSE from UpdatePointValue().
 	PointPriorityArrayMode PointPriorityArrayMode `json:"point_priority_use_type,omitempty"` //This configures how the point handles the priority array and present value.
+	WriteMode              WriteMode              `json:"write_mode,omitempty"`
+	WritePollRequired      *bool                  `json:"write_required,omitempty"`
+	ReadPollRequired       *bool                  `json:"read_required,omitempty"`
 }
 
 type Priorities struct {
