@@ -1,5 +1,24 @@
 package model
 
+type HistoryType string
+
+const (
+	HistoryTypeCov            HistoryType = "COV"
+	HistoryTypeInterval       HistoryType = "INTERVAL"
+	HistoryTypeCovAndInterval HistoryType = "COV_AND_INTERVAL"
+)
+
+var HistoryTypeMap = map[HistoryType]int8{
+	HistoryTypeCov:            0,
+	HistoryTypeInterval:       0,
+	HistoryTypeCovAndInterval: 0,
+}
+
+var HistoryTypeCovMap = map[HistoryType]int8{
+	HistoryTypeCov:            0,
+	HistoryTypeCovAndInterval: 0,
+}
+
 /*
 Producer a producer is a placeholder to register an object to enable consumers to a producer for example is a point,
 something that makes data, and the subscriber would have a consumer to it, like grafana reading and writing to it
@@ -22,6 +41,8 @@ type Producer struct {
 	WriterClones            []*WriterClone     `json:"writer_clones,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	ProducerHistories       []*ProducerHistory `json:"producer_histories,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                    []*Tag             `json:"tags,omitempty" gorm:"many2many:producers_tags;constraint:OnDelete:CASCADE"`
+	HistoryType             HistoryType        `json:"history_type,omitempty"`
+	HistoryInterval         *int                `json:"history_interval,omitempty"`
 	CommonCreated
 }
 
