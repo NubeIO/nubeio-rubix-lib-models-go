@@ -31,15 +31,17 @@ type CommonFlowNetwork struct {
 
 type FlowNetwork struct {
 	CommonFlowNetwork
-	FlowIP   *string   `json:"flow_ip,omitempty" gorm:"uniqueIndex:ip_port_composite_index"`
-	FlowPort *int      `json:"flow_port,omitempty" gorm:"uniqueIndex:ip_port_composite_index"`
-	Streams  []*Stream `json:"streams" gorm:"many2many:flow_networks_streams;constraint:OnDelete:CASCADE"`
+	FlowNetworkParentUUID string    `json:"flow_network_parent_uuid"`
+	FlowIP                *string   `json:"flow_ip,omitempty" gorm:"uniqueIndex:ip_port_composite_index"`
+	FlowPort              *int      `json:"flow_port,omitempty" gorm:"uniqueIndex:ip_port_composite_index"`
+	Streams               []*Stream `json:"streams" gorm:"many2many:flow_networks_streams;constraint:OnDelete:CASCADE"`
 }
 
 type FlowNetworkClone struct {
 	CommonFlowNetwork
 	CommonSourceUUID
-	FlowIP       *string        `json:"flow_ip,omitempty" gorm:"uniqueIndex:ip_port_clone_composite_index"`
-	FlowPort     *int           `json:"flow_port,omitempty" gorm:"uniqueIndex:ip_port_clone_composite_index"`
-	StreamClones []*StreamClone `json:"stream_clones" gorm:"constraint:OnDelete:CASCADE;"`
+	FlowNetworkParentUUID string         `json:"flow_network_parent_uuid"`
+	FlowIP                *string        `json:"flow_ip,omitempty" gorm:"uniqueIndex:ip_port_clone_composite_index"`
+	FlowPort              *int           `json:"flow_port,omitempty" gorm:"uniqueIndex:ip_port_clone_composite_index"`
+	StreamClones          []*StreamClone `json:"stream_clones" gorm:"constraint:OnDelete:CASCADE;"`
 }
