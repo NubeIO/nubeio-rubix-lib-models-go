@@ -80,6 +80,7 @@ var ObjectTypesMap = map[ObjectType]int8{
 type DataType string
 
 const (
+	TypeDigital DataType = "digital"
 	TypeInt16   DataType = "int16"
 	TypeUint16  DataType = "uint16"
 	TypeInt32   DataType = "int32"
