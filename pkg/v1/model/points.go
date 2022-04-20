@@ -131,6 +131,23 @@ const (
 	WriteAndMaintain  WriteMode = "write_and_maintain"   //Write the value on COV, then Read on each poll (poll rate defined by setting). If the Read value does not match the Write value, Write the value again.
 )
 
+type PollPriority string
+
+const (
+	PRIORITY_ASAP   PollPriority = "asap"
+	PRIORITY_HIGH   PollPriority = "high"
+	PRIORITY_NORMAL PollPriority = "normal"
+	PRIORITY_LOW    PollPriority = "low"
+)
+
+type PollRate string
+
+const (
+	RATE_FAST   PollRate = "fast"
+	RATE_NORMAL PollRate = "normal"
+	RATE_SLOW   PollRate = "slow"
+)
+
 //Point table
 type Point struct {
 	CommonUUID
@@ -149,7 +166,7 @@ type Point struct {
 	CurrentPriority        *int                   `json:"current_priority,omitempty"`
 	IsOutput               *bool                  `json:"is_output"` //used for as example: for bacnet-server we only support AV so if a point IsOutput = false then for mapping its set as a consumer but if true then its set as a prodcuer
 	IsTypeBool             *bool                  `json:"is_type_bool"`
-	InSync                 *bool                  `json:"in_sync"`   //is set to false when a new value is written from the user example: if its false then modbus would write the new value. if user edits the point it will disable the COV for one time
+	InSync                 *bool                  `json:"in_sync"` //is set to false when a new value is written from the user example: if its false then modbus would write the new value. if user edits the point it will disable the COV for one time
 	Fallback               *float64               `json:"fallback"`
 	DeviceUUID             string                 `json:"device_uuid,omitempty" gorm:"TYPE:string REFERENCES devices;not null;default:null"`
 	EnableWriteable        *bool                  `json:"writeable,omitempty"`             //UI should hide the `write` action if not enabled
@@ -184,6 +201,8 @@ type Point struct {
 	WriteMode              WriteMode              `json:"write_mode,omitempty"`
 	WritePollRequired      *bool                  `json:"write_required,omitempty"`
 	ReadPollRequired       *bool                  `json:"read_required,omitempty"`
+	PollPriority           PollPriority           `json:"poll_priority"`
+	PollRate               PollRate               `json:"poll_rate"`
 }
 
 type Priorities struct {
