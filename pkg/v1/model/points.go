@@ -1,5 +1,7 @@
 package model
 
+import "reflect"
+
 // TimeOverride TODO add in later
 //TimeOverride where a point value can be overridden for a duration of time
 type TimeOverride struct {
@@ -107,6 +109,7 @@ const (
 	IOTypeDigital       IOType = "digital"
 	IOTypeAToDigital    IOType = "a_to_digital"
 	IOTypeVoltageDC     IOType = "voltage_dc"
+	IOTypeVoltage010    IOType = "voltage_0_10dc"
 	IOTypeCurrent       IOType = "current"
 	IOTypeThermistor    IOType = "thermistor"
 	IOTypeThermistor10K IOType = "thermistor_10k_type_2"
@@ -295,4 +298,17 @@ func (p *Priority) GetHighestPriorityValue() *float64 {
 		return p.P16
 	}
 	return nil
+}
+
+//GetPntType find the type of point as in voltage_dc
+func GetPntType(strut interface{}, ioType string) (out string, err error) {
+	val := reflect.ValueOf(strut).Elem()
+	for i := 0; i < val.NumField(); i++ {
+		valueField := val.Field(i)
+		typeField := val.Type().Field(i)
+		if typeField.Name == ioType {
+			return valueField.String(), nil
+		}
+	}
+	return
 }
