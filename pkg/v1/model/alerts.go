@@ -1,25 +1,39 @@
 package model
 
+import "time"
+
 type AlertCategory struct {
 	Type string //loss of data, offline
-
 }
 
 type AlertType struct {
 	Type string //point, device
-
 }
 
-//Alert alerts TODO add in later
+var CommonAlertTypes = struct {
+	HostPing      string
+	DeviceOffline string
+}{
+	HostPing:      "system_ping",
+	DeviceOffline: "device_offline",
+}
+
 type Alert struct {
-	Type string //cov, interval, cov_interval
-	Duration int
-
+	UUID      string     `json:"uuid" gorm:"primarykey"`
+	From      string     `json:"from"`
+	HostUUID  string     `json:"host_uuid"`
+	Host      string     `json:"host"`
+	AlertType string     `json:"alert_type"`
+	Count     uint       `json:"count"`
+	Date      time.Time  `json:"date"`
+	Messages  []*Message `json:"messages" gorm:"constraint:OnDelete:CASCADE"`
 }
-type T struct {
-	Timestamp int64  `json:"timestamp"`
-	Title     string `json:"title"`
-	Subtitle  string `json:"subtitle"`
-	AlertType string `json:"alert_type"`
-	Priority  string `json:"priority"`
+
+type Message struct {
+	UUID      string    `json:"uuid" gorm:"primarykey"`
+	Title     string    `json:"title,omitempty"`
+	Message   string    `json:"message,omitempty"`
+	Type      string    `json:"type,omitempty"`
+	Date      time.Time `json:"date,omitempty"`
+	AlertUUID string    `json:"alert_uuid,omitempty" gorm:"TYPE:string REFERENCES alerts;"`
 }

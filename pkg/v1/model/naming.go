@@ -65,6 +65,7 @@ var ThingClass = struct {
 	GlobalSchedule string `json:"global_schedule"`
 	Alert          string `json:"alert"`
 	Integration    string `json:"integration"`
+	Message        string `json:"message"`
 }{
 	API:            "api",
 	Network:        "network",
@@ -76,6 +77,7 @@ var ThingClass = struct {
 	GlobalSchedule: "global_schedule",
 	Alert:          "alert",
 	Integration:    "integration",
+	Message:        "message",
 }
 
 var ThingType = struct {
