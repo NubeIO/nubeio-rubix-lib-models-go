@@ -2,7 +2,9 @@ module github.com/NubeIO/nubeio-rubix-lib-models-go
 
 go 1.18
 
-require gorm.io/datatypes v1.0.6
+require (
+	gorm.io/datatypes v1.0.6
+)
 
 require (
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
