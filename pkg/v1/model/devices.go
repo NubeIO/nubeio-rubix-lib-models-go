@@ -23,19 +23,19 @@ type Device struct {
 	CommonThingRef
 	CommonThingType
 	CommonDevice
-	DeviceMac                *int     `json:"device_mac,omitempty"`
-	DeviceObjectId           *int     `json:"device_object_id,omitempty"`
-	NetworkNumber            *int     `json:"network_number,omitempty"` //bacnet network number
-	DeviceMask               *int     `json:"device_mask,omitempty"`
-	TypeSerial               *bool    `json:"type_serial,omitempty"`
-	TransportType            string   `json:"transport_type,omitempty"` //serial, ip
-	SupportsRpm              *bool    `json:"supports_rpm,omitempty"`   //bacnet support read property multiple
-	SupportsWpm              *bool    `json:"supports_wpm,omitempty"`   //bacnet support write property multiple
-	NetworkUUID              string   `json:"network_uuid,omitempty" gorm:"TYPE:varchar(255) REFERENCES networks;not null;default:null"`
-	NumberOfDevicesPermitted *int     `json:"number_of_devices_permitted,omitempty"`
-	Points                   []*Point `json:"points,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-	Tags                     []*Tag   `json:"tags,omitempty" gorm:"many2many:devices_tags;constraint:OnDelete:CASCADE"`
-	FastPollRate             *float64 `json:"fast_poll_rate"`
-	NormalPollRate           *float64 `json:"normal_poll_rate"`
-	SlowPollRate             *float64 `json:"slow_poll_rate"`
+	DeviceMac                *int          `json:"device_mac,omitempty"`
+	DeviceObjectId           *int          `json:"device_object_id,omitempty"`
+	NetworkNumber            *int          `json:"network_number,omitempty"` //bacnet network number
+	DeviceMask               *int          `json:"device_mask,omitempty"`
+	TypeSerial               *bool         `json:"type_serial,omitempty"`
+	TransportType            string        `json:"transport_type,omitempty"` //serial, ip
+	SupportsRpm              *bool         `json:"supports_rpm,omitempty"`   //bacnet support read property multiple
+	SupportsWpm              *bool         `json:"supports_wpm,omitempty"`   //bacnet support write property multiple
+	NetworkUUID              string        `json:"network_uuid,omitempty" gorm:"TYPE:varchar(255) REFERENCES networks;not null;default:null"`
+	NumberOfDevicesPermitted *int          `json:"number_of_devices_permitted,omitempty"`
+	Points                   []*Point      `json:"points,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Tags                     []*Tag        `json:"tags,omitempty" gorm:"many2many:devices_tags;constraint:OnDelete:CASCADE"`
+	FastPollRate             time.Duration `json:"fast_poll_rate"`
+	NormalPollRate           time.Duration `json:"normal_poll_rate"`
+	SlowPollRate             time.Duration `json:"slow_poll_rate"`
 }
