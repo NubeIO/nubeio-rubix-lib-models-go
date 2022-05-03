@@ -52,5 +52,5 @@ type Network struct {
 	Host                         *string   `json:"host,omitempty"`
 	Devices                      []*Device `json:"devices,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                         []*Tag    `json:"tags,omitempty" gorm:"many2many:networks_tags;constraint:OnDelete:CASCADE"`
-	MaxPollRate                  *int      `json:"max_poll_rate,omitempty"`
+	MaxPollRate                  *float64  `json:"max_poll_rate,omitempty"`
 }
