@@ -35,7 +35,7 @@ type Device struct {
 	NumberOfDevicesPermitted *int     `json:"number_of_devices_permitted,omitempty"`
 	Points                   []*Point `json:"points,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                     []*Tag   `json:"tags,omitempty" gorm:"many2many:devices_tags;constraint:OnDelete:CASCADE"`
-	FastPollRate             *int     `json:"fast_poll_rate"`
-	NormalPollRate           *int     `json:"normal_poll_rate"`
-	SlowPollRate             *int     `json:"slow_poll_rate"`
+	FastPollRate             *float64 `json:"fast_poll_rate"`
+	NormalPollRate           *float64 `json:"normal_poll_rate"`
+	SlowPollRate             *float64 `json:"slow_poll_rate"`
 }
