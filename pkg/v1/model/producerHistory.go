@@ -10,6 +10,7 @@ type ProducerHistory struct {
 	ID           int    `json:"id" gorm:"AUTO_INCREMENT;primary_key;index"`
 	ProducerUUID string `json:"producer_uuid,omitempty" gorm:"TYPE:varchar(255) REFERENCES producers;not null;default:null"`
 	CommonCurrentWriterUUID
-	DataStore datatypes.JSON `json:"data_store,omitempty"`
-	Timestamp time.Time      `json:"timestamp,omitempty"`
+	PresentValue *float64        `json:"present_value"`
+	DataStore    *datatypes.JSON `json:"data_store,omitempty"`
+	Timestamp    time.Time       `json:"timestamp,omitempty"`
 }
