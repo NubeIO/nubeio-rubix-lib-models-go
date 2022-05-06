@@ -33,9 +33,9 @@ type SyncWriter struct {
 }
 
 type WriterBody struct {
-	Action   string        `json:"action,omitempty"`
-	Priority *Priority     `json:"priority,omitempty"`
-	Schedule *ScheduleData `json:"schedule,omitempty"`
+	Action   string               `json:"action,omitempty"`
+	Priority *map[string]*float64 `json:"priority,omitempty"`
+	Schedule *ScheduleData        `json:"schedule,omitempty"`
 }
 
 type WriterBulkBody struct {
@@ -53,11 +53,15 @@ type WriterActionOutput struct {
 }
 
 type SyncCOV struct {
-	Priority *Priority
+	Priority *map[string]*float64
 	Schedule *ScheduleData
 }
 
 type SyncWriterAction struct {
-	Priority *Priority
+	Priority *map[string]*float64
 	Schedule *ScheduleData
+}
+
+type PointWriter struct {
+	Priority *map[string]*float64
 }
