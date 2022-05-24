@@ -123,6 +123,8 @@ var CommonFaultCode = struct {
 	PointError       string
 	NetworkError     string
 	DeviceError      string
+	PointWriteOk     string
+	PointWriteError  string
 }{
 	ConfigError:      "configError",
 	SystemError:      "systemError",
@@ -132,6 +134,8 @@ var CommonFaultCode = struct {
 	PointError:       "pointError",
 	NetworkError:     "NetworkError",
 	DeviceError:      "DeviceError",
+	PointWriteOk:     "PointWriteOk",
+	PointWriteError:  "PointWriteError",
 }
 
 var CommonFaultMessage = struct {
