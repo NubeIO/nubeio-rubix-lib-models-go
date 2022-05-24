@@ -26,6 +26,8 @@ type Device struct {
 	DeviceMac                *int     `json:"device_mac,omitempty"`
 	DeviceObjectId           *int     `json:"device_object_id,omitempty"`
 	NetworkNumber            *int     `json:"network_number,omitempty"` //bacnet network number
+	MaxADPU                  *int     `json:"max_adpu,omitempty"`       //bacnet
+	Segmentation             string   `json:"segmentation,omitempty"`   //bacnet
 	DeviceMask               *int     `json:"device_mask,omitempty"`
 	TypeSerial               *bool    `json:"type_serial,omitempty"`
 	TransportType            string   `json:"transport_type,omitempty"` //serial, ip
