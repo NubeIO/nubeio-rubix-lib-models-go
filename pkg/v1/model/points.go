@@ -168,7 +168,8 @@ type Point struct {
 	WriteValue             *float64               `json:"write_value"`          //writeValue was added so if user wanted to do a math function on the point write
 	WriteValueOriginal     *float64               `json:"write_value_original"` //writeValue was added so if user wanted to do a math function on the point write
 	CurrentPriority        *int                   `json:"current_priority,omitempty"`
-	IsOutput               *bool                  `json:"is_output"` //used for as example: for bacnet-server we only support AV so if a point IsOutput = false then for mapping its set as a consumer but if true then its set as a prodcuer
+	WritePriority          *int                   `json:"write_priority,omitempty"` //used for user just to select the write priority on example for bacnet
+	IsOutput               *bool                  `json:"is_output"`                //used for as example: for bacnet-server we only support AV so if a point IsOutput = false then for mapping its set as a consumer but if true then its set as a prodcuer
 	IsTypeBool             *bool                  `json:"is_type_bool"`
 	InSync                 *bool                  `json:"in_sync"` //is set to false when a new value is written from the user example: if its false then modbus would write the new value. if user edits the point it will disable the COV for one time
 	Fallback               *float64               `json:"fallback"`
@@ -177,7 +178,8 @@ type Point struct {
 	MathOnPresentValue     string                 `json:"math_on_present_value,omitempty"` // x+100
 	MathOnWriteValue       string                 `json:"math_on_write_value,omitempty"`   // x*100
 	COV                    *float64               `json:"cov"`
-	ObjectType             string                 `json:"object_type,omitempty"`     //binaryInput, coil, if type os input don't return the priority array
+	ObjectType             string                 `json:"object_type,omitempty"` //binaryInput, coil, if type os input don't return the priority array
+	ObjectId               *int                   `json:"object_id,omitempty"`
 	DataType               string                 `json:"data_type,omitempty"`       //int16, uint16, float32
 	ObjectEncoding         string                 `json:"object_encoding,omitempty"` //BEB_LEW bebLew
 	IoNumber               string                 `json:"io_number,omitempty"`       //DI1,UI1,AO1, temp, pulse, motion
