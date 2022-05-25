@@ -10,6 +10,7 @@ type CommonWriter struct {
 	WriterThingUUID  string         `json:"writer_thing_uuid,omitempty"`
 	WriterThingName  string         `json:"writer_thing_name,omitempty"`
 	DataStore        datatypes.JSON `json:"data_store,omitempty"`
+	CommonConnection
 	CommonCreated
 }
 

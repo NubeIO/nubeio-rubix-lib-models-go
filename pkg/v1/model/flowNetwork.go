@@ -26,6 +26,7 @@ type CommonFlowNetwork struct {
 	IsError                 *bool     `json:"is_error" gorm:"default:false"`
 	ErrorMsg                *string   `json:"error_msg,omitempty"`
 	Streams                 []*Stream `json:"streams" gorm:"many2many:flow_networks_streams;constraint:OnDelete:CASCADE"`
+	CommonConnection
 	CommonCreated
 }
 
