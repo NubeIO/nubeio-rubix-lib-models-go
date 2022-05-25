@@ -25,6 +25,7 @@ type Consumer struct {
 	Writers             []*Writer          `json:"writers,omitempty" gorm:"constraint:OnDelete:CASCADE;"`
 	ConsumerHistories   []*ConsumerHistory `json:"consumer_histories,omitempty" gorm:"constraint:OnDelete:CASCADE;"`
 	Tags                []*Tag             `json:"tags,omitempty" gorm:"many2many:consumers_tags;constraint:OnDelete:CASCADE"`
+	CommonConnection
 	CommonCreated
 }
 

@@ -86,6 +86,11 @@ type CommonSyncUUID struct {
 	SyncUUID string `json:"sync_uuid"`
 }
 
+type CommonConnection struct {
+	Connection string `json:"connection" gorm:"default:Connected"`
+	Message    string `json:"message" gorm:"default:N/A"`
+}
+
 type CommonCreated struct {
 	CreatedAt time.Time `json:"created_on,omitempty"`
 	UpdatedAt time.Time `json:"updated_on,omitempty"`
