@@ -23,6 +23,7 @@ type CommonFlowNetwork struct {
 	FlowUsername            *string   `json:"flow_username,omitempty"`
 	FlowPassword            *string   `json:"flow_password,omitempty"`
 	FlowToken               *string   `json:"flow_token,omitempty"`
+	IsTokenAuth             *bool     `json:"is_token_auth,omitempty"`
 	IsError                 *bool     `json:"is_error" gorm:"default:false"`
 	ErrorMsg                *string   `json:"error_msg,omitempty"`
 	Streams                 []*Stream `json:"streams" gorm:"many2many:flow_networks_streams;constraint:OnDelete:CASCADE"`
@@ -35,6 +36,7 @@ type FlowNetwork struct {
 	FlowNetworkParentUUID string    `json:"flow_network_parent_uuid"`
 	FlowIP                *string   `json:"flow_ip,omitempty" gorm:"uniqueIndex:ip_port_composite_index"`
 	FlowPort              *int      `json:"flow_port,omitempty" gorm:"uniqueIndex:ip_port_composite_index"`
+	FlowTokenLocal        *string   `json:"flow_token_local,omitempty"`
 	Streams               []*Stream `json:"streams" gorm:"many2many:flow_networks_streams;constraint:OnDelete:CASCADE"`
 }
 

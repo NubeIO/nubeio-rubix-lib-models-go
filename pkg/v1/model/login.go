@@ -5,7 +5,7 @@ type LoginBody struct {
 	Password string `json:"password"`
 }
 
-type Token struct {
+type TokenResponse struct {
 	AccessToken string `json:"access_token"`
 	TokenType   string `json:"token_type"`
 }
