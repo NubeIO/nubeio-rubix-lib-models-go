@@ -26,6 +26,7 @@ var CommonNaming = struct {
 	Histories        string
 	Node             string
 	TransportType    string
+	Token            string
 }{
 	NubeIO:           "Nube-IO",
 	Plugin:           "plugin",
@@ -52,6 +53,7 @@ var CommonNaming = struct {
 	Histories:        "histories",
 	Node:             "node",
 	TransportType:    "transport_type",
+	Token:            "token",
 }
 
 var ThingClass = struct {
