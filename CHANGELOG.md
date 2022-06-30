@@ -1,4 +1,10 @@
 # CHANGELOG
+## [v1.2.7](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.2.7) (2022-07-01)
+- Add History Enable for Auto Mapping
+
+## [v1.2.6](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.2.6) (2022-06-29)
+- Add Token in CommonNaming
+
 ## [v1.2.4](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.2.4) (2022-05-25)
 - Add CommonConnection for link status
 
