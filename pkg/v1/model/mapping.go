@@ -6,5 +6,5 @@ type PointMapping struct {
 	AutoMappingFlowNetworkUUID   string   `json:"auto_mapping_flow_network_uuid"`
 	SourceNetworkUUID            string   `json:"source_network_uuid"`
 	Point                        *Point   `json:"point"`
-	EnableHistories              bool     `json:"enable_histories"`
+	AutoMappingEnableHistories   bool     `json:"auto_mapping_enable_histories"`
 }
