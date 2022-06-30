@@ -35,6 +35,7 @@ type Network struct {
 	AutoMappingNetworksSelection string    `json:"auto_mapping_networks_selection"`
 	AutoMappingFlowNetworkUUID   string    `json:"auto_mapping_flow_network_uuid"`
 	AutoMappingFlowNetworkName   string    `json:"auto_mapping_flow_network_name"`
+	AutoMappingHistoryEnable     bool      `json:"auto_mapping_flow_history_enable,omitempty"`
 	NumberOfNetworksPermitted    *int      `json:"number_of_networks_permitted,omitempty"`
 	NetworkInterface             string    `json:"network_interface"`
 	IP                           string    `json:"ip"`
