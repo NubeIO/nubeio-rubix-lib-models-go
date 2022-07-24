@@ -1,6 +1,8 @@
 package model
 
-import "reflect"
+import (
+	"reflect"
+)
 
 // TimeOverride TODO add in later
 //TimeOverride where a point value can be overridden for a duration of time
@@ -189,12 +191,16 @@ type Point struct {
 	AddressUUID            *string                `json:"address_uuid,omitempty"`    // for example a droplet id (so a string)
 	NextAvailableAddress   *bool                  `json:"use_next_available_address,omitempty"`
 	Decimal                *uint32                `json:"decimal,omitempty"`
-	LimitMin               *float64               `json:"limit_min"`
-	LimitMax               *float64               `json:"limit_max"`
+	MultiplicationFactor   *float64               `json:"multiplication_factor"`
+	LimitMin               *float64               `json:"limit_min"` // This is not used
+	LimitMax               *float64               `json:"limit_max"` // This is not used
+	ScaleEnable            *bool                  `json:"scale_enable"`
+	LimitEnable            *bool                  `json:"limit_enable"`
 	ScaleInMin             *float64               `json:"scale_in_min"`
 	ScaleInMax             *float64               `json:"scale_in_max"`
 	ScaleOutMin            *float64               `json:"scale_out_min"`
 	ScaleOutMax            *float64               `json:"scale_out_max"`
+	Offset                 *float64               `json:"offset"`
 	UnitType               *string                `json:"unit_type,omitempty"` //temperature
 	Unit                   *string                `json:"unit,omitempty"`
 	UnitTo                 *string                `json:"unit_to,omitempty"` //with take the unit and convert to, this would affect the presentValue and the original value will be stored in the raw
