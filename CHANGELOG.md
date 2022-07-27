@@ -1,4 +1,7 @@
 # CHANGELOG
+## [v1.3.1](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.3.1) (2022-07-27)
+- Add point value transformation properties
+
 ## [v1.2.7](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.2.7) (2022-07-01)
 - Add History Enable for Auto Mapping
 
