@@ -176,9 +176,9 @@ type Point struct {
 	InSync                 *bool                  `json:"in_sync"` //is set to false when a new value is written from the user example: if its false then modbus would write the new value. if user edits the point it will disable the COV for one time
 	Fallback               *float64               `json:"fallback"`
 	DeviceUUID             string                 `json:"device_uuid,omitempty" gorm:"TYPE:string REFERENCES devices;not null;default:null"`
-	EnableWriteable        *bool                  `json:"writeable,omitempty"`             //UI should hide the `write` action if not enabled
-	MathOnPresentValue     string                 `json:"math_on_present_value,omitempty"` // x+100
-	MathOnWriteValue       string                 `json:"math_on_write_value,omitempty"`   // x*100
+	EnableWriteable        *bool                  `json:"writeable,omitempty"`             // TODO: UI should hide the `write` action if not enabled
+	MathOnPresentValue     string                 `json:"math_on_present_value,omitempty"` // TODO: THIS SHOULD BE DELETED WHEN SAFE TO DO SO.
+	MathOnWriteValue       string                 `json:"math_on_write_value,omitempty"`   // TODO: THIS SHOULD BE DELETED WHEN SAFE TO DO SO.
 	COV                    *float64               `json:"cov"`
 	ObjectType             string                 `json:"object_type,omitempty"` //binaryInput, coil, if type os input don't return the priority array
 	ObjectId               *int                   `json:"object_id,omitempty"`
@@ -192,10 +192,7 @@ type Point struct {
 	NextAvailableAddress   *bool                  `json:"use_next_available_address,omitempty"`
 	Decimal                *uint32                `json:"decimal,omitempty"`
 	MultiplicationFactor   *float64               `json:"multiplication_factor"`
-	LimitMin               *float64               `json:"limit_min"` // This is not used
-	LimitMax               *float64               `json:"limit_max"` // This is not used
 	ScaleEnable            *bool                  `json:"scale_enable"`
-	LimitEnable            *bool                  `json:"limit_enable"`
 	ScaleInMin             *float64               `json:"scale_in_min"`
 	ScaleInMax             *float64               `json:"scale_in_max"`
 	ScaleOutMin            *float64               `json:"scale_out_min"`
