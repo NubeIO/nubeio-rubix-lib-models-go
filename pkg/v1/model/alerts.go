@@ -3,11 +3,11 @@ package model
 import "time"
 
 type AlertCategory struct {
-	Type string //loss of data, offline
+	Type string // loss of data, offline
 }
 
 type AlertType struct {
-	Type string //point, device
+	Type string // point, device
 }
 
 var CommonAlertTypes = struct {
@@ -26,15 +26,15 @@ type Alert struct {
 	AlertType string    `json:"alert_type"`
 	Count     uint      `json:"count"`
 	Date      time.Time `json:"date"`
-	//Messages  []*Message `json:"messages" gorm:"constraint:OnDelete:CASCADE"`
+	// Messages  []*Message `json:"messages" gorm:"constraint:OnDelete:CASCADE"`
 }
 
 type Message struct {
 	ID uint `json:"uuid" gorm:"primarykey"`
-	//UUID    string    `json:"uuid" gorm:"primarykey"`
+	// UUID    string    `json:"uuid" gorm:"primarykey"`
 	Title   string    `json:"title,omitempty"`
 	Message string    `json:"message,omitempty"`
 	Type    string    `json:"type,omitempty"`
 	Date    time.Time `json:"date,omitempty"`
-	//AlertUUID string    `json:"alert_uuid,omitempty" gorm:"TYPE:string REFERENCES alerts;"`
+	// AlertUUID string    `json:"alert_uuid,omitempty" gorm:"TYPE:string REFERENCES alerts;"`
 }

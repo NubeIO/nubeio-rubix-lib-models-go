@@ -112,7 +112,7 @@ type CommonFault struct {
 type CommonProducerPermissions struct {
 	Blacklist bool `json:"blacklist"`
 	ReadOnly  bool `json:"read_only"`
-	AllowCRUD bool `json:"allow_crud"` //not sure if this will be used, but it will allow the producer to update the producer
+	AllowCRUD bool `json:"allow_crud"` // not sure if this will be used, but it will allow the producer to update the producer
 }
 
 type CommonCurrentWriterUUID struct {

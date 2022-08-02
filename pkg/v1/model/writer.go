@@ -20,7 +20,7 @@ type Writer struct {
 	PresentValue *float64 `json:"present_value,omitempty"`
 }
 
-type WriterClone struct { //TODO the WriterClone needs to publish a COV event as for example we have 2x mqtt broker then the cov for a point maybe different when not going over the internet
+type WriterClone struct { // TODO the WriterClone needs to publish a COV event as for example we have 2x mqtt broker then the cov for a point maybe different when not going over the internet
 	CommonWriter
 	ProducerUUID      string `json:"producer_uuid" gorm:"TYPE:string REFERENCES producers;not null;default:null"`
 	FlowFrameworkUUID string `json:"flow_framework_uuid,omitempty"`

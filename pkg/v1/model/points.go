@@ -5,7 +5,7 @@ import (
 )
 
 // TimeOverride TODO add in later
-//TimeOverride where a point value can be overridden for a duration of time
+// TimeOverride where a point value can be overridden for a duration of time
 type TimeOverride struct {
 	PointUUID string `json:"point_uuid" gorm:"REFERENCES points;not null;default:null;primaryKey"`
 	StartDate string `json:"start_date"` // START at 25:11:2021:13:00
@@ -14,16 +14,16 @@ type TimeOverride struct {
 	Priority  string `json:"priority"`
 }
 
-//MathOperation same as in lora and point-server TODO add in later
+// MathOperation same as in lora and point-server TODO add in later
 type MathOperation struct {
-	Calc string //x + 1
+	Calc string // x + 1
 	X    float64
 }
 
 type ObjectType string
 
 const (
-	//bacnet
+	// bacnet
 	ObjTypeAnalogInput  ObjectType = "analog_input"
 	ObjTypeAnalogOutput ObjectType = "analog_output"
 	ObjTypeAnalogValue  ObjectType = "analog_value"
@@ -37,7 +37,7 @@ const (
 	ObjBinaryOutput     ObjectType = "binaryOutput"
 	ObjBinaryValue      ObjectType = "binaryValue"
 
-	//modbus
+	// modbus
 	ObjTypeReadCoil           ObjectType = "read_coil"
 	ObjTypeReadCoils          ObjectType = "read_coils"
 	ObjTypeReadDiscreteInput  ObjectType = "read_discrete_input"
@@ -63,12 +63,12 @@ const (
 )
 
 var ObjectTypesMap = map[ObjectType]int8{
-	//bacnet
+	// bacnet
 	ObjTypeAnalogInput: 0, ObjTypeAnalogOutput: 0, ObjTypeAnalogValue: 0,
 	ObjTypeBinaryInput: 0, ObjTypeBinaryOutput: 0, ObjTypeBinaryValue: 0,
 	ObjAnalogInput: 0, ObjAnalogOutput: 0, ObjAnalogValue: 0,
 	ObjBinaryInput: 0, ObjBinaryOutput: 0, ObjBinaryValue: 0,
-	//modbus
+	// modbus
 	ObjTypeReadCoil: 0, ObjTypeReadCoils: 0, ObjTypeReadDiscreteInput: 0,
 	ObjTypeReadDiscreteInputs: 0, ObjTypeWriteCoil: 0, ObjTypeWriteCoils: 0,
 	ObjTypeReadRegister: 0, ObjTypeReadRegisters: 0, ObjTypeReadHolding: 0,
@@ -98,7 +98,7 @@ const (
 type ByteOrder string
 
 const (
-	ByteOrderLebBew ByteOrder = "leb_bew" //LITTLE_ENDIAN, HIGH_WORD_FIRST
+	ByteOrderLebBew ByteOrder = "leb_bew" // LITTLE_ENDIAN, HIGH_WORD_FIRST
 	ByteOrderLebLew ByteOrder = "leb_lew"
 	ByteOrderBebLew ByteOrder = "beb_lew"
 	ByteOrderBebBew ByteOrder = "beb_bew"
@@ -120,21 +120,21 @@ const (
 type PointPriorityArrayMode string
 
 const (
-	PriorityArrayToPresentValue     PointPriorityArrayMode = "priority_array_to_present_value"      //This is a normal point type
-	PriorityArrayToWriteValue       PointPriorityArrayMode = "priority_array_to_write_value"        //This is a point like a modbus writeable point which gets its present value from the read value, not directly from the priority array.
-	ReadOnlyNoPriorityArrayRequired PointPriorityArrayMode = "read_only_no_priority_array_required" //This is a point like a modbus read only point, which doesn't need a priority array, only a present value
+	PriorityArrayToPresentValue     PointPriorityArrayMode = "priority_array_to_present_value"      // This is a normal point type
+	PriorityArrayToWriteValue       PointPriorityArrayMode = "priority_array_to_write_value"        // This is a point like a modbus writeable point which gets its present value from the read value, not directly from the priority array.
+	ReadOnlyNoPriorityArrayRequired PointPriorityArrayMode = "read_only_no_priority_array_required" // This is a point like a modbus read only point, which doesn't need a priority array, only a present value
 )
 
 type WriteMode string
 
 const (
-	ReadOnce          WriteMode = "read_once"            //Only Read Point Value Once.
-	ReadOnly          WriteMode = "read_only"            //Only Read Point Value (poll rate defined by setting).
-	WriteOnce         WriteMode = "write_once"           //Write the value on COV, don't Read.
-	WriteOnceReadOnce WriteMode = "write_once_read_once" //Write the value on COV, Read Once.
-	WriteAlways       WriteMode = "write_always"         //Write the value on every poll (poll rate defined by setting).
-	WriteOnceThenRead WriteMode = "write_once_then_read" //Write the value on COV, then Read on each poll (poll rate defined by setting).
-	WriteAndMaintain  WriteMode = "write_and_maintain"   //Write the value on COV, then Read on each poll (poll rate defined by setting). If the Read value does not match the Write value, Write the value again.
+	ReadOnce          WriteMode = "read_once"            // Only Read Point Value Once.
+	ReadOnly          WriteMode = "read_only"            // Only Read Point Value (poll rate defined by setting).
+	WriteOnce         WriteMode = "write_once"           // Write the value on COV, don't Read.
+	WriteOnceReadOnce WriteMode = "write_once_read_once" // Write the value on COV, Read Once.
+	WriteAlways       WriteMode = "write_always"         // Write the value on every poll (poll rate defined by setting).
+	WriteOnceThenRead WriteMode = "write_once_then_read" // Write the value on COV, then Read on each poll (poll rate defined by setting).
+	WriteAndMaintain  WriteMode = "write_and_maintain"   // Write the value on COV, then Read on each poll (poll rate defined by setting). If the Read value does not match the Write value, Write the value again.
 )
 
 type PollPriority string
@@ -154,7 +154,7 @@ const (
 	RATE_SLOW   PollRate = "slow"
 )
 
-//Point table
+// Point table
 type Point struct {
 	CommonUUID
 	CommonName
@@ -165,27 +165,27 @@ type Point struct {
 	CommonThingRef
 	CommonThingType
 	CommonFault
-	PresentValue           *float64               `json:"present_value"` //point value, read only
+	PresentValue           *float64               `json:"present_value"` // point value, read only
 	OriginalValue          *float64               `json:"original_value"`
-	WriteValue             *float64               `json:"write_value"`          //writeValue was added so if user wanted to do a math function on the point write
-	WriteValueOriginal     *float64               `json:"write_value_original"` //writeValue was added so if user wanted to do a math function on the point write
+	WriteValue             *float64               `json:"write_value"`          // writeValue was added so if user wanted to do a math function on the point write
+	WriteValueOriginal     *float64               `json:"write_value_original"` // writeValue was added so if user wanted to do a math function on the point write
 	CurrentPriority        *int                   `json:"current_priority,omitempty"`
-	WritePriority          *int                   `json:"write_priority,omitempty"` //used for user just to select the write priority on example for bacnet
-	IsOutput               *bool                  `json:"is_output"`                //used for as example: for bacnet-server we only support AV so if a point IsOutput = false then for mapping its set as a consumer but if true then its set as a prodcuer
+	WritePriority          *int                   `json:"write_priority,omitempty"` // used for user just to select the write priority on example for bacnet
+	IsOutput               *bool                  `json:"is_output"`                // used for as example: for bacnet-server we only support AV so if a point IsOutput = false then for mapping its set as a consumer but if true then its set as a prodcuer
 	IsTypeBool             *bool                  `json:"is_type_bool"`
-	InSync                 *bool                  `json:"in_sync"` //is set to false when a new value is written from the user example: if its false then modbus would write the new value. if user edits the point it will disable the COV for one time
+	InSync                 *bool                  `json:"in_sync"` // is set to false when a new value is written from the user example: if its false then modbus would write the new value. if user edits the point it will disable the COV for one time
 	Fallback               *float64               `json:"fallback"`
 	DeviceUUID             string                 `json:"device_uuid,omitempty" gorm:"TYPE:string REFERENCES devices;not null;default:null"`
 	EnableWriteable        *bool                  `json:"writeable,omitempty"`             // TODO: UI should hide the `write` action if not enabled
 	MathOnPresentValue     string                 `json:"math_on_present_value,omitempty"` // TODO: THIS SHOULD BE DELETED WHEN SAFE TO DO SO.
 	MathOnWriteValue       string                 `json:"math_on_write_value,omitempty"`   // TODO: THIS SHOULD BE DELETED WHEN SAFE TO DO SO.
 	COV                    *float64               `json:"cov"`
-	ObjectType             string                 `json:"object_type,omitempty"` //binaryInput, coil, if type os input don't return the priority array
+	ObjectType             string                 `json:"object_type,omitempty"` // binaryInput, coil, if type os input don't return the priority array
 	ObjectId               *int                   `json:"object_id,omitempty"`
-	DataType               string                 `json:"data_type,omitempty"`       //int16, uint16, float32
-	ObjectEncoding         string                 `json:"object_encoding,omitempty"` //BEB_LEW bebLew
-	IoNumber               string                 `json:"io_number,omitempty"`       //DI1,UI1,AO1, temp, pulse, motion
-	IoType                 string                 `json:"io_type,omitempty"`         //0-10dc, 0-40ma, thermistor
+	DataType               string                 `json:"data_type,omitempty"`       // int16, uint16, float32
+	ObjectEncoding         string                 `json:"object_encoding,omitempty"` // BEB_LEW bebLew
+	IoNumber               string                 `json:"io_number,omitempty"`       // DI1,UI1,AO1, temp, pulse, motion
+	IoType                 string                 `json:"io_type,omitempty"`         // 0-10dc, 0-40ma, thermistor
 	AddressID              *int                   `json:"address_id"`                // for example a modbus address or bacnet address
 	AddressLength          *int                   `json:"address_length"`            // for example a modbus address offset
 	AddressUUID            *string                `json:"address_uuid,omitempty"`    // for example a droplet id (so a string)
@@ -198,15 +198,15 @@ type Point struct {
 	ScaleOutMin            *float64               `json:"scale_out_min"`
 	ScaleOutMax            *float64               `json:"scale_out_max"`
 	Offset                 *float64               `json:"offset"`
-	UnitType               *string                `json:"unit_type,omitempty"` //temperature
+	UnitType               *string                `json:"unit_type,omitempty"` // temperature
 	Unit                   *string                `json:"unit,omitempty"`
-	UnitTo                 *string                `json:"unit_to,omitempty"` //with take the unit and convert to, this would affect the presentValue and the original value will be stored in the raw
+	UnitTo                 *string                `json:"unit_to,omitempty"` // with take the unit and convert to, this would affect the presentValue and the original value will be stored in the raw
 	IsProducer             *bool                  `json:"is_producer,omitempty"`
 	IsConsumer             *bool                  `json:"is_consumer,omitempty"`
 	Priority               *Priority              `json:"priority,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                   []*Tag                 `json:"tags,omitempty" gorm:"many2many:points_tags;constraint:OnDelete:CASCADE"`
-	ValueUpdatedFlag       *bool                  `json:"value_updated_flag,omitempty"`      //This is used when a plugin updates the PresentValue (not from priority array) and it triggers UpdatePointValue() to broadcast to producers. Should only be set to FALSE from UpdatePointValue().
-	PointPriorityArrayMode PointPriorityArrayMode `json:"point_priority_use_type,omitempty"` //This configures how the point handles the priority array and present value.
+	ValueUpdatedFlag       *bool                  `json:"value_updated_flag,omitempty"`      // This is used when a plugin updates the PresentValue (not from priority array) and it triggers UpdatePointValue() to broadcast to producers. Should only be set to FALSE from UpdatePointValue().
+	PointPriorityArrayMode PointPriorityArrayMode `json:"point_priority_use_type,omitempty"` // This configures how the point handles the priority array and present value.
 	WriteMode              WriteMode              `json:"write_mode,omitempty"`
 	WritePollRequired      *bool                  `json:"write_required,omitempty"`
 	ReadPollRequired       *bool                  `json:"read_required,omitempty"`
@@ -305,7 +305,7 @@ func (p *Priority) GetHighestPriorityValue() *float64 {
 	return nil
 }
 
-//GetPntType find the type of point as in voltage_dc
+// GetPntType find the type of point as in voltage_dc
 func GetPntType(strut interface{}, ioType string) (out string, err error) {
 	val := reflect.ValueOf(strut).Elem()
 	for i := 0; i < val.NumField(); i++ {

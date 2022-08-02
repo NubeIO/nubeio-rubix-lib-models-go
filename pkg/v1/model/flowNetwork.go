@@ -14,19 +14,19 @@ type CommonFlowNetwork struct {
 	DeviceName              string `json:"device_name,omitempty"`
 	IsRemote                *bool  `json:"is_remote,omitempty"`
 	FetchHistories          *bool  `json:"fetch_histories,omitempty"`
-	FetchHistoriesFrequency int    `json:"fetch_hist_frequency,omitempty"`      //time example 15min
-	DeleteHistoriesOnFetch  *bool  `json:"delete_histories_on_fetch,omitempty"` //drop the histories on the producer device on migration
+	FetchHistoriesFrequency int    `json:"fetch_hist_frequency,omitempty"`      // time example 15min
+	DeleteHistoriesOnFetch  *bool  `json:"delete_histories_on_fetch,omitempty"` // drop the histories on the producer device on migration
 	IsMasterSlave           *bool  `json:"is_master_slave,omitempty"`
 	FlowHTTPS               *bool  `json:"flow_https,omitempty"`
-	//FlowIP                  *string   `json:"flow_ip,omitempty"`
-	//FlowPort                *int      `json:"flow_port,omitempty"`
+	// FlowIP                  *string   `json:"flow_ip,omitempty"`
+	// FlowPort                *int      `json:"flow_port,omitempty"`
 	FlowUsername *string `json:"flow_username,omitempty"`
 	FlowPassword *string `json:"flow_password,omitempty"`
 	FlowToken    *string `json:"flow_token,omitempty"`
 	IsTokenAuth  *bool   `json:"is_token_auth,omitempty"`
 	IsError      *bool   `json:"is_error" gorm:"default:false"`
 	ErrorMsg     *string `json:"error_msg,omitempty"`
-	//Streams                 []*Stream `json:"streams" gorm:"many2many:flow_networks_streams;constraint:OnDelete:CASCADE"`
+	// Streams                 []*Stream `json:"streams" gorm:"many2many:flow_networks_streams;constraint:OnDelete:CASCADE"`
 	CommonConnection
 	CommonCreated
 }

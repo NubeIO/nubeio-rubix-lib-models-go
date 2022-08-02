@@ -2,7 +2,7 @@ package model
 
 import "time"
 
-//HistoryLog for storing the history logs
+// HistoryLog for storing the history logs
 type HistoryLog struct {
 	ID                   int       `json:"id" gorm:"AUTO_INCREMENT;primary_key;index"`
 	FlowNetworkCloneUUID string    `json:"flow_network_clone_uuid"`

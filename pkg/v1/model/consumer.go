@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//Consumer could be a local network, job or alarm and so on
+// Consumer could be a local network, job or alarm and so on
 type Consumer struct {
 	CommonUUID
 	CommonName
@@ -29,7 +29,7 @@ type Consumer struct {
 	CommonCreated
 }
 
-//ConsumerHistory for storing the history
+// ConsumerHistory for storing the history
 type ConsumerHistory struct {
 	CommonUUID
 	ConsumerUUID string         `json:"consumer_uuid" gorm:"TYPE:varchar(255) REFERENCES consumers;not null;default:null"`

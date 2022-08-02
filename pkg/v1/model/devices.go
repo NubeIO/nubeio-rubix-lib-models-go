@@ -6,7 +6,7 @@ type CommonDevice struct {
 	Manufacture       string        `json:"manufacture,omitempty"` // nube
 	Model             string        `json:"model,omitempty"`       // thml
 	AddressId         int           `json:"address_id,omitempty"`  // for example a modbus address or bacnet address
-	ZeroMode          *bool         `json:"zero_mode,omitempty"`   //if true means read from address 0 if false will read at 1
+	ZeroMode          *bool         `json:"zero_mode,omitempty"`   // if true means read from address 0 if false will read at 1
 	PollDelayPointsMS time.Duration `json:"poll_delay_points_ms"`
 	AddressUUID       *string       `json:"address_uuid" gorm:"type:varchar(255);"` // AAB1213
 	CommonIP
@@ -25,14 +25,14 @@ type Device struct {
 	CommonDevice
 	DeviceMac                *int     `json:"device_mac,omitempty"`
 	DeviceObjectId           *int     `json:"device_object_id,omitempty"`
-	NetworkNumber            *int     `json:"network_number,omitempty"` //bacnet network number
-	MaxADPU                  *int     `json:"max_adpu,omitempty"`       //bacnet
-	Segmentation             string   `json:"segmentation,omitempty"`   //bacnet
+	NetworkNumber            *int     `json:"network_number,omitempty"` // bacnet network number
+	MaxADPU                  *int     `json:"max_adpu,omitempty"`       // bacnet
+	Segmentation             string   `json:"segmentation,omitempty"`   // bacnet
 	DeviceMask               *int     `json:"device_mask,omitempty"`
 	TypeSerial               *bool    `json:"type_serial,omitempty"`
-	TransportType            string   `json:"transport_type,omitempty"` //serial, ip
-	SupportsRpm              *bool    `json:"supports_rpm,omitempty"`   //bacnet support read property multiple
-	SupportsWpm              *bool    `json:"supports_wpm,omitempty"`   //bacnet support write property multiple
+	TransportType            string   `json:"transport_type,omitempty"` // serial, ip
+	SupportsRpm              *bool    `json:"supports_rpm,omitempty"`   // bacnet support read property multiple
+	SupportsWpm              *bool    `json:"supports_wpm,omitempty"`   // bacnet support write property multiple
 	NetworkUUID              string   `json:"network_uuid,omitempty" gorm:"TYPE:varchar(255) REFERENCES networks;not null;default:null"`
 	NumberOfDevicesPermitted *int     `json:"number_of_devices_permitted,omitempty"`
 	Points                   []*Point `json:"points,omitempty" gorm:"constraint:OnDelete:CASCADE"`

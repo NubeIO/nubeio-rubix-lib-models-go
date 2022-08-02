@@ -6,7 +6,7 @@ type IPType struct {
 	MQTT string `json:"mqttClient"`
 }
 
-//IPNetwork type ip based network
+// IPNetwork type ip based network
 type IPNetwork struct {
 	IP       string `json:"ip"`
 	Port     string `json:"port"`
@@ -25,13 +25,13 @@ type Network struct {
 	CommonCreated
 	Manufacture      string `json:"manufacture,omitempty"`
 	Model            string `json:"model,omitempty"`
-	WriteableNetwork bool   `json:"writeable_network,omitempty"` //is this a network that supports write or its read only like lora
+	WriteableNetwork bool   `json:"writeable_network,omitempty"` // is this a network that supports write or its read only like lora
 	CommonThingClass
 	CommonThingRef
 	CommonThingType
-	TransportType                string    `json:"transport_type,omitempty"  gorm:"type:varchar(255);not null"` //serial
+	TransportType                string    `json:"transport_type,omitempty"  gorm:"type:varchar(255);not null"` // serial
 	PluginConfId                 string    `json:"plugin_conf_id,omitempty" gorm:"TYPE:varchar(255) REFERENCES plugin_confs;not null;default:null"`
-	PluginPath                   string    `json:"plugin_name,omitempty"` //plugin_name
+	PluginPath                   string    `json:"plugin_name,omitempty"` // plugin_name
 	AutoMappingNetworksSelection string    `json:"auto_mapping_networks_selection"`
 	AutoMappingFlowNetworkUUID   string    `json:"auto_mapping_flow_network_uuid"`
 	AutoMappingFlowNetworkName   string    `json:"auto_mapping_flow_network_name"`
@@ -44,10 +44,10 @@ type Network struct {
 	AddressID                    string    `json:"address_id"`
 	AddressUUID                  string    `json:"address_uuid"`
 	SerialPort                   *string   `json:"serial_port,omitempty" gorm:"type:varchar(255);unique"`
-	SerialBaudRate               *uint     `json:"serial_baud_rate,omitempty"` //9600
-	SerialStopBits               *uint     `json:"serial_stop_bits,omitempty"` //1 or 2
-	SerialParity                 *string   `json:"serial_parity,omitempty"`    //odd, even, none
-	SerialDataBits               *uint     `json:"serial_data_bits,omitempty"` //7 or 8
+	SerialBaudRate               *uint     `json:"serial_baud_rate,omitempty"` // 9600
+	SerialStopBits               *uint     `json:"serial_stop_bits,omitempty"` // 1 or 2
+	SerialParity                 *string   `json:"serial_parity,omitempty"`    // odd, even, none
+	SerialDataBits               *uint     `json:"serial_data_bits,omitempty"` // 7 or 8
 	SerialTimeout                *int      `json:"serial_timeout,omitempty"`
 	SerialConnected              *bool     `json:"serial_connected,omitempty"`
 	Host                         *string   `json:"host,omitempty"`

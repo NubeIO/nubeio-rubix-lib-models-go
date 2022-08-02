@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-//https://github.com/asaskevich/govalidator TODO add in a validator
+// https://github.com/asaskevich/govalidator TODO add in a validator
 
 type Job struct {
 	CommonUUID

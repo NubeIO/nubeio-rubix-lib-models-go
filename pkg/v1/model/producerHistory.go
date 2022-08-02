@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//ProducerHistory for storing the history
+// ProducerHistory for storing the history
 type ProducerHistory struct {
 	ID           int    `json:"id" gorm:"AUTO_INCREMENT;primary_key;index"`
 	ProducerUUID string `json:"producer_uuid,omitempty" gorm:"TYPE:varchar(255) REFERENCES producers;not null;default:null"`

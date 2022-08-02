@@ -2,7 +2,7 @@ package model
 
 import "time"
 
-//HistoryPostgresLog for storing the all history postgres logs
+// HistoryPostgresLog for storing the all history postgres logs
 type HistoryPostgresLog struct {
 	ID        int       `json:"id" gorm:"primary_key"`
 	UUID      string    `json:"uuid" gorm:"primary_key"`
