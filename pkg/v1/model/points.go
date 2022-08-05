@@ -157,7 +157,7 @@ const (
 // Point table
 type Point struct {
 	CommonUUID
-	CommonName
+	Name string `json:"name" gorm:"uniqueIndex:name_device_composite_index"`
 	CommonDescription
 	CommonEnable
 	CommonCreated
@@ -175,7 +175,7 @@ type Point struct {
 	IsTypeBool             *bool                  `json:"is_type_bool"`
 	InSync                 *bool                  `json:"in_sync"` // is set to false when a new value is written from the user example: if its false then modbus would write the new value. if user edits the point it will disable the COV for one time
 	Fallback               *float64               `json:"fallback"`
-	DeviceUUID             string                 `json:"device_uuid,omitempty" gorm:"TYPE:string REFERENCES devices;not null;default:null"`
+	DeviceUUID             string                 `json:"device_uuid,omitempty" gorm:"TYPE:string REFERENCES devices;not null;default:null;uniqueIndex:name_device_composite_index"`
 	EnableWriteable        *bool                  `json:"writeable,omitempty"`             // TODO: UI should hide the `write` action if not enabled
 	MathOnPresentValue     string                 `json:"math_on_present_value,omitempty"` // TODO: THIS SHOULD BE DELETED WHEN SAFE TO DO SO.
 	MathOnWriteValue       string                 `json:"math_on_write_value,omitempty"`   // TODO: THIS SHOULD BE DELETED WHEN SAFE TO DO SO.
