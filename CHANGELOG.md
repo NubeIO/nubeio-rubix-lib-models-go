@@ -1,4 +1,7 @@
 # CHANGELOG
+## [v1.3.3](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.3.3) (2022-08-05)
+
+- Device and Points name constraints improvements
 
 ## [v1.3.2](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.3.2) (2022-07-28)
 
