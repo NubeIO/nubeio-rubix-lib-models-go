@@ -74,6 +74,7 @@ var ObjectTypesMap = map[ObjectType]int8{
 	ObjTypeBinaryInput: 0, ObjTypeBinaryOutput: 0, ObjTypeBinaryValue: 0,
 	ObjAnalogInput: 0, ObjAnalogOutput: 0, ObjAnalogValue: 0,
 	ObjBinaryInput: 0, ObjBinaryOutput: 0, ObjBinaryValue: 0,
+	ObjTypeEnumInput: 0, ObjTypeEnumOutput: 0, ObjTypeEnumValue: 0,
 	// modbus
 	ObjTypeReadCoil: 0, ObjTypeReadCoils: 0, ObjTypeReadDiscreteInput: 0,
 	ObjTypeReadDiscreteInputs: 0, ObjTypeWriteCoil: 0, ObjTypeWriteCoils: 0,
