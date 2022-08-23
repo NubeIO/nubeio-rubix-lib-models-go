@@ -212,6 +212,7 @@ type Point struct {
 	ReadPollRequired       *bool                  `json:"read_required,omitempty"`
 	PollPriority           PollPriority           `json:"poll_priority"`
 	PollRate               PollRate               `json:"poll_rate"`
+	BACnetWriteToPV        *bool                  `json:"bacnet_write_to_pv,omitempty"`
 }
 
 type Priorities struct {
