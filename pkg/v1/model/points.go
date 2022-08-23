@@ -30,12 +30,18 @@ const (
 	ObjTypeBinaryInput  ObjectType = "binary_input"
 	ObjTypeBinaryOutput ObjectType = "binary_output"
 	ObjTypeBinaryValue  ObjectType = "binary_value"
+	ObjTypeEnumInput    ObjectType = "multi_state_input"
+	ObjTypeEnumOutput   ObjectType = "multi_state_output"
+	ObjTypeEnumValue    ObjectType = "multi_state_value"
 	ObjAnalogInput      ObjectType = "analogInput"
 	ObjAnalogOutput     ObjectType = "analogOutput"
 	ObjAnalogValue      ObjectType = "analogValue"
 	ObjBinaryInput      ObjectType = "binaryInput"
 	ObjBinaryOutput     ObjectType = "binaryOutput"
 	ObjBinaryValue      ObjectType = "binaryValue"
+	ObjEnumInput        ObjectType = "multiStateInput"
+	ObjEnumOutput       ObjectType = "multiStateOutput"
+	ObjEnumValue        ObjectType = "multiStateValue"
 
 	// modbus
 	ObjTypeReadCoil           ObjectType = "read_coil"
