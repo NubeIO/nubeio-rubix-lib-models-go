@@ -1,4 +1,8 @@
 # CHANGELOG
+## [v1.3.9](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.3.9) (2022-10-07)
+
+- Bump version
+
 ## [v1.3.4](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.3.4) (2022-10-07)
 
 - Point History Config properties added

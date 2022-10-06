@@ -220,7 +220,7 @@ type Point struct {
 	PollPriority           PollPriority           `json:"poll_priority"`
 	PollRate               PollRate               `json:"poll_rate"`
 	BACnetWriteToPV        *bool                  `json:"bacnet_write_to_pv,omitempty"`
-	HistoryConfig          HistoryConfig          `json:"history_config,omitempty"`
+	HistoryConfig
 }
 
 type Priorities struct {
