@@ -1,13 +1,5 @@
 package model
 
-type HistoryType string
-
-const (
-	HistoryTypeCov            HistoryType = "COV"
-	HistoryTypeInterval       HistoryType = "INTERVAL"
-	HistoryTypeCovAndInterval HistoryType = "COV_AND_INTERVAL"
-)
-
 var HistoryTypeMap = map[HistoryType]int8{
 	HistoryTypeCov:            0,
 	HistoryTypeInterval:       0,
