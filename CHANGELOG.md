@@ -1,4 +1,8 @@
 # CHANGELOG
+## [v1.4.0](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.0) (2022-10-07)
+
+- Bump version
+
 ## [v1.3.9](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.3.9) (2022-10-07)
 
 - Bump version
