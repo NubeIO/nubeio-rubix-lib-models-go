@@ -1,4 +1,8 @@
 # CHANGELOG
+## [v1.3.4](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.3.4) (2022-10-07)
+
+- Point History Config properties added
+
 ## [v1.3.3](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.3.3) (2022-08-05)
 
 - Device and Points name constraints improvements
