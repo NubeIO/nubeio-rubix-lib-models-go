@@ -3,7 +3,7 @@ package model
 type CommonFlowNetwork struct {
 	CommonUUID
 	CommonSyncUUID
-	CommonName
+	CommonNameUnique
 	CommonDescription
 	GlobalUUID              string `json:"global_uuid,omitempty" gorm:"unique"`
 	ClientId                string `json:"client_id,omitempty"`

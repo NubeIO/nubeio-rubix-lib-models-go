@@ -8,7 +8,7 @@ import (
 // Consumer could be a local network, job or alarm and so on
 type Consumer struct {
 	CommonUUID
-	CommonName
+	Name string `json:"name" gorm:"uniqueIndex:idx_consumers_name_stream_clone_uuid"`
 	CommonDescription
 	CommonEnable
 	CommonSyncUUID
@@ -20,7 +20,7 @@ type Consumer struct {
 	ProducerThingRef    string             `json:"producer_thing_ref,omitempty"`
 	ConsumerApplication string             `json:"consumer_application,omitempty"`
 	CurrentWriterUUID   string             `json:"current_writer_uuid,omitempty"` // this could come from any flow-network on any instance
-	StreamCloneUUID     string             `json:"stream_clone_uuid,omitempty" gorm:"TYPE:string REFERENCES stream_clones;not null;default:null"`
+	StreamCloneUUID     string             `json:"stream_clone_uuid,omitempty" gorm:"TYPE:string REFERENCES stream_clones;not null;default:null;uniqueIndex:idx_consumers_name_stream_clone_uuid"`
 	DataStore           datatypes.JSON     `json:"data_store,omitempty"`
 	Writers             []*Writer          `json:"writers,omitempty" gorm:"constraint:OnDelete:CASCADE;"`
 	ConsumerHistories   []*ConsumerHistory `json:"consumer_histories,omitempty" gorm:"constraint:OnDelete:CASCADE;"`
