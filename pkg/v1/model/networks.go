@@ -30,7 +30,7 @@ type Network struct {
 	CommonThingRef
 	CommonThingType
 	TransportType                string    `json:"transport_type,omitempty"  gorm:"type:varchar(255);not null"` // serial
-	PluginConfId                 string    `json:"plugin_conf_id,omitempty" gorm:"TYPE:varchar(255) REFERENCES plugin_confs;not null;default:null"`
+	PluginConfId                 string    `json:"plugin_conf_id,omitempty" gorm:"type:varchar(255) references plugin_confs;not null;default:null"`
 	PluginPath                   string    `json:"plugin_name,omitempty"` // plugin_name
 	AutoMappingNetworksSelection string    `json:"auto_mapping_networks_selection"`
 	AutoMappingFlowNetworkUUID   string    `json:"auto_mapping_flow_network_uuid"`

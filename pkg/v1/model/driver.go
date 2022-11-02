@@ -72,7 +72,6 @@ type Driver struct {
 	PluginUUID    string `json:"plugin_uuid"`
 	TransportType string `json:"transport_type"` // serial, TCP, UDP, IP, MQTT
 	Protocol      string `json:"protocol"`       // lora, bacnet, rest
-	// WriteableNetwork WriteableNetwork `json:"writeable_network"` //is this a network that supports write or its read only like lora
 }
 
 type DriverType string

@@ -16,5 +16,5 @@ type MqttConnection struct {
 	AttemptReconnectOnUnavailable bool   `json:"attempt_reconnect_on_unavailable,omitempty"`
 	AttemptReconnectSecs          int    `json:"attempt_reconnect_secs,omitempty"`
 	Timeout                       int    `json:"timeout,omitempty"`
-	IntegrationUUID               string `json:"integration_uuid" gorm:"TYPE:varchar(255) REFERENCES integrations;null;default:null"`
+	IntegrationUUID               string `json:"integration_uuid" gorm:"type:varchar(255) references integrations;null;default:null"`
 }
