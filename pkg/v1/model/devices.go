@@ -14,7 +14,7 @@ type CommonDevice struct {
 
 type Device struct {
 	CommonUUID
-	Name string `json:"name" gorm:"uniqueIndex:name_network_composite_index"`
+	Name string `json:"name" gorm:"uniqueIndex:idx_devices_name_network_uuid"`
 	CommonDescription
 	CommonEnable
 	CommonFault
@@ -33,7 +33,7 @@ type Device struct {
 	TransportType            string   `json:"transport_type,omitempty"` // serial, ip
 	SupportsRpm              *bool    `json:"supports_rpm,omitempty"`   // bacnet support read property multiple
 	SupportsWpm              *bool    `json:"supports_wpm,omitempty"`   // bacnet support write property multiple
-	NetworkUUID              string   `json:"network_uuid,omitempty" gorm:"TYPE:varchar(255) REFERENCES networks;not null;default:null;uniqueIndex:name_network_composite_index"`
+	NetworkUUID              string   `json:"network_uuid,omitempty" gorm:"type:varchar(255) references networks;not null;default:null;uniqueIndex:idx_devices_name_network_uuid"`
 	NumberOfDevicesPermitted *int     `json:"number_of_devices_permitted,omitempty"`
 	Points                   []*Point `json:"points,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                     []*Tag   `json:"tags,omitempty" gorm:"many2many:devices_tags;constraint:OnDelete:CASCADE"`

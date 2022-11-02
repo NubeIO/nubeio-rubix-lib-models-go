@@ -8,7 +8,7 @@ import (
 // Consumer could be a local network, job or alarm and so on
 type Consumer struct {
 	CommonUUID
-	CommonName
+	Name string `json:"name" gorm:"uniqueIndex:idx_consumers_name_stream_clone_uuid"`
 	CommonDescription
 	CommonEnable
 	CommonSyncUUID
@@ -20,10 +20,10 @@ type Consumer struct {
 	ProducerThingRef    string             `json:"producer_thing_ref,omitempty"`
 	ConsumerApplication string             `json:"consumer_application,omitempty"`
 	CurrentWriterUUID   string             `json:"current_writer_uuid,omitempty"` // this could come from any flow-network on any instance
-	StreamCloneUUID     string             `json:"stream_clone_uuid,omitempty" gorm:"TYPE:string REFERENCES stream_clones;not null;default:null"`
+	StreamCloneUUID     string             `json:"stream_clone_uuid,omitempty" gorm:"type:string references stream_clones;not null;default:null;uniqueIndex:idx_consumers_name_stream_clone_uuid"`
 	DataStore           datatypes.JSON     `json:"data_store,omitempty"`
-	Writers             []*Writer          `json:"writers,omitempty" gorm:"constraint:OnDelete:CASCADE;"`
-	ConsumerHistories   []*ConsumerHistory `json:"consumer_histories,omitempty" gorm:"constraint:OnDelete:CASCADE;"`
+	Writers             []*Writer          `json:"writers,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	ConsumerHistories   []*ConsumerHistory `json:"consumer_histories,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                []*Tag             `json:"tags,omitempty" gorm:"many2many:consumers_tags;constraint:OnDelete:CASCADE"`
 	CommonConnection
 	CommonCreated
@@ -32,7 +32,7 @@ type Consumer struct {
 // ConsumerHistory for storing the history
 type ConsumerHistory struct {
 	CommonUUID
-	ConsumerUUID string         `json:"consumer_uuid" gorm:"TYPE:varchar(255) REFERENCES consumers;not null;default:null"`
+	ConsumerUUID string         `json:"consumer_uuid" gorm:"type:varchar(255) references consumers;not null;default:null"`
 	ProducerUUID string         `json:"producer_uuid"`
 	DataStore    datatypes.JSON `json:"data_store"`
 	Timestamp    time.Time      `json:"timestamp"`

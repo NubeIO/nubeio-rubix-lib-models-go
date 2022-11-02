@@ -13,7 +13,7 @@ type Integration struct {
 	Token           string           `json:"token"`
 	PluginName      string           `json:"plugin_name"`
 	IntegrationType string           `json:"integration_type"`
-	PluginConfId    string           `json:"plugin_conf_id" gorm:"TYPE:varchar(255) REFERENCES plugin_confs;not null;default:null"`
-	MqttConnection  []MqttConnection `json:"mqtt_connections" gorm:"constraint:OnDelete:CASCADE;"`
+	PluginConfId    string           `json:"plugin_conf_id" gorm:"type:varchar(255) references plugin_confs;not null;default:null"`
+	MqttConnection  []MqttConnection `json:"mqtt_connections" gorm:"constraint:OnDelete:CASCADE"`
 	CommonCreated
 }

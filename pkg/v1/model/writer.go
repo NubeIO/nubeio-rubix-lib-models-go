@@ -16,13 +16,13 @@ type CommonWriter struct {
 
 type Writer struct {
 	CommonWriter
-	ConsumerUUID string   `json:"consumer_uuid,omitempty" gorm:"TYPE:string REFERENCES consumers;not null;default:null"`
+	ConsumerUUID string   `json:"consumer_uuid,omitempty" gorm:"type:string references consumers;not null;default:null"`
 	PresentValue *float64 `json:"present_value,omitempty"`
 }
 
 type WriterClone struct { // TODO the WriterClone needs to publish a COV event as for example we have 2x mqtt broker then the cov for a point maybe different when not going over the internet
 	CommonWriter
-	ProducerUUID      string `json:"producer_uuid" gorm:"TYPE:string REFERENCES producers;not null;default:null"`
+	ProducerUUID      string `json:"producer_uuid" gorm:"type:string references producers;not null;default:null"`
 	FlowFrameworkUUID string `json:"flow_framework_uuid,omitempty"`
 	CommonSourceUUID
 }

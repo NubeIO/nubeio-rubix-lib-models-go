@@ -18,7 +18,7 @@ from edge to cloud or wires over rest(peer to peer)
 */
 type Producer struct {
 	CommonUUID
-	CommonNameUnique
+	Name string `json:"name" gorm:"uniqueIndex:idx_producers_name_stream_uuid"`
 	CommonDescription
 	CommonEnable
 	CommonSyncUUID
@@ -29,7 +29,7 @@ type Producer struct {
 	ProducerApplication     string             `json:"producer_application,omitempty"`
 	CommonCurrentWriterUUID                    // if the point for example is read only the writer.uuid would be the point.uuid, i.e.: itself, so in this case there is no writer or writer clone
 	EnableHistory           *bool              `json:"enable_history,omitempty"`
-	StreamUUID              string             `json:"stream_uuid,omitempty" gorm:"TYPE:string REFERENCES streams;not null"`
+	StreamUUID              string             `json:"stream_uuid,omitempty" gorm:"type:string references streams;not null;uniqueIndex:idx_producers_name_stream_uuid"`
 	WriterClones            []*WriterClone     `json:"writer_clones,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	ProducerHistories       []*ProducerHistory `json:"producer_histories,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                    []*Tag             `json:"tags,omitempty" gorm:"many2many:producers_tags;constraint:OnDelete:CASCADE"`

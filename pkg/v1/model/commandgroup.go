@@ -8,7 +8,7 @@ type CommandGroup struct {
 	CommonEnable
 	CommonDescription
 	CommandUse         string `json:"command_use,omitempty"` // common uses will be point write to many points, master schedules or schedule grouping
-	StreamUUID         string `json:"stream_uuid,omitempty" gorm:"TYPE:string REFERENCES streams;null;default:null"`
+	StreamUUID         string `json:"stream_uuid,omitempty" gorm:"type:string references streams;null;default:null"`
 	WriteValue         string `json:"write_value,omitempty"`
 	WritePriority      string `json:"write_priority,omitempty"`       // TODO maybe remove this and just use the writeJSON as we need things like Schedules aswell
 	WritePriorityArray string `json:"write_priority_array,omitempty"` // TODO maybe remove this and just use the writeJSON as we need things like Schedules aswell

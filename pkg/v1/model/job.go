@@ -15,6 +15,6 @@ type Job struct {
 	EndDate   time.Time `json:"end_date,omitempty" sql:"end_date"`
 	CommonEnable
 	DestroyAfterCompleted bool   `json:"destroy_after_completed,omitempty" sql:"destroy_after_completed"`
-	PluginConfId          string `json:"plugin_conf_id,omitempty" gorm:"TYPE:varchar(255) REFERENCES plugin_confs;null;default:null"`
+	PluginConfId          string `json:"plugin_conf_id,omitempty" gorm:"type:varchar(255) references plugin_confs;null;default:null"`
 	CommonCreated
 }
