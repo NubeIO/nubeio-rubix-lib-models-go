@@ -23,21 +23,29 @@ type Device struct {
 	CommonThingRef
 	CommonThingType
 	CommonDevice
-	DeviceMac                *int     `json:"device_mac,omitempty"`
-	DeviceObjectId           *int     `json:"device_object_id,omitempty"`
-	NetworkNumber            *int     `json:"network_number,omitempty"` // bacnet network number
-	MaxADPU                  *int     `json:"max_adpu,omitempty"`       // bacnet
-	Segmentation             string   `json:"segmentation,omitempty"`   // bacnet
-	DeviceMask               *int     `json:"device_mask,omitempty"`
-	TypeSerial               *bool    `json:"type_serial,omitempty"`
-	TransportType            string   `json:"transport_type,omitempty"` // serial, ip
-	SupportsRpm              *bool    `json:"supports_rpm,omitempty"`   // bacnet support read property multiple
-	SupportsWpm              *bool    `json:"supports_wpm,omitempty"`   // bacnet support write property multiple
-	NetworkUUID              string   `json:"network_uuid,omitempty" gorm:"type:varchar(255) references networks;not null;default:null;uniqueIndex:idx_devices_name_network_uuid"`
-	NumberOfDevicesPermitted *int     `json:"number_of_devices_permitted,omitempty"`
-	Points                   []*Point `json:"points,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-	Tags                     []*Tag   `json:"tags,omitempty" gorm:"many2many:devices_tags;constraint:OnDelete:CASCADE"`
-	FastPollRate             *float64 `json:"fast_poll_rate"`
-	NormalPollRate           *float64 `json:"normal_poll_rate"`
-	SlowPollRate             *float64 `json:"slow_poll_rate"`
+	DeviceMac                *int             `json:"device_mac,omitempty"`
+	DeviceObjectId           *int             `json:"device_object_id,omitempty"`
+	NetworkNumber            *int             `json:"network_number,omitempty"` // bacnet network number
+	MaxADPU                  *int             `json:"max_adpu,omitempty"`       // bacnet
+	Segmentation             string           `json:"segmentation,omitempty"`   // bacnet
+	DeviceMask               *int             `json:"device_mask,omitempty"`
+	TypeSerial               *bool            `json:"type_serial,omitempty"`
+	TransportType            string           `json:"transport_type,omitempty"` // serial, ip
+	SupportsRpm              *bool            `json:"supports_rpm,omitempty"`   // bacnet support read property multiple
+	SupportsWpm              *bool            `json:"supports_wpm,omitempty"`   // bacnet support write property multiple
+	NetworkUUID              string           `json:"network_uuid,omitempty" gorm:"type:varchar(255) references networks;not null;default:null;uniqueIndex:idx_devices_name_network_uuid"`
+	NumberOfDevicesPermitted *int             `json:"number_of_devices_permitted,omitempty"`
+	Points                   []*Point         `json:"points,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Tags                     []*Tag           `json:"tags,omitempty" gorm:"many2many:devices_tags;constraint:OnDelete:CASCADE"`
+	FastPollRate             *float64         `json:"fast_poll_rate"`
+	NormalPollRate           *float64         `json:"normal_poll_rate"`
+	SlowPollRate             *float64         `json:"slow_poll_rate"`
+	MetaTags                 []*DeviceMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+}
+
+type DeviceMetaTag struct {
+	UUID       string `json:"uuid" gorm:"primaryKey"`
+	DeviceUUID string `json:"device_uuid,omitempty" gorm:"type:varchar(255) references devices;not null;default:null;uniqueIndex:idx_device_meta_tags_device_uuid_key"`
+	Key        string `json:"key,omitempty" gorm:"uniqueIndex:idx_device_meta_tags_device_uuid_key"`
+	Value      string `json:"value,omitempty"`
 }
