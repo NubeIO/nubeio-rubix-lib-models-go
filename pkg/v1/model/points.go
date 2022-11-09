@@ -221,6 +221,14 @@ type Point struct {
 	PollRate               PollRate               `json:"poll_rate"`
 	BACnetWriteToPV        *bool                  `json:"bacnet_write_to_pv,omitempty"`
 	HistoryConfig
+	MetaTags []*PointMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+}
+
+type PointMetaTag struct {
+	UUID      string `json:"uuid" gorm:"primaryKey"`
+	PointUUID string `json:"point_uuid,omitempty" gorm:"type:varchar(255) references points;not null;default:null;uniqueIndex:idx_point_meta_tags_point_uuid_key"`
+	Key       string `json:"key,omitempty" gorm:"uniqueIndex:idx_point_meta_tags_point_uuid_key"`
+	Value     string `json:"value,omitempty"`
 }
 
 type Priorities struct {
