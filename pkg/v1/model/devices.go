@@ -44,8 +44,7 @@ type Device struct {
 }
 
 type DeviceMetaTag struct {
-	UUID       string `json:"uuid" gorm:"primaryKey"`
-	DeviceUUID string `json:"device_uuid,omitempty" gorm:"type:varchar(255) references devices;not null;default:null;uniqueIndex:idx_device_meta_tags_device_uuid_key"`
-	Key        string `json:"key,omitempty" gorm:"uniqueIndex:idx_device_meta_tags_device_uuid_key"`
+	DeviceUUID string `json:"device_uuid,omitempty" gorm:"type:varchar(255) references devices;not null;default:null;primaryKey"`
+	Key        string `json:"key,omitempty" gorm:"primaryKey"`
 	Value      string `json:"value,omitempty"`
 }

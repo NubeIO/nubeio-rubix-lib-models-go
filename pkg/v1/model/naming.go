@@ -27,9 +27,6 @@ var CommonNaming = struct {
 	Node             string
 	TransportType    string
 	Token            string
-	NetworkMetaTag   string
-	DeviceMetaTag    string
-	PointMetaTag     string
 }{
 	NubeIO:           "Nube-IO",
 	Plugin:           "plugin",
@@ -57,9 +54,6 @@ var CommonNaming = struct {
 	Node:             "node",
 	TransportType:    "transport_type",
 	Token:            "token",
-	NetworkMetaTag:   "network_meta_tag",
-	DeviceMetaTag:    "device_meta_tag",
-	PointMetaTag:     "point_meta_tag",
 }
 
 var ThingClass = struct {
