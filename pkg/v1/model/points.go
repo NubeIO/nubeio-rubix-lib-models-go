@@ -225,9 +225,8 @@ type Point struct {
 }
 
 type PointMetaTag struct {
-	UUID      string `json:"uuid" gorm:"primaryKey"`
-	PointUUID string `json:"point_uuid,omitempty" gorm:"type:varchar(255) references points;not null;default:null;uniqueIndex:idx_point_meta_tags_point_uuid_key"`
-	Key       string `json:"key,omitempty" gorm:"uniqueIndex:idx_point_meta_tags_point_uuid_key"`
+	PointUUID string `json:"point_uuid,omitempty" gorm:"type:varchar(255) references points;not null;default:null;primaryKey"`
+	Key       string `json:"key,omitempty" gorm:"primaryKey"`
 	Value     string `json:"value,omitempty"`
 }
 

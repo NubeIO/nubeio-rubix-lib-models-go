@@ -58,8 +58,7 @@ type Network struct {
 }
 
 type NetworkMetaTag struct {
-	UUID        string `json:"uuid" gorm:"primaryKey"`
-	NetworkUUID string `json:"network_uuid,omitempty" gorm:"type:varchar(255) references networks;not null;default:null;uniqueIndex:idx_network_meta_tags_network_uuid_key"`
-	Key         string `json:"key,omitempty" gorm:"uniqueIndex:idx_network_meta_tags_network_uuid_key"`
+	NetworkUUID string `json:"network_uuid,omitempty" gorm:"type:varchar(255) references networks;not null;default:null;primaryKey"`
+	Key         string `json:"key,omitempty" gorm:"primaryKey"`
 	Value       string `json:"value,omitempty"`
 }
