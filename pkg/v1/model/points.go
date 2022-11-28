@@ -190,6 +190,8 @@ type Point struct {
 	ObjectType             string                 `json:"object_type,omitempty"` // binaryInput, coil, if type os input don't return the priority array
 	ObjectId               *int                   `json:"object_id,omitempty"`
 	DataType               string                 `json:"data_type,omitempty"`       // int16, uint16, float32
+	IsBitwise              *bool                  `json:"is_bitwise,omitempty"`      // true indicates data type is numeric, but we are taking only a specific bit of the number.
+	BitwiseIndex           *int                   `json:"bitwise_index,omitempty"`   // if IsBitwise is set, then BitwiseIndex sets the index to read from numeric value
 	ObjectEncoding         string                 `json:"object_encoding,omitempty"` // BEB_LEW bebLew
 	IoNumber               string                 `json:"io_number,omitempty"`       // DI1,UI1,AO1, temp, pulse, motion
 	IoType                 string                 `json:"io_type,omitempty"`         // 0-10dc, 0-40ma, thermistor
