@@ -1,4 +1,9 @@
 # CHANGELOG
+
+## [v1.4.5](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.5) (2022-11-28)
+
+- Adds bitwise point support properties. For modbus and bacnet.
+
 ## [v1.4.0](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.0) (2022-10-07)
 
 - Bump version
