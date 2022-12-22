@@ -224,6 +224,8 @@ type Point struct {
 	BACnetWriteToPV        *bool                  `json:"bacnet_write_to_pv,omitempty"`
 	HistoryConfig
 	MetaTags []*PointMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	CommonAutoMappingUUID
+	Connection string `json:"connection" gorm:"default:Connected"`
 }
 
 type PointMetaTag struct {

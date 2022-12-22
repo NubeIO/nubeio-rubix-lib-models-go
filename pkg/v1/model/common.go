@@ -118,3 +118,7 @@ type CommonProducerPermissions struct {
 type CommonCurrentWriterUUID struct {
 	CurrentWriterUUID *string `json:"current_writer_uuid,omitempty"`
 }
+
+type CommonAutoMappingUUID struct {
+	AutoMappingUUID string `json:"auto_mapping_uuid"`
+}
