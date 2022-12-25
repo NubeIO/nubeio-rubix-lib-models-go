@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## [v1.4.6](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.6) (2022-12-25)
+
+- Add auto mapping fields
+
 ## [v1.4.5](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.5) (2022-11-28)
 
-- Adds bitwise point support properties. For modbus and bacnet.
+- Adds bitwise point support properties for modbus and bacnet
 
 ## [v1.4.0](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.0) (2022-10-07)
 
