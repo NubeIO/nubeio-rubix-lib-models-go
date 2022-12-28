@@ -37,9 +37,3 @@ type ConsumerHistory struct {
 	DataStore    datatypes.JSON `json:"data_store"`
 	Timestamp    time.Time      `json:"timestamp"`
 }
-
-type SyncConsumer struct {
-	ProducerUUID      string `json:"producer_uuid"`
-	ProducerThingName string `json:"producer_thing_name"`
-	ProducerThingUUID string `json:"producer_thing_uuid"`
-}
