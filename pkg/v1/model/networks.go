@@ -51,11 +51,10 @@ type Network struct {
 	Tags                       []*Tag            `json:"tags,omitempty" gorm:"many2many:networks_tags;constraint:OnDelete:CASCADE"`
 	MaxPollRate                *float64          `json:"max_poll_rate,omitempty"`
 	MetaTags                   []*NetworkMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-	AutoMappingEnable          *bool             `json:"auto_mapping_enable,omitempty"`
-	AutoMappingFlowNetworkUUID string            `json:"auto_mapping_flow_network_uuid,omitempty"`
-	AutoMappingFlowNetworkName string            `json:"auto_mapping_flow_network_name,omitempty"`
+	AutoMappingEnable          *bool             `json:"auto_mapping_enable,omitempty"`            // moved to device; to restrict future migration issue
+	AutoMappingFlowNetworkUUID string            `json:"auto_mapping_flow_network_uuid,omitempty"` // moved to device; to restrict future migration issue
+	AutoMappingFlowNetworkName string            `json:"auto_mapping_flow_network_name,omitempty"` // moved to device; to restrict future migration issue
 	CommonAutoMappingUUID
-	Connection string `json:"connection" gorm:"default:Connected"`
 }
 
 type NetworkMetaTag struct {

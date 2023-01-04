@@ -42,20 +42,14 @@ type Device struct {
 	SlowPollRate             *float64         `json:"slow_poll_rate"`
 	MetaTags                 []*DeviceMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	CommonAutoMappingUUID
-	Connection string `json:"connection" gorm:"default:Connected"`
+	Connection                 string `json:"connection" gorm:"default:Connected"`
+	AutoMappingEnable          *bool  `json:"auto_mapping_enable,omitempty"`
+	AutoMappingFlowNetworkUUID string `json:"auto_mapping_flow_network_uuid,omitempty"`
+	AutoMappingFlowNetworkName string `json:"auto_mapping_flow_network_name,omitempty"`
 }
 
 type DeviceMetaTag struct {
 	DeviceUUID string `json:"device_uuid,omitempty" gorm:"type:varchar(255) references devices;not null;default:null;primaryKey"`
 	Key        string `json:"key,omitempty" gorm:"primaryKey"`
 	Value      string `json:"value,omitempty"`
-}
-
-type SyncDevice struct {
-	NetworkUUID     string
-	NetworkName     string
-	DeviceUUID      string
-	DeviceName      string
-	FlowNetworkUUID string
-	IsLocal         bool
 }
