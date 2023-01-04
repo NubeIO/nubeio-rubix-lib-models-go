@@ -1,4 +1,12 @@
 # CHANGELOG
+## [v1.4.8](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.8) (2023-01-04)
+
+- Remove sync consumer (transferred to flow-framework as it's just an interface)
+- Remove sync device and shift auto-mapping on the device
+
+## [v1.4.7](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.7) (2022-12-27)
+
+- Add sync consumer
 
 ## [v1.4.6](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.6) (2022-12-25)
 
