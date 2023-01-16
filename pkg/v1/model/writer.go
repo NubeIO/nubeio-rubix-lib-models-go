@@ -8,7 +8,6 @@ type CommonWriter struct {
 	WriterThingClass string         `json:"writer_thing_class,omitempty"`
 	WriterThingType  string         `json:"writer_thing_type,omitempty"`
 	WriterThingUUID  string         `json:"writer_thing_uuid,omitempty"`
-	WriterThingName  string         `json:"writer_thing_name,omitempty"`
 	DataStore        datatypes.JSON `json:"data_store,omitempty"`
 	CommonConnection
 	CommonCreated
@@ -16,12 +15,14 @@ type CommonWriter struct {
 
 type Writer struct {
 	CommonWriter
-	ConsumerUUID string   `json:"consumer_uuid,omitempty" gorm:"type:string references consumers;not null;default:null"`
-	PresentValue *float64 `json:"present_value,omitempty"`
+	WriterThingName string   `json:"writer_thing_name,omitempty" gorm:"uniqueIndex:idx_writers_consumer_uuid_writer_thing_name"`
+	ConsumerUUID    string   `json:"consumer_uuid,omitempty" gorm:"type:string references consumers;not null;default:null;uniqueIndex:idx_writers_consumer_uuid_writer_thing_name"`
+	PresentValue    *float64 `json:"present_value,omitempty"`
 }
 
 type WriterClone struct { // TODO the WriterClone needs to publish a COV event as for example we have 2x mqtt broker then the cov for a point maybe different when not going over the internet
 	CommonWriter
+	WriterThingName   string `json:"writer_thing_name,omitempty"`
 	ProducerUUID      string `json:"producer_uuid" gorm:"type:string references producers;not null;default:null"`
 	FlowFrameworkUUID string `json:"flow_framework_uuid,omitempty"`
 	CommonSourceUUID
