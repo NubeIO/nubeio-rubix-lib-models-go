@@ -1,4 +1,12 @@
 # CHANGELOG
+## [v1.4.10](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.10) (2023-01-18)
+
+- Add flow_https_local,flow_ip_local and flow_port_local
+
+## [v1.4.9](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.9) (2023-01-16)
+
+- Add idx_writers_consumer_uuid_writer_thing_name index
+
 ## [v1.4.8](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.8) (2023-01-04)
 
 - Remove sync consumer (transferred to flow-framework as it's just an interface)
