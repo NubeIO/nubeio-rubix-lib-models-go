@@ -34,6 +34,9 @@ type FlowNetwork struct {
 	FlowIP                *string   `json:"flow_ip,omitempty" gorm:"uniqueIndex:idx_flow_networks_flow_ip_flow_port"`
 	FlowPort              *int      `json:"flow_port,omitempty" gorm:"uniqueIndex:idx_flow_networks_flow_ip_flow_port"`
 	FlowTokenLocal        *string   `json:"flow_token_local,omitempty"`
+	FlowHTTSLocal         *bool     `json:"flow_https_local,omitempty"`
+	FlowIPLocal           *string   `json:"flow_ip_local,omitempty"`
+	FlowPortLocal         *int      `json:"flow_port_local,omitempty"`
 	Streams               []*Stream `json:"streams" gorm:"many2many:flow_networks_streams;constraint:OnDelete:CASCADE"`
 }
 
