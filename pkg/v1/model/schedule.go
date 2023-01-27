@@ -10,9 +10,11 @@ type Schedule struct {
 	CommonEnable
 	CommonThingClass
 	CommonThingType
-	IsActive *bool          `json:"is_active"`
-	IsGlobal *bool          `json:"is_global"`
-	Schedule datatypes.JSON `json:"schedule"`
+	IsActive        *bool          `json:"is_active"`
+	ActiveWeekly    bool           `json:"active_weekly"`
+	ActiveException bool           `json:"active_exception"`
+	ActiveEvent     bool           `json:"active_event"`
+	Schedule        datatypes.JSON `json:"schedule"`
 	CommonCreated
 }
 
@@ -33,17 +35,19 @@ type Events struct {
 		Start string `json:"start"`
 		End   string `json:"end"`
 	} `json:"dates"`
-	Value int    `json:"value"`
-	Color string `json:"color"`
+	Value  float64 `json:"value"`
+	Color  string  `json:"color"`
+	Enable *bool   `json:"enable"`
 }
 
 type Weekly struct {
-	Name  string   `json:"name"`
-	Days  []string `json:"days"`
-	Start string   `json:"start"`
-	End   string   `json:"end"`
-	Value int      `json:"value"`
-	Color string   `json:"color"`
+	Name   string   `json:"name"`
+	Days   []string `json:"days"`
+	Start  string   `json:"start"`
+	End    string   `json:"end"`
+	Value  float64  `json:"value"`
+	Color  string   `json:"color"`
+	Enable *bool    `json:"enable"`
 }
 
 type Exception struct {
@@ -52,6 +56,7 @@ type Exception struct {
 		Start string `json:"start"`
 		End   string `json:"end"`
 	} `json:"dates"`
-	Value int    `json:"value"`
-	Color string `json:"color"`
+	Value  float64 `json:"value"`
+	Color  string  `json:"color"`
+	Enable *bool   `json:"enable"`
 }
