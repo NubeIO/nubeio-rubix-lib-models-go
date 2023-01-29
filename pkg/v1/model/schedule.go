@@ -10,12 +10,17 @@ type Schedule struct {
 	CommonEnable
 	CommonThingClass
 	CommonThingType
-	TimeZone        string         `json:"timezone"`
-	IsActive        *bool          `json:"is_active"`
-	ActiveWeekly    *bool          `json:"active_weekly"`
-	ActiveException *bool          `json:"active_exception"`
-	ActiveEvent     *bool          `json:"active_event"`
-	Schedule        datatypes.JSON `json:"schedule"`
+	TimeZone          string         `json:"timezone"`
+	IsActive          *bool          `json:"is_active"`
+	ActiveWeekly      *bool          `json:"active_weekly"`
+	ActiveException   *bool          `json:"active_exception"`
+	ActiveEvent       *bool          `json:"active_event"`
+	Payload           float64        `json:"payload"`
+	PeriodStartString string         `json:"period_start_string"` // human readable timestamp
+	PeriodStopString  string         `json:"period_stop_string"`  // human readable timestamp
+	NextStartString   string         `json:"next_start_string"`   // human readable timestamp
+	NextStopString    string         `json:"next_stop_string"`    // human readable timestamp
+	Schedule          datatypes.JSON `json:"schedule"`
 	CommonCreated
 }
 
