@@ -4,7 +4,7 @@ package model
 type HistoryConfig struct {
 	HistoryEnable       *bool       `json:"history_enable,omitempty"`
 	HistoryType         HistoryType `json:"history_type,omitempty"`
-	HistoryInterval     *float64    `json:"history_interval,omitempty"`
+	HistoryInterval     *int        `json:"history_interval,omitempty"`
 	HistoryCOVThreshold *float64    `json:"history_cov_threshold,omitempty"`
 }
 
