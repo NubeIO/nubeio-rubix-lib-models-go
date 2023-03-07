@@ -66,6 +66,10 @@ const (
 	ObjTypeWriteFloat32       ObjectType = "write_float_32"
 	ObjTypeReadFloat64        ObjectType = "read_float_64"
 	ObjTypeWriteFloat64       ObjectType = "write_float_64"
+	ObjTypeCoil               ObjectType = "coil"
+	ObjTypeDiscreteInput      ObjectType = "discrete_input"
+	ObjTypeInputRegister      ObjectType = "input_register"
+	ObjTypeHoldingRegister    ObjectType = "holding_register"
 )
 
 var ObjectTypesMap = map[ObjectType]int8{
@@ -86,6 +90,7 @@ var ObjectTypesMap = map[ObjectType]int8{
 	ObjTypeReadUint32:  0,
 	ObjTypeReadFloat32: 0, ObjTypeWriteFloat32: 0,
 	ObjTypeReadFloat64: 0, ObjTypeWriteFloat64: 0,
+	ObjTypeCoil: 0, ObjTypeDiscreteInput: 0, ObjTypeInputRegister: 0, ObjTypeHoldingRegister: 0,
 }
 
 type DataType string
