@@ -55,7 +55,8 @@ type Network struct {
 	AutoMappingFlowNetworkUUID string            `json:"auto_mapping_flow_network_uuid,omitempty"` // moved to device; haven't deleted from here to restrict future migration issue
 	AutoMappingFlowNetworkName string            `json:"auto_mapping_flow_network_name,omitempty"` // moved to device; haven't deleted from here to restrict future migration issue
 	HasPollingStatistics       bool              `json:"has_polling_statistics"`                   // Indicates that a UI to view polling statistics should be available for this network
-	CommonAutoMappingUUID
+	GlobalUUID                 string            `json:"global_uuid"`
+	CommonCreatedFromAutoMapping
 }
 
 type NetworkMetaTag struct {

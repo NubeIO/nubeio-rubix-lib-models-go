@@ -228,9 +228,10 @@ type Point struct {
 	PollRate               PollRate               `json:"poll_rate"`
 	BACnetWriteToPV        *bool                  `json:"bacnet_write_to_pv,omitempty"`
 	HistoryConfig
-	MetaTags []*PointMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-	CommonAutoMappingUUID
-	Connection string `json:"connection" gorm:"default:Connected"`
+	MetaTags          []*PointMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Connection        string          `json:"connection" gorm:"default:Connected"`
+	AutoMappingEnable *bool           `json:"auto_mapping_enable,omitempty" gorm:"default:true"`
+	CommonCreatedFromAutoMapping
 }
 
 type PointMetaTag struct {
