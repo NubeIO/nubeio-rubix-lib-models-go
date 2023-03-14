@@ -41,11 +41,10 @@ type Device struct {
 	NormalPollRate           *float64         `json:"normal_poll_rate"`
 	SlowPollRate             *float64         `json:"slow_poll_rate"`
 	MetaTags                 []*DeviceMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-	CommonAutoMappingUUID
-	Connection                 string `json:"connection" gorm:"default:Connected"`
-	AutoMappingEnable          *bool  `json:"auto_mapping_enable,omitempty"`
-	AutoMappingFlowNetworkUUID string `json:"auto_mapping_flow_network_uuid,omitempty"`
-	AutoMappingFlowNetworkName string `json:"auto_mapping_flow_network_name,omitempty"`
+	Connection               string           `json:"connection" gorm:"default:Connected"`
+	ConnectionMessage        *string          `json:"connection_message" gorm:""`
+	AutoMappingEnable        *bool            `json:"auto_mapping_enable,omitempty" gorm:"default:true"`
+	CommonCreatedFromAutoMapping
 }
 
 type DeviceMetaTag struct {
