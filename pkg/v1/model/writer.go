@@ -11,6 +11,7 @@ type CommonWriter struct {
 	DataStore        datatypes.JSON `json:"data_store,omitempty"`
 	CommonConnection
 	CommonCreated
+	CommonCreatedFromAutoMapping
 }
 
 type Writer struct {
