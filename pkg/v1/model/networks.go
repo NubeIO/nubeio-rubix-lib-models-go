@@ -58,6 +58,7 @@ type Network struct {
 	CommonAutoMappingEnable
 	AutoMappingFlowNetworkName string `json:"auto_mapping_flow_network_name,omitempty"`
 	CommonCreatedFromAutoMapping
+	CommonAutoMappingUUID
 }
 
 type NetworkMetaTag struct {

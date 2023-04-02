@@ -36,6 +36,7 @@ type Producer struct {
 	HistoryType             HistoryType        `json:"history_type,omitempty"`
 	HistoryInterval         *int               `json:"history_interval,omitempty"`
 	CommonCreated
+	CommonCreatedFromAutoMapping
 }
 
 // ProducerBody could be a local network, job or alarm and so on

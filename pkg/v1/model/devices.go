@@ -45,6 +45,7 @@ type Device struct {
 	ConnectionMessage        *string          `json:"connection_message" gorm:""`
 	AutoMappingEnable        *bool            `json:"auto_mapping_enable,omitempty" gorm:"default:true"`
 	CommonCreatedFromAutoMapping
+	CommonAutoMappingUUID
 }
 
 type DeviceMetaTag struct {
