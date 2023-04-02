@@ -66,10 +66,3 @@ type NetworkMetaTag struct {
 	Key         string `json:"key,omitempty" gorm:"primaryKey"`
 	Value       string `json:"value,omitempty"`
 }
-
-type SyncNetwork struct {
-	NetworkUUID     string
-	NetworkName     string
-	FlowNetworkUUID string
-	IsLocal         bool
-}
