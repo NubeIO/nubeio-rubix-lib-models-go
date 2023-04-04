@@ -20,6 +20,10 @@ type Schedule struct {
 	MaxPayload        float64        `json:"max_payload"`
 	Payload           float64        `json:"payload"`
 	DefaultPayload    float64        `json:"default_payload"`
+	PeriodStart       int64          `json:"period_start"`        // unix (seconds) timestamp
+	PeriodStop        int64          `json:"period_stop"`         // unix (seconds) timestamp
+	NextStart         int64          `json:"next_start"`          // unix (seconds) timestamp
+	NextStop          int64          `json:"next_stop"`           // unix (seconds) timestamp
 	PeriodStartString string         `json:"period_start_string"` // human readable timestamp
 	PeriodStopString  string         `json:"period_stop_string"`  // human readable timestamp
 	NextStartString   string         `json:"next_start_string"`   // human readable timestamp
