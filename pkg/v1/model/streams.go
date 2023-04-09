@@ -1,8 +1,9 @@
 package model
 
 type CommonStreamAutoMapping struct {
-	AutoMappingNetworkUUID *string `json:"auto_mapping_network_uuid"`
-	AutoMappingDeviceUUID  *string `json:"auto_mapping_device_uuid"`
+	AutoMappingNetworkUUID  *string `json:"auto_mapping_network_uuid"`
+	AutoMappingDeviceUUID   *string `json:"auto_mapping_device_uuid"`
+	AutoMappingScheduleUUID *string `json:"auto_mapping_schedule_uuid"`
 }
 
 type CommonStream struct {
