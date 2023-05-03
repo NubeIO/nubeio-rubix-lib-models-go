@@ -56,8 +56,9 @@ type WriterActionOutput struct {
 }
 
 type SyncCOV struct {
-	Priority *map[string]*float64
-	Schedule *ScheduleData
+	Priority     *map[string]*float64
+	PresentValue *float64
+	Schedule     *ScheduleData
 }
 
 type SyncWriterAction struct {
@@ -66,5 +67,6 @@ type SyncWriterAction struct {
 }
 
 type PointWriter struct {
-	Priority *map[string]*float64
+	Priority     *map[string]*float64
+	PresentValue *float64
 }
