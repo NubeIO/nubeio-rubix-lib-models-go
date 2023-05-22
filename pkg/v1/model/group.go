@@ -16,5 +16,5 @@ type Group struct {
 	Lon          *decimal.Decimal `json:"lon"`
 	TimeZone     *string          `json:"time_zone"`
 	Hosts        []*Host          `json:"hosts" gorm:"constraint:OnDelete:CASCADE"`
-	Members      []*Member        `json:"members,omitempty" gorm:"many2many:member_groups;constraint:OnDelete:CASCADE"`
+	Members      []*Member        `json:"-" gorm:"many2many:member_groups;constraint:OnDelete:CASCADE"`
 }
