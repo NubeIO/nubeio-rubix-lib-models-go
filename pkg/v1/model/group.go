@@ -17,4 +17,5 @@ type Group struct {
 	TimeZone     *string          `json:"time_zone"`
 	Hosts        []*Host          `json:"hosts" gorm:"constraint:OnDelete:CASCADE"`
 	Members      []*Member        `json:"-" gorm:"many2many:member_groups;constraint:OnDelete:CASCADE"`
+	Views        []*View          `json:"views,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }

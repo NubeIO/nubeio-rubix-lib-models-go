@@ -35,6 +35,7 @@ var CommonNaming = struct {
 	SnapshotRestoreLog string
 	Member             string
 	MemberDevice       string
+	View               string
 }{
 	NubeIO:             "Nube-IO",
 	Plugin:             "plugin",
@@ -70,6 +71,7 @@ var CommonNaming = struct {
 	SnapshotRestoreLog: "shapshot_restore_log",
 	Member:             "member",
 	MemberDevice:       "member_device",
+	View:               "view",
 }
 
 var ThingClass = struct {
