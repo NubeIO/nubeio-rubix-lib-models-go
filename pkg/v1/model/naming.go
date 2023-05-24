@@ -36,6 +36,7 @@ var CommonNaming = struct {
 	Member             string
 	MemberDevice       string
 	View               string
+	Team               string
 }{
 	NubeIO:             "Nube-IO",
 	Plugin:             "plugin",
@@ -72,6 +73,7 @@ var CommonNaming = struct {
 	Member:             "member",
 	MemberDevice:       "member_device",
 	View:               "view",
+	Team:               "team",
 }
 
 var ThingClass = struct {
