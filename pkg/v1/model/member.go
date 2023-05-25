@@ -9,7 +9,7 @@ type Member struct {
 	Email         string          `json:"email"`
 	State         *string         `json:"state"`
 	MemberDevices []*MemberDevice `json:"member_devices,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-	Teams         []*Team         `json:"teams" gorm:"many2many:member_teams;constraint:OnDelete:CASCADE"`
+	Teams         []*Team         `json:"-" gorm:"many2many:team_members;constraint:OnDelete:CASCADE"`
 }
 
 func (m *Member) MaskPassword() {

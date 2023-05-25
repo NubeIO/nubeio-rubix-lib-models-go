@@ -10,4 +10,5 @@ type View struct {
 	HostUUID     *string        `json:"host_uuid,omitempty" gorm:"type:varchar(255) references hosts;uniqueIndex:idx_views_name_host_uuid"`
 	Description  *string        `json:"description"`
 	Layout       datatypes.JSON `json:"layout"`
+	TeamViews    []*TeamView    `json:"-" gorm:"constraint:OnDelete:CASCADE"`
 }
