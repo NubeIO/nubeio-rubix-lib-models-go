@@ -7,6 +7,7 @@ type Member struct {
 	Username      string          `json:"username" gorm:"type:varchar(255);unique;not null;default:null;"`
 	Password      string          `json:"password"`
 	Email         string          `json:"email"`
+	Permission    *string         `json:"permission"`
 	State         *string         `json:"state"`
 	MemberDevices []*MemberDevice `json:"member_devices,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Teams         []*Team         `json:"-" gorm:"many2many:team_members;constraint:OnDelete:CASCADE"`
@@ -26,4 +27,16 @@ const (
 var MemberStateMap = map[MemberState]int8{
 	Verified:   0,
 	UnVerified: 0,
+}
+
+type MemberPermission string
+
+const (
+	Read  MemberPermission = "READ"
+	Write MemberPermission = "WRITE"
+)
+
+var MemberPermissionMap = map[MemberPermission]int8{
+	Read:  0,
+	Write: 0,
 }
