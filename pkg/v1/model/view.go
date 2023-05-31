@@ -9,7 +9,7 @@ type View struct {
 	WidgetConfig     datatypes.JSON `json:"widget_config"`
 	Theme            datatypes.JSON `json:"theme"`
 	Data             string         `json:"data"`
-	ViewTemplateUUID string         `json:"view_template_uuid"`
+	ViewTemplateUUID *string        `json:"view_template_uuid"`
 	LocationUUID     *string        `json:"location_uuid,omitempty" gorm:"type:varchar(255) references locations;uniqueIndex:idx_views_name_location_uuid"`
 	GroupUUID        *string        `json:"group_uuid,omitempty" gorm:"type:varchar(255) references groups;uniqueIndex:idx_views_name_group_uuid"`
 	HostUUID         *string        `json:"host_uuid,omitempty" gorm:"type:varchar(255) references hosts;uniqueIndex:idx_views_name_host_uuid"`

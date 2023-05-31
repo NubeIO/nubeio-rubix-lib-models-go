@@ -6,5 +6,5 @@ type Group struct {
 	LocationUUID string  `json:"location_uuid,omitempty" gorm:"TYPE:varchar(255) REFERENCES locations;not null;default:null;uniqueIndex:idx_networks_name_location_uuid"`
 	Description  string  `json:"description"`
 	Hosts        []*Host `json:"hosts" gorm:"constraint:OnDelete:CASCADE"`
-	Views        []*View `json:"views,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Views        []*View `json:"views" gorm:"constraint:OnDelete:CASCADE"`
 }

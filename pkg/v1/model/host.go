@@ -23,7 +23,7 @@ type Host struct {
 	ConnectedSince string         `json:"connected_since"`
 	Tags           []*HostTag     `json:"tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Comments       []*HostComment `json:"comments,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-	Views          []*View        `json:"views,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Views          []*View        `json:"views" gorm:"constraint:OnDelete:CASCADE"`
 }
 
 type HostTag struct {

@@ -14,7 +14,7 @@ type ViewWidget struct {
 	NetworkName string         `json:"network_name"`
 	DeviceName  string         `json:"device_name"`
 	PointName   string         `json:"point_name"`
-	HostUUID    string         `json:"host_uuid,omitempty" gorm:"uniqueIndex:idx_view_widgets_host_uuid_point_uuid"`
+	HostUUID    string         `json:"host_uuid,omitempty"`
 	DeviceUUID  string         `json:"device_uuid,omitempty"`
-	PointUUID   string         `json:"point_uuid,omitempty" gorm:"uniqueIndex:idx_view_widgets_host_uuid_point_uuid"`
+	PointUUID   string         `json:"point_uuid,omitempty"`
 }
