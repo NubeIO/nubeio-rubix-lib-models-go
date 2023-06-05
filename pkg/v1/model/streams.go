@@ -28,7 +28,7 @@ type Stream struct {
 type StreamClone struct {
 	Name string `json:"name" gorm:"uniqueIndex:idx_stream_clones_name_flow_network_clone_uuid"`
 	CommonStream
-	CommonSourceUUID
+	CommonSourceUUIDUnique
 	CommonConnection
 	FlowNetworkCloneUUID string      `json:"flow_network_clone_uuid" gorm:"type:string references flow_network_clones;not null;default:null;uniqueIndex:idx_stream_clones_name_flow_network_clone_uuid"`
 	Consumers            []*Consumer `json:"consumers" gorm:"constraint:OnDelete:CASCADE"`

@@ -78,8 +78,12 @@ type CommonUUID struct {
 	UUID string `json:"uuid" sql:"uuid" gorm:"type:varchar(255);unique;primaryKey"`
 }
 
-type CommonSourceUUID struct {
+type CommonSourceUUIDUnique struct {
 	SourceUUID string `json:"source_uuid" gorm:"uniqueIndex;not null"`
+}
+
+type CommonSourceUUID struct {
+	SourceUUID *string `json:"source_uuid"`
 }
 
 type CommonSyncUUID struct {
