@@ -26,7 +26,7 @@ type WriterClone struct { // TODO the WriterClone needs to publish a COV event a
 	WriterThingName   string `json:"writer_thing_name,omitempty"`
 	ProducerUUID      string `json:"producer_uuid" gorm:"type:string references producers;not null;default:null"`
 	FlowFrameworkUUID string `json:"flow_framework_uuid,omitempty"`
-	CommonSourceUUID
+	CommonSourceUUIDUnique
 }
 
 type SyncWriter struct {

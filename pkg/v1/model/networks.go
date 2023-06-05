@@ -18,7 +18,7 @@ type IPNetwork struct {
 
 type Network struct {
 	CommonUUID
-	CommonNameUnique
+	Name string `json:"name" gorm:"uniqueIndex:idx_networks_name_global_uuid"`
 	CommonDescription
 	CommonEnable
 	CommonFault
@@ -52,13 +52,15 @@ type Network struct {
 	MaxPollRate               *float64          `json:"max_poll_rate,omitempty"`
 	MetaTags                  []*NetworkMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	HasPollingStatistics      bool              `json:"has_polling_statistics"` // Indicates that a UI to view polling statistics should be available for this network
-	GlobalUUID                string            `json:"global_uuid"`
+	GlobalUUID                *string           `json:"global_uuid" gorm:"uniqueIndex:idx_networks_name_global_uuid"`
 	Connection                string            `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage         *string           `json:"connection_message" gorm:""`
 	CommonAutoMappingEnable
 	AutoMappingFlowNetworkName string `json:"auto_mapping_flow_network_name,omitempty"`
 	CommonCreatedFromAutoMapping
 	CommonAutoMappingUUID
+	CommonSourceUUID
+	SourcePluginName *string `json:"source_plugin_name"`
 }
 
 type NetworkMetaTag struct {

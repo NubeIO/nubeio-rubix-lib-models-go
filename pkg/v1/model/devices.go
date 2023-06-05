@@ -46,6 +46,7 @@ type Device struct {
 	AutoMappingEnable        *bool            `json:"auto_mapping_enable,omitempty" gorm:"default:true"`
 	CommonCreatedFromAutoMapping
 	CommonAutoMappingUUID
+	CommonSourceUUID
 }
 
 type DeviceMetaTag struct {
