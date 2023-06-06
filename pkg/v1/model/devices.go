@@ -40,6 +40,7 @@ type Device struct {
 	FastPollRate             *float64         `json:"fast_poll_rate"`
 	NormalPollRate           *float64         `json:"normal_poll_rate"`
 	SlowPollRate             *float64         `json:"slow_poll_rate"`
+	DeviceTimeout            *int             `json:"serial_timeout,omitempty"`
 	MetaTags                 []*DeviceMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Connection               string           `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage        *string          `json:"connection_message" gorm:""`
