@@ -1,4 +1,8 @@
 # CHANGELOG
+## [v1.6.1](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.6.1) (2023-06-07)
+
+- Add device timeout property for bacnet
+
 ## [v1.4.10](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.4.10) (2023-01-18)
 
 - Add flow_https_local,flow_ip_local and flow_port_local
