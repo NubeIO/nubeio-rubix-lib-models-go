@@ -67,6 +67,7 @@ type SyncWriterAction struct {
 }
 
 type PointWriter struct {
-	Priority     *map[string]*float64
-	PresentValue *float64
+	Priority     *map[string]*float64 `json:"priority"`
+	PresentValue *float64             `json:"present_value"`
+	ForceWrite   bool                 `json:"force_write"`
 }
