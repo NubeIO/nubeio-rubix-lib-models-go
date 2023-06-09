@@ -132,9 +132,11 @@ const (
 type PointPriorityArrayMode string
 
 const (
-	PriorityArrayToPresentValue     PointPriorityArrayMode = "priority_array_to_present_value"      // This is a normal point type
-	PriorityArrayToWriteValue       PointPriorityArrayMode = "priority_array_to_write_value"        // This is a point like a modbus writeable point which gets its present value from the read value, not directly from the priority array.
-	ReadOnlyNoPriorityArrayRequired PointPriorityArrayMode = "read_only_no_priority_array_required" // This is a point like a modbus read only point, which doesn't need a priority array, only a present value
+	PriorityArrayToPresentValue                    PointPriorityArrayMode = "priority_array_to_present_value"                       // This is a normal point type
+	PriorityArrayToWriteValue                      PointPriorityArrayMode = "priority_array_to_write_value"                         // This is a point like a modbus writeable point which gets its present value from the read value, not directly from the priority array.
+	ReadOnlyNoPriorityArrayRequired                PointPriorityArrayMode = "read_only_no_priority_array_required"                  // This is a point like a modbus read only point, which doesn't need a priority array, only a present value
+	WholePriorityArrayValueTransformToWriteValue   PointPriorityArrayMode = "whole_priority_array_value_transform_to_write_value"   // This is a point where the whole priority array has the point transformations applied, so transformations on the write value and present value are not required.  Example: BACnet Points where the whole priority array is written.
+	WholePriorityArrayValueTransformToPresentValue PointPriorityArrayMode = "whole_priority_array_value_transform_to_present_value" // This is a point where the whole priority array has the point transformations applied, so transformations on the present value are not required.  Example: BACnet Points where the whole priority array is read.
 )
 
 type WriteMode string
