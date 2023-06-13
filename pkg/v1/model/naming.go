@@ -22,7 +22,6 @@ var CommonNaming = struct {
 	FlowNetwork               string
 	FlowNetworkClone          string
 	History                   string
-	ProducerHistory           string
 	Histories                 string
 	Node                      string
 	TransportType             string
@@ -64,7 +63,6 @@ var CommonNaming = struct {
 	FlowNetwork:               "flow_network",
 	FlowNetworkClone:          "flow_network_clone",
 	History:                   "history",
-	ProducerHistory:           "producer_history",
 	Histories:                 "histories",
 	Node:                      "node",
 	TransportType:             "transport_type",

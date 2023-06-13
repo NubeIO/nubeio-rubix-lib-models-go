@@ -18,7 +18,7 @@ type IPNetwork struct {
 
 type Network struct {
 	CommonUUID
-	CommonNameUnique
+	Name string `json:"name" gorm:"uniqueIndex:idx_networks_name_host_uuid"`
 	CommonDescription
 	CommonEnable
 	CommonFault
@@ -39,7 +39,7 @@ type Network struct {
 	NetworkMask               *int              `json:"network_mask"`
 	AddressID                 string            `json:"address_id"`
 	AddressUUID               string            `json:"address_uuid"`
-	SerialPort                *string           `json:"serial_port,omitempty" gorm:"type:varchar(255);unique"`
+	SerialPort                *string           `json:"serial_port,omitempty" gorm:"type:varchar(255);unique:false;uniqueIndex:idx_networks_serial_port_host_uuid"`
 	SerialBaudRate            *uint             `json:"serial_baud_rate,omitempty"` // 9600
 	SerialStopBits            *uint             `json:"serial_stop_bits,omitempty"` // 1 or 2
 	SerialParity              *string           `json:"serial_parity,omitempty"`    // odd, even, none
@@ -52,13 +52,17 @@ type Network struct {
 	MaxPollRate               *float64          `json:"max_poll_rate,omitempty"`
 	MetaTags                  []*NetworkMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	HasPollingStatistics      bool              `json:"has_polling_statistics"` // Indicates that a UI to view polling statistics should be available for this network
-	GlobalUUID                string            `json:"global_uuid"`
+	GlobalUUID                *string           `json:"global_uuid"`
 	Connection                string            `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage         *string           `json:"connection_message" gorm:""`
 	CommonAutoMappingEnable
 	AutoMappingFlowNetworkName string `json:"auto_mapping_flow_network_name,omitempty"`
 	CommonCreatedFromAutoMapping
 	CommonAutoMappingUUID
+	CommonSourceUUID
+	SourcePluginName *string `json:"source_plugin_name"`
+	IsClone          *bool   `json:"is_clone" gorm:"default:false"`
+	HostUUID         *string `json:"host_uuid" gorm:"type:varchar(255) references hosts;default:null;uniqueIndex:idx_networks_name_host_uuid;uniqueIndex:idx_networks_serial_port_host_uuid"`
 }
 
 type NetworkMetaTag struct {

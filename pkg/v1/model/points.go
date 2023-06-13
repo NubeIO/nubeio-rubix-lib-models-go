@@ -234,6 +234,8 @@ type Point struct {
 	AutoMappingEnable *bool           `json:"auto_mapping_enable,omitempty" gorm:"default:true"`
 	CommonCreatedFromAutoMapping
 	CommonAutoMappingUUID
+	PointHistories []*PointHistory `json:"point_histories,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	CommonSourceUUID
 }
 
 type PointMetaTag struct {

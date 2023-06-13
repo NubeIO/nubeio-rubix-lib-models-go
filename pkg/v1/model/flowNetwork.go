@@ -42,7 +42,7 @@ type FlowNetwork struct {
 
 type FlowNetworkClone struct {
 	CommonFlowNetwork
-	CommonSourceUUID
+	CommonSourceUUIDUnique
 	FlowIP       *string        `json:"flow_ip,omitempty" gorm:"uniqueIndex:idx_flow_network_clones_flow_ip_flow_port"`
 	FlowPort     *int           `json:"flow_port,omitempty" gorm:"uniqueIndex:idx_flow_network_clones_flow_ip_flow_port"`
 	StreamClones []*StreamClone `json:"stream_clones" gorm:"constraint:OnDelete:CASCADE"`
