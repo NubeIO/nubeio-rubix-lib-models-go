@@ -48,6 +48,7 @@ type Device struct {
 	CommonCreatedFromAutoMapping
 	CommonAutoMappingUUID
 	CommonSourceUUID
+	CommonHistoryEnable
 }
 
 type DeviceMetaTag struct {
