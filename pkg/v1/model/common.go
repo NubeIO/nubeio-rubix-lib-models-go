@@ -100,8 +100,8 @@ type CommonCreated struct {
 	UpdatedAt time.Time `json:"updated_on,omitempty"`
 }
 
-type CommonHistory struct {
-	EnableHistory *bool `json:"history_enable,omitempty"`
+type CommonHistoryEnable struct {
+	HistoryEnable *bool `json:"history_enable,omitempty"`
 }
 
 type CommonFault struct {

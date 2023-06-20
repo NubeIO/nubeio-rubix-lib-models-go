@@ -36,11 +36,3 @@ type AlertClosed struct {
 	Alert
 	ClosedAt *time.Time `json:"closed_at,omitempty"`
 }
-
-type Message struct {
-	ID      uint      `json:"uuid" gorm:"primaryKey"`
-	Title   string    `json:"title,omitempty"`
-	Message string    `json:"message,omitempty"`
-	Type    string    `json:"type,omitempty"`
-	Date    time.Time `json:"date,omitempty"`
-}
