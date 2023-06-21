@@ -27,7 +27,6 @@ type Consumer struct {
 	Tags                []*Tag             `json:"tags,omitempty" gorm:"many2many:consumers_tags;constraint:OnDelete:CASCADE"`
 	CommonConnection
 	CommonCreated
-	CommonCreatedFromAutoMapping
 }
 
 // ConsumerHistory for storing the history

@@ -33,10 +33,6 @@ type Schedule struct {
 	GlobalUUID        string  `json:"global_uuid"`
 	Connection        string  `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage *string `json:"connection_message" gorm:""`
-	CommonAutoMappingEnable
-	AutoMappingFlowNetworkName string `json:"auto_mapping_flow_network_name,omitempty"`
-	CommonCreatedFromAutoMapping
-	CommonAutoMappingUUID
 }
 
 type ScheduleData struct {

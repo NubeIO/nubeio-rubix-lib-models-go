@@ -231,10 +231,7 @@ type Point struct {
 	MetaTags          []*PointMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Connection        string          `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage *string         `json:"connection_message" gorm:""`
-	AutoMappingEnable *bool           `json:"auto_mapping_enable,omitempty" gorm:"default:true"`
-	CommonCreatedFromAutoMapping
-	CommonAutoMappingUUID
-	PointHistories []*PointHistory `json:"point_histories,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	PointHistories    []*PointHistory `json:"point_histories,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	CommonSourceUUID
 }
 

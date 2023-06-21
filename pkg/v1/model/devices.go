@@ -44,9 +44,6 @@ type Device struct {
 	MetaTags                 []*DeviceMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Connection               string           `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage        *string          `json:"connection_message" gorm:""`
-	AutoMappingEnable        *bool            `json:"auto_mapping_enable,omitempty" gorm:"default:true"`
-	CommonCreatedFromAutoMapping
-	CommonAutoMappingUUID
 	CommonSourceUUID
 	CommonHistoryEnable
 }

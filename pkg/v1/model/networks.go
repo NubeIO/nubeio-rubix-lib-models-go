@@ -55,10 +55,6 @@ type Network struct {
 	GlobalUUID                *string           `json:"global_uuid"`
 	Connection                string            `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage         *string           `json:"connection_message" gorm:""`
-	CommonAutoMappingEnable
-	AutoMappingFlowNetworkName string `json:"auto_mapping_flow_network_name,omitempty"`
-	CommonCreatedFromAutoMapping
-	CommonAutoMappingUUID
 	CommonSourceUUID
 	SourcePluginName *string `json:"source_plugin_name"`
 	IsClone          *bool   `json:"is_clone" gorm:"default:false"`

@@ -32,7 +32,6 @@ type Producer struct {
 	WriterClones            []*WriterClone `json:"writer_clones,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                    []*Tag         `json:"tags,omitempty" gorm:"many2many:producers_tags;constraint:OnDelete:CASCADE"`
 	CommonCreated
-	CommonCreatedFromAutoMapping
 }
 
 // ProducerBody could be a local network, job or alarm and so on
