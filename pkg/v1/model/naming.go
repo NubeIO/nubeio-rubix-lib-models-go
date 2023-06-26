@@ -6,7 +6,6 @@ var CommonNaming = struct {
 	Read                      string
 	Write                     string
 	Sync                      string
-	StreamList                string
 	Job                       string
 	Schedule                  string
 	Mapping                   string
@@ -38,7 +37,6 @@ var CommonNaming = struct {
 	Read:                      "read",
 	Write:                     "write",
 	Sync:                      "sync",
-	StreamList:                "stream_list",
 	Job:                       "job",
 	Schedule:                  "schedule",
 	Mapping:                   "mapping",
