@@ -215,8 +215,6 @@ type Point struct {
 	UnitType               *string                `json:"unit_type,omitempty"` // temperature
 	Unit                   *string                `json:"unit,omitempty"`
 	UnitTo                 *string                `json:"unit_to,omitempty"` // with take the unit and convert to, this would affect the presentValue and the original value will be stored in the raw
-	IsProducer             *bool                  `json:"is_producer,omitempty"`
-	IsConsumer             *bool                  `json:"is_consumer,omitempty"`
 	Priority               *Priority              `json:"priority,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                   []*Tag                 `json:"tags,omitempty" gorm:"many2many:points_tags;constraint:OnDelete:CASCADE"`
 	ValueUpdatedFlag       *bool                  `json:"value_updated_flag,omitempty"`      // This is used when a plugin updates the PresentValue (not from priority array) and it triggers UpdatePointValue() to broadcast to producers. Should only be set to FALSE from UpdatePointValue().
@@ -278,6 +276,12 @@ type Priority struct {
 	P14       *float64 `json:"_14"`
 	P15       *float64 `json:"_15"`
 	P16       *float64 `json:"_16"`
+}
+
+type PointWriter struct {
+	Priority     *map[string]*float64 `json:"priority"`
+	PresentValue *float64             `json:"present_value"`
+	ForceWrite   bool                 `json:"force_write"`
 }
 
 func (p *Priority) GetHighestPriorityValue() *float64 {

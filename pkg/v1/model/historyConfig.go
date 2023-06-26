@@ -16,3 +16,14 @@ const (
 	HistoryTypeInterval       HistoryType = "INTERVAL"
 	HistoryTypeCovAndInterval HistoryType = "COV_AND_INTERVAL"
 )
+
+var HistoryTypeMap = map[HistoryType]int8{
+	HistoryTypeCov:            0,
+	HistoryTypeInterval:       0,
+	HistoryTypeCovAndInterval: 0,
+}
+
+var HistoryTypeCovMap = map[HistoryType]int8{
+	HistoryTypeCov:            0,
+	HistoryTypeCovAndInterval: 0,
+}

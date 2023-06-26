@@ -112,13 +112,3 @@ type CommonFault struct {
 	LastOk       time.Time `json:"last_ok,omitempty"`
 	LastFail     time.Time `json:"last_fail,omitempty"`
 }
-
-type CommonProducerPermissions struct {
-	Blacklist bool `json:"blacklist"`
-	ReadOnly  bool `json:"read_only"`
-	AllowCRUD bool `json:"allow_crud"` // not sure if this will be used, but it will allow the producer to update the producer
-}
-
-type CommonCurrentWriterUUID struct {
-	CurrentWriterUUID *string `json:"current_writer_uuid,omitempty"`
-}

@@ -6,21 +6,11 @@ var CommonNaming = struct {
 	Read                      string
 	Write                     string
 	Sync                      string
-	Stream                    string
-	StreamClone               string
-	StreamList                string
 	Job                       string
 	Schedule                  string
-	Producer                  string
-	Consumer                  string
-	Writer                    string
-	WriterClone               string
 	Mapping                   string
-	CommandGroup              string
 	Rubix                     string
 	RubixGlobal               string
-	FlowNetwork               string
-	FlowNetworkClone          string
 	History                   string
 	Histories                 string
 	Node                      string
@@ -47,21 +37,11 @@ var CommonNaming = struct {
 	Read:                      "read",
 	Write:                     "write",
 	Sync:                      "sync",
-	Stream:                    "stream",
-	StreamClone:               "stream_clone",
-	StreamList:                "stream_list",
 	Job:                       "job",
 	Schedule:                  "schedule",
-	Producer:                  "producer",
-	Consumer:                  "consumer",
-	Writer:                    "writer",
-	WriterClone:               "writer_clone",
 	Mapping:                   "mapping",
-	CommandGroup:              "command_group",
 	Rubix:                     "rubix",
 	RubixGlobal:               "rubix_global",
-	FlowNetwork:               "flow_network",
-	FlowNetworkClone:          "flow_network_clone",
 	History:                   "history",
 	Histories:                 "histories",
 	Node:                      "node",
