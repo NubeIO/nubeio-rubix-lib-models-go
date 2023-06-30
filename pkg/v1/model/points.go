@@ -231,6 +231,7 @@ type Point struct {
 	ConnectionMessage *string         `json:"connection_message" gorm:""`
 	PointHistories    []*PointHistory `json:"point_histories,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	CommonSourceUUID
+	LastHistoryValue *float64 `json:"last_history_value"`
 }
 
 type PointMetaTag struct {
