@@ -31,6 +31,8 @@ var CommonNaming = struct {
 	ViewTemplateWidget        string
 	ViewTemplateWidgetPointer string
 	Team                      string
+	Ticket                    string
+	TicketComment             string
 }{
 	NubeIO:                    "Nube-IO",
 	Plugin:                    "plugin",
@@ -62,6 +64,8 @@ var CommonNaming = struct {
 	ViewTemplateWidget:        "view_template_widget",
 	ViewTemplateWidgetPointer: "view_template_widget_pointer",
 	Team:                      "team",
+	Ticket:                    "ticket",
+	TicketComment:             "ticket_comment",
 }
 
 var ThingClass = struct {

@@ -30,6 +30,7 @@ type Alert struct {
 	Notes       string     `json:"notes,omitempty"`       // notes by the user
 	CreatedAt   *time.Time `json:"created_at,omitempty"`
 	LastUpdated *time.Time `json:"last_updated,omitempty"`
+	Tickets     []*Ticket  `json:"tickets" gorm:"constraint:OnDelete:CASCADE"`
 }
 
 type AlertClosed struct {

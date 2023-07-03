@@ -15,4 +15,5 @@ type Team struct {
 	TimeZone *string          `json:"time_zone"`
 	Members  []*Member        `json:"members,omitempty" gorm:"many2many:team_members;constraint:OnDelete:CASCADE"`
 	Views    []*TeamView      `json:"views,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Tickets  []*TicketTeam    `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }
