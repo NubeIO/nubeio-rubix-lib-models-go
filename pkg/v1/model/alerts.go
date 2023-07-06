@@ -2,21 +2,44 @@ package model
 
 import "time"
 
-type AlertCategory struct {
-	Type string // loss of data, offline
-}
+type AlertStatus string
+type AlertEntityType string
+type AlertType string
+type AlertSeverity string
+type AlertTarget string
 
-type AlertType struct {
-	Type string // point, device
-}
+const (
+	AlertStatusActive       AlertStatus = "active"
+	AlertStatusAcknowledged AlertStatus = "acknowledged"
+	AlertStatusClosed       AlertStatus = "closed"
+)
 
-var CommonAlertTypes = struct {
-	HostPing      string
-	DeviceOffline string
-}{
-	HostPing:      "system_ping",
-	DeviceOffline: "device_offline",
-}
+const (
+	AlertEntityTypeGateway AlertEntityType = "gateway"
+	AlertEntityTypeNetwork AlertEntityType = "network"
+	AlertEntityTypeDevice  AlertEntityType = "device"
+	AlertEntityTypePoint   AlertEntityType = "point"
+	AlertEntityTypeService AlertEntityType = "service"
+)
+
+const (
+	AlertTypePing      AlertType = "ping"
+	AlertTypeFault     AlertType = "fault"
+	AlertTypeThreshold AlertType = "threshold"
+	AlertTypeFlatLine  AlertType = "flat-line"
+)
+
+const (
+	AlertSeverityCrucial AlertSeverity = "crucial"
+	AlertSeverityMinor   AlertSeverity = "minor"
+	AlertSeverityInfo    AlertSeverity = "info"
+	AlertSeverityWarning AlertSeverity = "warning"
+)
+
+const (
+	AlertTargetMobile AlertTarget = "mobile"
+	AlertTargetNone   AlertTarget = "none"
+)
 
 type Alert struct {
 	UUID        string     `json:"uuid" gorm:"primarykey"`
@@ -26,11 +49,13 @@ type Alert struct {
 	Type        string     `json:"type"`                  // Ping
 	Status      string     `json:"status"`                // Active
 	Severity    string     `json:"severity"`              // Crucial
-	Message     string     `json:"message,omitempty"`     // ping failed
-	Notes       string     `json:"notes,omitempty"`       // notes by the user
+	Target      string     `json:"target,omitempty"`
+	Title       string     `json:"title,omitempty"`
+	Body        string     `json:"body,omitempty"`
+	Notified    *bool      `json:"notified,omitempty" gorm:"default:false"`
 	CreatedAt   *time.Time `json:"created_at,omitempty"`
 	LastUpdated *time.Time `json:"last_updated,omitempty"`
-	Tickets     []*Ticket  `json:"tickets" gorm:"constraint:OnDelete:CASCADE"`
+	Tickets     []*Ticket  `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }
 
 type AlertClosed struct {
