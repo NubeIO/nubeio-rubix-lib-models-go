@@ -53,6 +53,7 @@ type Alert struct {
 	Title       string     `json:"title,omitempty"`
 	Body        string     `json:"body,omitempty"`
 	Notified    *bool      `json:"notified,omitempty" gorm:"default:false"`
+	NotifiedAt  *time.Time `json:"notified_at,omitempty"`
 	CreatedAt   *time.Time `json:"created_at,omitempty"`
 	LastUpdated *time.Time `json:"last_updated,omitempty"`
 	Tickets     []*Ticket  `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
