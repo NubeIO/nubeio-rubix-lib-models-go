@@ -11,8 +11,10 @@ type ViewTemplateWidget struct {
 	Y                          int                          `json:"y"`
 	Type                       *string                      `json:"type"`
 	Config                     datatypes.JSON               `json:"config"`
-	NetworkName                string                       `json:"network_name"`
-	DeviceName                 string                       `json:"device_name"`
-	PointName                  string                       `json:"point_name"`
+	Class                      string                       `json:"class,omitempty"`
+	NetworkName                *string                      `json:"network_name,omitempty"`
+	DeviceName                 *string                      `json:"device_name,omitempty"`
+	PointName                  *string                      `json:"point_name,omitempty"`
+	ScheduleName               *string                      `json:"schedule_name,omitempty"`
 	ViewTemplateWidgetPointers []*ViewTemplateWidgetPointer `json:"view_template_widget_pointer" gorm:"constraint:OnDelete:CASCADE;"`
 }
