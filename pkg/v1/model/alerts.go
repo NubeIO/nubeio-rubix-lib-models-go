@@ -42,22 +42,30 @@ const (
 )
 
 type Alert struct {
-	UUID        string       `json:"uuid" gorm:"primarykey"`
-	HostUUID    string       `json:"host_uuid"`
-	EntityType  string       `json:"entity_type"`           // Device
-	EntityUUID  string       `json:"entity_uuid,omitempty"` // dev_abc123
-	Type        string       `json:"type"`                  // Ping
-	Status      string       `json:"status"`                // Active
-	Severity    string       `json:"severity"`              // Crucial
-	Target      string       `json:"target,omitempty"`
-	Title       string       `json:"title,omitempty"`
-	Body        string       `json:"body,omitempty"`
-	Notified    *bool        `json:"notified,omitempty" gorm:"default:false"`
-	NotifiedAt  *time.Time   `json:"notified_at,omitempty"`
-	CreatedAt   *time.Time   `json:"created_at,omitempty"`
-	LastUpdated *time.Time   `json:"last_updated,omitempty"`
-	Tickets     []*Ticket    `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-	Teams       []*AlertTeam `json:"teams,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	UUID        string          `json:"uuid" gorm:"primarykey"`
+	HostUUID    string          `json:"host_uuid"`
+	EntityType  string          `json:"entity_type"`           // Device
+	EntityUUID  string          `json:"entity_uuid,omitempty"` // dev_abc123
+	Type        string          `json:"type"`                  // Ping
+	Status      string          `json:"status"`                // Active
+	Severity    string          `json:"severity"`              // Crucial
+	Target      string          `json:"target,omitempty"`
+	Title       string          `json:"title,omitempty"`
+	Body        string          `json:"body,omitempty"`
+	Notified    *bool           `json:"notified,omitempty" gorm:"default:false"`
+	NotifiedAt  *time.Time      `json:"notified_at,omitempty"`
+	CreatedAt   *time.Time      `json:"created_at,omitempty"`
+	LastUpdated *time.Time      `json:"last_updated,omitempty"`
+	Tags        []*Tag          `json:"tags,omitempty" gorm:"many2many:alerts_tags;constraint:OnDelete:CASCADE"`
+	MetaTags    []*AlertMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Tickets     []*Ticket       `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Teams       []*AlertTeam    `json:"teams,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+}
+
+type AlertMetaTag struct {
+	AlertUUID string `json:"alert_uuid,omitempty" gorm:"type:varchar(255) references alerts;not null;default:null;primaryKey"`
+	Key       string `json:"key,omitempty" gorm:"primaryKey"`
+	Value     string `json:"value,omitempty"`
 }
 
 type AlertClosed struct {
