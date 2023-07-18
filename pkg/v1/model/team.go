@@ -16,4 +16,5 @@ type Team struct {
 	Members  []*Member        `json:"members,omitempty" gorm:"many2many:team_members;constraint:OnDelete:CASCADE"`
 	Views    []*TeamView      `json:"views,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tickets  []*TicketTeam    `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Alerts   []*AlertTeam     `json:"alerts,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }

@@ -42,21 +42,22 @@ const (
 )
 
 type Alert struct {
-	UUID        string     `json:"uuid" gorm:"primarykey"`
-	HostUUID    string     `json:"host_uuid"`
-	EntityType  string     `json:"entity_type"`           // Device
-	EntityUUID  string     `json:"entity_uuid,omitempty"` // dev_abc123
-	Type        string     `json:"type"`                  // Ping
-	Status      string     `json:"status"`                // Active
-	Severity    string     `json:"severity"`              // Crucial
-	Target      string     `json:"target,omitempty"`
-	Title       string     `json:"title,omitempty"`
-	Body        string     `json:"body,omitempty"`
-	Notified    *bool      `json:"notified,omitempty" gorm:"default:false"`
-	NotifiedAt  *time.Time `json:"notified_at,omitempty"`
-	CreatedAt   *time.Time `json:"created_at,omitempty"`
-	LastUpdated *time.Time `json:"last_updated,omitempty"`
-	Tickets     []*Ticket  `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	UUID        string       `json:"uuid" gorm:"primarykey"`
+	HostUUID    string       `json:"host_uuid"`
+	EntityType  string       `json:"entity_type"`           // Device
+	EntityUUID  string       `json:"entity_uuid,omitempty"` // dev_abc123
+	Type        string       `json:"type"`                  // Ping
+	Status      string       `json:"status"`                // Active
+	Severity    string       `json:"severity"`              // Crucial
+	Target      string       `json:"target,omitempty"`
+	Title       string       `json:"title,omitempty"`
+	Body        string       `json:"body,omitempty"`
+	Notified    *bool        `json:"notified,omitempty" gorm:"default:false"`
+	NotifiedAt  *time.Time   `json:"notified_at,omitempty"`
+	CreatedAt   *time.Time   `json:"created_at,omitempty"`
+	LastUpdated *time.Time   `json:"last_updated,omitempty"`
+	Tickets     []*Ticket    `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Teams       []*AlertTeam `json:"teams,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }
 
 type AlertClosed struct {
