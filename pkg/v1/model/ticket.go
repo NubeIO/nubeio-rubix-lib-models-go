@@ -29,5 +29,6 @@ type Ticket struct {
 	Status    TicketStatus     `json:"status"`
 	Comments  []*TicketComment `json:"comments,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Teams     []*TicketTeam    `json:"teams,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Members   []*TicketMember  `json:"members,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	CommonCreated
 }
