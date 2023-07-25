@@ -11,6 +11,7 @@ type Member struct {
 	State         *string         `json:"state"`
 	MemberDevices []*MemberDevice `json:"member_devices,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Teams         []*Team         `json:"-" gorm:"many2many:team_members;constraint:OnDelete:CASCADE"`
+	Tickets       []*TicketMember `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }
 
 func (m *Member) MaskPassword() {
