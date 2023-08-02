@@ -25,6 +25,7 @@ type Host struct {
 	Tags     []*HostTag     `json:"tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Comments []*HostComment `json:"comments,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Views    []*View        `json:"views" gorm:"constraint:OnDelete:CASCADE"`
+	Networks []*Network     `json:"networks,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }
 
 type HostTag struct {
