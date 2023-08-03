@@ -137,11 +137,16 @@ const (
 	ReadOnlyNoPriorityArrayRequired PointPriorityArrayMode = "read_only_no_priority_array_required" // This is a point like a modbus read only point, which doesn't need a priority array, only a present value
 )
 
-type WriteType string
+type ReadWriteType string
 
 const (
-	WriteToPriorityArray WriteType = "write_to_priority_array"
-	WriteToPresentValue  WriteType = "write_to_present_value"
+	WriteToPriorityArray   ReadWriteType = "write_to_priority_array"
+	ReadWritePriorityArray ReadWriteType = "read_write_to_priority_array"
+	ReadPriorityArray      ReadWriteType = "read_priority_array"
+
+	WriteToPresentValue   ReadWriteType = "write_to_present_value"
+	ReadPresentValue      ReadWriteType = "read_present_value"
+	ReadWritePresentValue ReadWriteType = "read_write_to_present_value"
 )
 
 type WriteMode string
@@ -227,7 +232,7 @@ type Point struct {
 	ValueUpdatedFlag       *bool                  `json:"value_updated_flag,omitempty"`      // This is used when a plugin updates the PresentValue (not from priority array) and it triggers UpdatePointValue() to broadcast to producers. Should only be set to FALSE from UpdatePointValue().
 	PointPriorityArrayMode PointPriorityArrayMode `json:"point_priority_use_type,omitempty"` // This configures how the point handles the priority array and present value.
 	WriteMode              WriteMode              `json:"write_mode,omitempty"`
-	WriteType              WriteType              `json:"write_type,omitempty"`
+	ReadWriteType          ReadWriteType          `json:"read_write_type,omitempty"`
 	WritePollRequired      *bool                  `json:"write_required,omitempty"`
 	ReadPollRequired       *bool                  `json:"read_required,omitempty"`
 	PollPriority           PollPriority           `json:"poll_priority"`
