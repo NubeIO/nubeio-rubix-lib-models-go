@@ -2,6 +2,7 @@ package model
 
 import (
 	"reflect"
+	"time"
 )
 
 // TimeOverride TODO add in later
@@ -237,6 +238,7 @@ type Point struct {
 	ReadPollRequired       *bool                  `json:"read_required,omitempty"`
 	PollPriority           PollPriority           `json:"poll_priority"`
 	PollRate               PollRate               `json:"poll_rate"`
+	DelayBetweenPoints     time.Duration          `json:"delay_between_points,omitempty"`
 	BACnetWriteToPV        *bool                  `json:"bacnet_write_to_pv,omitempty"`
 	HistoryConfig
 	MetaTags          []*PointMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
