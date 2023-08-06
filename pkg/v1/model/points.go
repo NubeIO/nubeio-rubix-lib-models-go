@@ -238,7 +238,7 @@ type Point struct {
 	ReadPollRequired       *bool                  `json:"read_required,omitempty"`
 	PollPriority           PollPriority           `json:"poll_priority"`
 	PollRate               PollRate               `json:"poll_rate"`
-	DelayBetweenPoints     time.Duration          `json:"delay_between_points,omitempty"`
+	DelayBetweenPoints     time.Duration          `json:"delay_between_points,omitempty"` // used for polling when we need a time delay between each point
 	BACnetWriteToPV        *bool                  `json:"bacnet_write_to_pv,omitempty"`
 	HistoryConfig
 	MetaTags          []*PointMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
