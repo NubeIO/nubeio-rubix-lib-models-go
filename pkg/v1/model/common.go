@@ -97,7 +97,8 @@ type CommonConnection struct {
 
 type CommonCreated struct {
 	CreatedAt time.Time `json:"created_on,omitempty"`
-	UpdatedAt time.Time `json:"updated_on,omitempty"`
+	UpdatedAt time.Time `json:"updated_on,omitempty"` // updated from a plugin or from UI
+	LastWrite time.Time `json:"last_write,omitempty"` // timestamp for last time user wrote a value from CE
 }
 
 type CommonHistoryEnable struct {
@@ -109,6 +110,7 @@ type CommonFault struct {
 	MessageLevel string    `json:"message_level,omitempty"`
 	MessageCode  string    `json:"message_code,omitempty"`
 	Message      string    `json:"message,omitempty"`
+	MessageFail  string    `json:"message_fail,omitempty"`
 	LastOk       time.Time `json:"last_ok,omitempty"`
 	LastFail     time.Time `json:"last_fail,omitempty"`
 }
