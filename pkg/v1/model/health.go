@@ -3,6 +3,7 @@ package model
 type Health struct {
 	Health   string `json:"health"`
 	Database string `json:"database"`
+	ROS      bool   `json:"ros"`
 }
 
 const (
