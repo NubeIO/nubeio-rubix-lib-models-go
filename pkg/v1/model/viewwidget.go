@@ -18,6 +18,7 @@ type ViewWidget struct {
 	PointUUID      *string        `json:"point_uuid,omitempty"`
 	WritePointUUID *string        `json:"write_point_uuid,omitempty"`
 	ScheduleUUID   *string        `json:"schedule_uuid,omitempty"`
+	Query          string         `json:"query,omitempty"`
 	// Computed values
 	NetworkName      *string `json:"network_name,omitempty"`
 	DeviceName       *string `json:"device_name,omitempty"`
