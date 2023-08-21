@@ -20,5 +20,6 @@ type ViewTemplateWidget struct {
 	WriteDeviceName            *string                      `json:"write_device_name,omitempty"`
 	WritePointName             *string                      `json:"write_point_name,omitempty"`
 	ScheduleName               *string                      `json:"schedule_name,omitempty"`
+	Query                      *string                      `json:"query,omitempty"`
 	ViewTemplateWidgetPointers []*ViewTemplateWidgetPointer `json:"view_template_widget_pointer" gorm:"constraint:OnDelete:CASCADE;"`
 }

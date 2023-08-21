@@ -9,5 +9,5 @@ type ViewTemplateWidgetPointer struct {
 	PointUUID              *string `json:"point_uuid,omitempty"`
 	WritePointUUID         *string `json:"write_point_uuid,omitempty"`
 	ScheduleUUID           *string `json:"schedule_uuid,omitempty"`
-	Query                  string  `json:"query,omitempty"`
+	Query                  *string `json:"query,omitempty"`
 }
