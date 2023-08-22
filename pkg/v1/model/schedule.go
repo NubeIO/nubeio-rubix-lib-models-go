@@ -10,7 +10,6 @@ type Schedule struct {
 	CommonEnable
 	CommonThingClass
 	CommonThingType
-	TimeZone          string         `json:"timezone"`
 	IsActive          *bool          `json:"is_active"`
 	ActiveWeekly      *bool          `json:"active_weekly"`
 	ActiveException   *bool          `json:"active_exception"`
