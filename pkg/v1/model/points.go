@@ -191,6 +191,7 @@ type Point struct {
 	CommonFault
 	PresentValue           *float64               `json:"present_value"` // point value, read only
 	OriginalValue          *float64               `json:"original_value"`
+	DisplayValue           *string                `json:"display_value"`        // 248.67 °F
 	WriteValue             *float64               `json:"write_value"`          // writeValue was added so if user wanted to do a math function on the point write
 	WriteValueOriginal     *float64               `json:"write_value_original"` // writeValue was added so if user wanted to do a math function on the point write
 	CurrentPriority        *int                   `json:"current_priority,omitempty"`
