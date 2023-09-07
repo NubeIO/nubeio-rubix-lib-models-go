@@ -1,14 +1,11 @@
 package model
 
-import "time"
-
 type CommonDevice struct {
-	Manufacture       string        `json:"manufacture,omitempty"` // nube
-	Model             string        `json:"model,omitempty"`       // thml
-	AddressId         int           `json:"address_id,omitempty"`  // for example a modbus address or bacnet address
-	ZeroMode          *bool         `json:"zero_mode,omitempty"`   // if true means read from address 0 if false will read at 1
-	PollDelayPointsMS time.Duration `json:"poll_delay_points_ms"`
-	AddressUUID       *string       `json:"address_uuid" gorm:"type:varchar(255);"` // AAB1213
+	Manufacture string  `json:"manufacture,omitempty"`                  // nube
+	Model       string  `json:"model,omitempty"`                        // thml
+	AddressId   int     `json:"address_id,omitempty"`                   // for example a modbus address or bacnet address
+	ZeroMode    *bool   `json:"zero_mode,omitempty"`                    // if true means read from address 0 if false will read at 1
+	AddressUUID *string `json:"address_uuid" gorm:"type:varchar(255);"` // AAB1213
 	CommonIP
 }
 
@@ -40,7 +37,7 @@ type Device struct {
 	FastPollRate             *float64         `json:"fast_poll_rate"`
 	NormalPollRate           *float64         `json:"normal_poll_rate"`
 	SlowPollRate             *float64         `json:"slow_poll_rate"`
-	DelayBetweenPoints       *int             `json:"poll_delay_points_ms,omitempty"` // used for polling when we need a time delay between each point
+	DelayBetweenPointsMs     *int             `json:"delay_between_points_ms,omitempty"` // used for polling when we need a time delay between each point
 	DeviceTimeout            *int             `json:"device_timeout,omitempty"`
 	MetaTags                 []*DeviceMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Connection               string           `json:"connection" gorm:"default:Connected"`
