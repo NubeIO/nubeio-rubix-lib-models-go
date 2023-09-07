@@ -40,7 +40,7 @@ type Device struct {
 	FastPollRate             *float64         `json:"fast_poll_rate"`
 	NormalPollRate           *float64         `json:"normal_poll_rate"`
 	SlowPollRate             *float64         `json:"slow_poll_rate"`
-	DelayBetweenPoints       time.Duration    `json:"delay_between_points,omitempty"` // used for polling when we need a time delay between each point
+	DelayBetweenPoints       *int             `json:"poll_delay_points_ms,omitempty"` // used for polling when we need a time delay between each point
 	DeviceTimeout            *int             `json:"device_timeout,omitempty"`
 	MetaTags                 []*DeviceMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Connection               string           `json:"connection" gorm:"default:Connected"`
