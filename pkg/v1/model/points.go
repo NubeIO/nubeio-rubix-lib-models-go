@@ -170,6 +170,14 @@ const (
 	PRIORITY_LOW    PollPriority = "low"
 )
 
+type PointState string
+
+const (
+	PointStatePollFailed      PointState = "poll-failed"
+	PointStatePollOk          PointState = "poll-ok"
+	PointStateApiWritePending PointState = "api-write-pending"
+)
+
 type PollRate string
 
 const (
@@ -238,6 +246,7 @@ type Point struct {
 	ReadPollRequired       *bool                  `json:"read_required,omitempty"`
 	PollPriority           PollPriority           `json:"poll_priority"`
 	PollRate               PollRate               `json:"poll_rate"`
+	PointState             PointState             `json:"point_state,omitempty"`
 	BACnetWriteToPV        *bool                  `json:"bacnet_write_to_pv,omitempty"`
 	HistoryConfig
 	MetaTags          []*PointMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
