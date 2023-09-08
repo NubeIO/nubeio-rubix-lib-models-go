@@ -173,9 +173,11 @@ const (
 type PointState string
 
 const (
-	PointStatePollFailed      PointState = "poll-failed"
-	PointStatePollOk          PointState = "poll-ok"
-	PointStateApiWritePending PointState = "api-write-pending"
+	PointStatePollFailed       PointState = "poll-failed"
+	PointStatePollOk           PointState = "poll-ok"
+	PointStateWriteOk          PointState = "write-ok"
+	PointStateApiWritePending  PointState = "api-write-pending"
+	PointStateApiUpdatePending PointState = "api-update-pending"
 )
 
 type PollRate string
@@ -308,6 +310,7 @@ type PointWriter struct {
 	ForceWrite   bool                 `json:"force_write"`
 	Message      string               `json:"message"`
 	Fault        bool                 `json:"fault"`
+	PollState    PointState           `json:"poll_state"`
 }
 
 func (p *Priority) GetHighestPriorityValue() *float64 {
