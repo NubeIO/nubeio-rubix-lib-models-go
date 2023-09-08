@@ -16,6 +16,7 @@ type Host struct {
 	HTTPS          *bool  `json:"https"`
 	IsOnline       *bool  `json:"is_online"`
 	IsValidToken   *bool  `json:"is_valid_token"`
+	PingFailCount  int    `json:"ping_fail_count"`
 	ExternalToken  string `json:"external_token"`
 	VirtualIP      string `json:"virtual_ip"`
 	ReceivedBytes  int    `json:"received_bytes"`
