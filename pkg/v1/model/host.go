@@ -22,6 +22,7 @@ type Host struct {
 	ReceivedBytes  int    `json:"received_bytes"`
 	SentBytes      int    `json:"sent_bytes"`
 	ConnectedSince string `json:"connected_since"`
+	ROSVersion     string `json:"ros_version"`
 	CommonHistoryEnable
 	Tags     []*HostTag     `json:"tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Comments []*HostComment `json:"comments,omitempty" gorm:"constraint:OnDelete:CASCADE"`
