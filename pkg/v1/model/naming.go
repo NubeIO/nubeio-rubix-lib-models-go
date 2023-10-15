@@ -35,6 +35,8 @@ var CommonNaming = struct {
 	TicketComment             string
 	StreamLog                 string
 	AlertTransaction          string
+	Email                     string
+	EmailAttachment           string
 }{
 	NubeIO:                    "Nube-IO",
 	Plugin:                    "plugin",
@@ -70,6 +72,8 @@ var CommonNaming = struct {
 	TicketComment:             "ticket_comment",
 	StreamLog:                 "stream_log",
 	AlertTransaction:          "alert_transaction",
+	Email:                     "email",
+	EmailAttachment:           "email_attachment",
 }
 
 var ThingClass = struct {
