@@ -63,7 +63,7 @@ type CommonAction struct {
 }
 
 type CommonEnable struct {
-	Enable *bool `json:"enable"`
+	Enable *bool `json:"enable" gorm:"default:false"`
 }
 
 type CommonID struct {
@@ -102,7 +102,7 @@ type CommonCreated struct {
 }
 
 type CommonHistoryEnable struct {
-	HistoryEnable *bool `json:"history_enable,omitempty"`
+	HistoryEnable *bool `json:"history_enable" gorm:"default:false"`
 }
 
 type CommonFault struct {

@@ -2,7 +2,7 @@ package model
 
 // HistoryConfig for configuring point histories
 type HistoryConfig struct {
-	HistoryEnable       *bool       `json:"history_enable,omitempty"`
+	CommonHistoryEnable
 	HistoryType         HistoryType `json:"history_type,omitempty"`
 	HistoryInterval     *int        `json:"history_interval,omitempty"`
 	HistoryCOVThreshold *float64    `json:"history_cov_threshold,omitempty"`
