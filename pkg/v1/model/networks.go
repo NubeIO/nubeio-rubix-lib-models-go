@@ -55,6 +55,7 @@ type Network struct {
 	GlobalUUID                *string           `json:"global_uuid"`
 	Connection                string            `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage         *string           `json:"connection_message" gorm:""`
+	SupportsDevicePing        bool              `json:"supports_device_ping"`
 	CommonSourceUUID
 	SourcePluginName *string `json:"source_plugin_name"`
 	IsClone          *bool   `json:"is_clone" gorm:"default:false"`
