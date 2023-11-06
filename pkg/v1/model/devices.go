@@ -1,5 +1,7 @@
 package model
 
+import "gorm.io/datatypes"
+
 type CommonDevice struct {
 	Manufacture string  `json:"manufacture,omitempty"`                  // nube
 	Model       string  `json:"model,omitempty"`                        // thml
@@ -44,6 +46,7 @@ type Device struct {
 	ConnectionMessage        *string          `json:"connection_message" gorm:""`
 	CommonSourceUUID
 	CommonHistoryEnable
+	Config datatypes.JSON `json:"config"`
 }
 
 type DeviceMetaTag struct {
