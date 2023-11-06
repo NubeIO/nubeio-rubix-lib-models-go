@@ -3,26 +3,27 @@ package model
 import "time"
 
 type Host struct {
-	UUID           string `json:"uuid" gorm:"primaryKey"`
-	GlobalUUID     string `json:"global_uuid"`
-	DeviceType     string `json:"device_type"`
-	Name           string `json:"name"  gorm:"type:varchar(255);not null;uniqueIndex:idx_hosts_name_group_uuid"`
-	GroupUUID      string `json:"group_uuid,omitempty" gorm:"TYPE:varchar(255) REFERENCES groups;not null;default:null;uniqueIndex:idx_hosts_name_group_uuid"`
-	Enable         *bool  `json:"enable"`
-	Description    string `json:"description"`
-	IP             string `json:"ip"`
-	BiosPort       int    `json:"bios_port"`
-	Port           int    `json:"port"`
-	HTTPS          *bool  `json:"https"`
-	IsOnline       *bool  `json:"is_online"`
-	IsValidToken   *bool  `json:"is_valid_token"`
-	PingFailCount  int    `json:"ping_fail_count"`
-	ExternalToken  string `json:"external_token"`
-	VirtualIP      string `json:"virtual_ip"`
-	ReceivedBytes  int    `json:"received_bytes"`
-	SentBytes      int    `json:"sent_bytes"`
-	ConnectedSince string `json:"connected_since"`
-	ROSVersion     string `json:"ros_version"`
+	UUID                 string  `json:"uuid" gorm:"primaryKey"`
+	GlobalUUID           string  `json:"global_uuid"`
+	DeviceType           string  `json:"device_type"`
+	Name                 string  `json:"name"  gorm:"type:varchar(255);not null;uniqueIndex:idx_hosts_name_group_uuid"`
+	GroupUUID            string  `json:"group_uuid,omitempty" gorm:"TYPE:varchar(255) REFERENCES groups;not null;default:null;uniqueIndex:idx_hosts_name_group_uuid"`
+	Enable               *bool   `json:"enable"`
+	Description          string  `json:"description"`
+	IP                   string  `json:"ip"`
+	BiosPort             int     `json:"bios_port"`
+	Port                 int     `json:"port"`
+	HTTPS                *bool   `json:"https"`
+	IsOnline             *bool   `json:"is_online"`
+	IsValidToken         *bool   `json:"is_valid_token"`
+	PingFailCount        int     `json:"ping_fail_count"`
+	ExternalToken        string  `json:"external_token"`
+	VirtualIP            string  `json:"virtual_ip"`
+	ReceivedBytes        int     `json:"received_bytes"`
+	SentBytes            int     `json:"sent_bytes"`
+	ConnectedSince       string  `json:"connected_since"`
+	ROSVersion           string  `json:"ros_version"`
+	ROSRestartExpression *string `json:"ros_restart_expression,omitempty"`
 	CommonHistoryEnable
 	Tags     []*HostTag     `json:"tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Comments []*HostComment `json:"comments,omitempty" gorm:"constraint:OnDelete:CASCADE"`
