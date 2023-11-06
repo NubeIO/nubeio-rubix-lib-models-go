@@ -1,5 +1,7 @@
 package model
 
+import "gorm.io/datatypes"
+
 type IPType struct {
 	REST string `json:"rest"`
 	UDP  string `json:"udp"`
@@ -61,6 +63,7 @@ type Network struct {
 	IsClone          *bool   `json:"is_clone" gorm:"default:false"`
 	HostUUID         *string `json:"host_uuid" gorm:"type:varchar(255) references hosts;default:null;uniqueIndex:idx_networks_name_host_uuid,expression:IFNULL(host_uuid\\,\"\");uniqueIndex:idx_networks_serial_port_host_uuid"`
 	CommonHistoryEnable
+	Config datatypes.JSON `json:"config"`
 }
 
 type NetworkMetaTag struct {

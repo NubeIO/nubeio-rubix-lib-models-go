@@ -1,6 +1,7 @@
 package model
 
 import (
+	"gorm.io/datatypes"
 	"reflect"
 )
 
@@ -262,7 +263,8 @@ type Point struct {
 	ConnectionMessage *string         `json:"connection_message" gorm:""`
 	PointHistories    []*PointHistory `json:"point_histories,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	CommonSourceUUID
-	LastHistoryValue *float64 `json:"last_history_value"`
+	LastHistoryValue *float64       `json:"last_history_value"`
+	Config           datatypes.JSON `json:"config"`
 }
 
 type PointMetaTag struct {
