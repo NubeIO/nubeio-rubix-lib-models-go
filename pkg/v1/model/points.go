@@ -3,6 +3,7 @@ package model
 import (
 	"gorm.io/datatypes"
 	"reflect"
+	"time"
 )
 
 // TimeOverride TODO add in later
@@ -319,6 +320,7 @@ type PointWriter struct {
 	Message      string               `json:"message"`
 	Fault        bool                 `json:"fault"`
 	PollState    PointState           `json:"poll_state"`
+	Timestamp    *time.Time           `json:"timestamp"`
 }
 
 func (p *Priority) GetHighestPriorityValue() *float64 {
