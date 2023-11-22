@@ -32,8 +32,8 @@ type Network struct {
 	CommonThingRef
 	CommonThingType
 	TransportType             string            `json:"transport_type,omitempty"  gorm:"type:varchar(255);not null"` // serial
-	PluginConfId              string            `json:"plugin_conf_id,omitempty" gorm:"type:varchar(255) references plugin_confs;not null;default:null"`
-	PluginPath                string            `json:"plugin_name,omitempty"` // plugin_name
+	PluginUUID                string            `json:"plugin_uuid,omitempty" gorm:"type:varchar(255) references module_configs;not null;default:null"`
+	PluginName                string            `json:"plugin_name,omitempty"`
 	NumberOfNetworksPermitted *int              `json:"number_of_networks_permitted,omitempty"`
 	NetworkInterface          string            `json:"network_interface"`
 	IP                        string            `json:"ip"`
@@ -41,7 +41,7 @@ type Network struct {
 	NetworkMask               *int              `json:"network_mask"`
 	AddressID                 string            `json:"address_id"`
 	AddressUUID               string            `json:"address_uuid"`
-	SerialPort                *string           `json:"serial_port,omitempty" gorm:"type:varchar(255);unique:false;uniqueIndex:idx_networks_serial_port_host_uuid"`
+	SerialPort                *string           `json:"serial_port,omitempty" gorm:"type:varchar(255)"`
 	SerialBaudRate            *uint             `json:"serial_baud_rate,omitempty"` // 9600
 	SerialStopBits            *uint             `json:"serial_stop_bits,omitempty"` // 1 or 2
 	SerialParity              *string           `json:"serial_parity,omitempty"`    // odd, even, none
@@ -61,7 +61,7 @@ type Network struct {
 	CommonSourceUUID
 	SourcePluginName *string `json:"source_plugin_name"`
 	IsClone          *bool   `json:"is_clone" gorm:"default:false"`
-	HostUUID         *string `json:"host_uuid" gorm:"type:varchar(255) references hosts;default:null;uniqueIndex:idx_networks_name_host_uuid,expression:IFNULL(host_uuid\\,\"\");uniqueIndex:idx_networks_serial_port_host_uuid"`
+	HostUUID         *string `json:"host_uuid" gorm:"type:varchar(255) references hosts;default:null;uniqueIndex:idx_networks_name_host_uuid,expression:IFNULL(host_uuid\\,\"\")"`
 	CommonHistoryEnable
 	Config datatypes.JSON `json:"config"`
 }
