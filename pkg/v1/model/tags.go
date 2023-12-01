@@ -7,4 +7,5 @@ type Tag struct {
 	Points   []*Point   `json:"points,omitempty" gorm:"many2many:points_tags;constraint:OnDelete:CASCADE"`
 	Alerts   []*Alert   `json:"alerts,omitempty" gorm:"many2many:alerts_tags;constraint:OnDelete:CASCADE"`
 	Teams    []*Team    `json:"teams,omitempty" gorm:"many2many:teams_tags;constraint:OnDelete:CASCADE"`
+	Hosts    []*Host    `json:"hosts,omitempty" gorm:"many2many:hosts_tags;constraint:OnDelete:CASCADE"`
 }

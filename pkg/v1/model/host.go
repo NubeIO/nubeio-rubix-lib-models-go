@@ -25,15 +25,10 @@ type Host struct {
 	ROSVersion           string  `json:"ros_version"`
 	ROSRestartExpression *string `json:"ros_restart_expression,omitempty"`
 	CommonHistoryEnable
-	Tags     []*HostTag     `json:"tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Tags     []*Tag         `json:"tags,omitempty" gorm:"many2many:hosts_tags;constraint:OnDelete:CASCADE"`
 	Comments []*HostComment `json:"comments,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-	Views    []*View        `json:"views" gorm:"constraint:OnDelete:CASCADE"`
+	Views    []*View        `json:"views,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Networks []*Network     `json:"networks,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-}
-
-type HostTag struct {
-	HostUUID string `json:"host_uuid,omitempty" gorm:"type:varchar(255) references hosts;not null;default:null;primaryKey"`
-	Tag      string `json:"tag" gorm:"primaryKey"`
 }
 
 type HostComment struct {

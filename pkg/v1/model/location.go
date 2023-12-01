@@ -12,6 +12,6 @@ type Location struct {
 	Lat         string   `json:"lat"`
 	Lon         string   `json:"lon"`
 	Timezone    string   `json:"timezone"`
-	Groups      []*Group `json:"groups" gorm:"constraint:OnDelete:CASCADE"`
-	Views       []*View  `json:"views" gorm:"constraint:OnDelete:CASCADE"`
+	Groups      []*Group `json:"groups,omitempty" gorm:"constraint:OnDelete:CASCADE"`
+	Views       []*View  `json:"views,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }

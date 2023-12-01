@@ -14,5 +14,5 @@ type View struct {
 	GroupUUID        *string        `json:"group_uuid,omitempty" gorm:"type:varchar(255) references groups;uniqueIndex:idx_views_name_group_uuid"`
 	HostUUID         *string        `json:"host_uuid,omitempty" gorm:"type:varchar(255) references hosts;uniqueIndex:idx_views_name_host_uuid"`
 	TeamViews        []*TeamView    `json:"-" gorm:"constraint:OnDelete:CASCADE"`
-	Widgets          []*ViewWidget  `json:"widgets" gorm:"constraint:OnDelete:CASCADE"`
+	Widgets          []*ViewWidget  `json:"widgets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }
