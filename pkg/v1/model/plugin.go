@@ -20,5 +20,5 @@ type PluginExternal struct {
 	Website      string   `json:"website,omitempty" form:"website" query:"website"`
 	License      string   `json:"license,omitempty" form:"license" query:"license"`
 	HasNetwork   bool     `json:"has_network"`
-	Capabilities []string `json:"capabilities"`
+	Capabilities []string `json:"capabilities,omitempty"`
 }

@@ -27,7 +27,7 @@ type Host struct {
 	CommonHistoryEnable
 	Tags     []*Tag         `json:"tags,omitempty" gorm:"many2many:hosts_tags;constraint:OnDelete:CASCADE"`
 	Comments []*HostComment `json:"comments,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-	Views    []*View        `json:"views" gorm:"constraint:OnDelete:CASCADE"`
+	Views    []*View        `json:"views,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Networks []*Network     `json:"networks,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }
 
