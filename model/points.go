@@ -388,3 +388,59 @@ func GetPntType(strut interface{}, ioType string) (out string, err error) {
 	}
 	return
 }
+
+type PointWithParent struct {
+	UUID        string `json:"uuid"`
+	Name        string `json:"name"`
+	DeviceUUID  string `json:"device_uuid"`
+	DeviceName  string `json:"device_name"`
+	NetworkUUID string `json:"network_uuid"`
+	NetworkName string `json:"network_name"`
+}
+
+type PointHistoryInterval struct {
+	UUID            string   `json:"uuid"`
+	HistoryInterval *int     `json:"history_interval,omitempty"`
+	Timestamp       string   `json:"timestamp,omitempty"`
+	PresentValue    *float64 `json:"present_value,omitempty"`
+}
+
+type PointForPostgresSync struct {
+	UUID         string `json:"uuid"`
+	Name         string `json:"name"`
+	DeviceUUID   string `json:"device_uuid,omitempty"`
+	DeviceName   string `json:"device_name,omitempty"`
+	NetworkUUID  string `json:"network_uuid"`
+	NetworkName  string `json:"network_name"`
+	GlobalUUID   string `json:"global_uuid"`
+	HostUUID     string `json:"host_uuid"`
+	HostName     string `json:"host_name"`
+	GroupUUID    string `json:"group_uuid"`
+	GroupName    string `json:"group_name"`
+	LocationUUID string `json:"location_uuid"`
+	LocationName string `json:"location_name"`
+}
+
+type PointTagForPostgresSync struct {
+	HostUUID  string `json:"host_uuid"`
+	PointUUID string `json:"point_uuid"`
+	Tag       string `json:"tag"`
+}
+
+type PointMetaTagForPostgresSync struct {
+	HostUUID  string `json:"host_uuid,omitempty"`
+	PointUUID string `json:"point_uuid,omitempty"`
+	Key       string `json:"key,omitempty"`
+	Value     string `json:"value,omitempty"`
+}
+
+type UpdatePointOpts struct {
+	WriteValue bool
+}
+
+type PointWriteResponse struct {
+	Point                Point `json:"point"`
+	IsPresentValueChange bool  `json:"is_present_value_change"`
+	IsWriteValueChange   bool  `json:"is_write_value_change"`
+	IsPriorityChanged    bool  `json:"is_priority_changed"`
+}

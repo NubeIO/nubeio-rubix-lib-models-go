@@ -71,3 +71,16 @@ type NetworkMetaTag struct {
 	Key         string `json:"key,omitempty" gorm:"primaryKey"`
 	Value       string `json:"value,omitempty"`
 }
+
+type NetworkTagForPostgresSync struct {
+	HostUUID    string `json:"host_uuid"`
+	NetworkUUID string `json:"network_uuid"`
+	Tag         string `json:"tag"`
+}
+
+type NetworkMetaTagForPostgresSync struct {
+	HostUUID    string `json:"host_uuid,omitempty"`
+	NetworkUUID string `json:"network_uuid,omitempty"`
+	Key         string `json:"key,omitempty"`
+	Value       string `json:"value,omitempty"`
+}
