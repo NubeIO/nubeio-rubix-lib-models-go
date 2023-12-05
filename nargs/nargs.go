@@ -22,6 +22,8 @@ type Args struct {
 	MetaTags                       *string
 	Statuses                       *[]string
 	Target                         *string
+	WriteValue                     *bool
+	HistoryEnabled                 *bool
 	ByPluginName                   bool
 	Notified                       *bool
 	ShowCloneNetworks              bool
@@ -78,6 +80,7 @@ const (
 	MetaTag                        = "meta_tag"
 	MetaTags                       = "meta_tags"
 	Status                         = "status"
+	HistoryEnabled                 = "history_enabled"
 	Target                         = "target"
 	ByPluginName                   = "by_plugin_name"
 	Notified                       = "notified"
