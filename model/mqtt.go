@@ -1,5 +1,16 @@
 package model
 
+type QOS byte
+
+const (
+	// AtMostOnce means the broker will deliver at most once
+	AtMostOnce QOS = iota
+	// AtLeastOnce means the broker will deliver c message at least once
+	AtLeastOnce
+	// ExactlyOnce means the broker will deliver c message exactly once
+	ExactlyOnce
+)
+
 type MqttConnection struct {
 	CommonUUID
 	Enabled                       bool   `json:"enabled,omitempty"`
@@ -17,4 +28,11 @@ type MqttConnection struct {
 	AttemptReconnectSecs          int    `json:"attempt_reconnect_secs,omitempty"`
 	Timeout                       int    `json:"timeout,omitempty"`
 	IntegrationUUID               string `json:"integration_uuid" gorm:"type:varchar(255) references integrations;null;default:null"`
+}
+
+type MqttBody struct {
+	Topic   string `json:"string"`
+	Qos     QOS    `json:"qos"`
+	Retain  bool   `json:"retain"`
+	Payload string `json:"payload"`
 }
