@@ -55,6 +55,7 @@ type Args struct {
 	WithTickets                    bool
 	WithTags                       bool
 	WithMetaTags                   bool
+	Aggregate                      *string
 }
 
 const (
