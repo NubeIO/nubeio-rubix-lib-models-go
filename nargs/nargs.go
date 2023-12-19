@@ -56,6 +56,7 @@ type Args struct {
 	WithTags                       bool
 	WithMetaTags                   bool
 	Aggregate                      *string
+	GroupLimit                     *int
 }
 
 const (
@@ -114,6 +115,7 @@ const (
 	WithTickets                    = "with_tickets"
 	WithTags                       = "with_tags"
 	WithMetaTags                   = "with_meta_tags"
+	GroupLimit                     = "group_limit"
 )
 
 const (
