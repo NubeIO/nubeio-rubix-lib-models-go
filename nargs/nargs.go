@@ -1,62 +1,64 @@
 package nargs
 
+import "encoding/json"
+
 type Args struct {
-	HostUUID                       *string
-	GlobalUUID                     *string
-	UUID                           *string
-	NetworkUUID                    *string
-	DeviceUUID                     *string
-	PointUUID                      *string
-	PointSourceUUID                *string
-	SourceUUID                     *string
-	DeviceId                       *string
-	AddressUUID                    *string
-	AddressID                      *string
-	ObjectType                     *string
-	IoNumber                       *string
-	MemberUUID                     *string
-	Name                           *string
-	SearchKeyword                  *string
-	Tag                            *string
-	MetaTag                        *string
-	MetaTags                       *string
-	Statuses                       *[]string
-	Target                         *string
-	WriteValue                     *bool
-	HistoryEnabled                 *bool
-	ByPluginName                   bool
-	Notified                       *bool
-	ShowCloneNetworks              bool
-	WidgetOrder                    *string
-	Order                          *string
-	Offset                         *int
-	Limit                          *int
-	IdGt                           *string
-	TimestampGt                    *string
-	TimestampLt                    *string
-	StartDatetime                  *string
-	EndDatetime                    *string
-	WithGroups                     bool
-	WithHosts                      bool
-	WithNetworks                   bool
-	WithDevices                    bool
-	WithPoints                     bool
-	WithPriority                   bool
-	WithAlerts                     bool
-	WithTransactions               bool
-	WithMembers                    bool
-	WithMemberDevices              bool
-	WithTeams                      bool
-	WithViews                      bool
-	WithComments                   bool
-	WithWidgets                    bool
-	WithViewTemplateWidgets        bool
-	WithViewTemplateWidgetPointers bool
-	WithTickets                    bool
-	WithTags                       bool
-	WithMetaTags                   bool
-	Aggregate                      *string
-	GroupLimit                     *int
+	HostUUID                       *string   `json:"host_uuid,omitempty"`
+	GlobalUUID                     *string   `json:"global_uuid,omitempty"`
+	UUID                           *string   `json:"uuid,omitempty"`
+	NetworkUUID                    *string   `json:"network_uuid,omitempty"`
+	DeviceUUID                     *string   `json:"device_uuid,omitempty"`
+	PointUUID                      *string   `json:"point_uuid,omitempty"`
+	PointSourceUUID                *string   `json:"point_source_uuid,omitempty"`
+	SourceUUID                     *string   `json:"source_uuid,omitempty"`
+	DeviceId                       *string   `json:"device_id,omitempty"`
+	AddressUUID                    *string   `json:"address_uuid,omitempty"`
+	AddressID                      *string   `json:"address_id,omitempty"`
+	ObjectType                     *string   `json:"object_type,omitempty"`
+	IoNumber                       *string   `json:"io_number,omitempty"`
+	MemberUUID                     *string   `json:"member_uuid,omitempty"`
+	Name                           *string   `json:"name,omitempty"`
+	SearchKeyword                  *string   `json:"search_keyword,omitempty"`
+	Tag                            *string   `json:"tag,omitempty"`
+	MetaTag                        *string   `json:"meta_tag,omitempty"`
+	MetaTags                       *string   `json:"meta_tags,omitempty"`
+	Statuses                       *[]string `json:"statuses,omitempty"`
+	Target                         *string   `json:"target,omitempty"`
+	WriteValue                     *bool     `json:"write_value,omitempty"`
+	HistoryEnabled                 *bool     `json:"history_enabled,omitempty"`
+	ByPluginName                   bool      `json:"by_plugin_name,omitempty"`
+	Notified                       *bool     `json:"notified,omitempty"`
+	ShowCloneNetworks              bool      `json:"show_clone_networks,omitempty"`
+	WidgetOrder                    *string   `json:"widget_order,omitempty"`
+	Order                          *string   `json:"order,omitempty"`
+	Offset                         *int      `json:"offset,omitempty"`
+	Limit                          *int      `json:"limit,omitempty"`
+	IdGt                           *string   `json:"id_gt,omitempty"`
+	TimestampGt                    *string   `json:"timestamp_gt,omitempty"`
+	TimestampLt                    *string   `json:"timestamp_lt,omitempty"`
+	StartDatetime                  *string   `json:"start_datetime,omitempty"`
+	EndDatetime                    *string   `json:"end_datetime,omitempty"`
+	WithGroups                     bool      `json:"with_groups,omitempty"`
+	WithHosts                      bool      `json:"with_hosts,omitempty"`
+	WithNetworks                   bool      `json:"with_networks,omitempty"`
+	WithDevices                    bool      `json:"with_devices,omitempty"`
+	WithPoints                     bool      `json:"with_points,omitempty"`
+	WithPriority                   bool      `json:"with_priority,omitempty"`
+	WithAlerts                     bool      `json:"with_alerts,omitempty"`
+	WithTransactions               bool      `json:"with_transactions,omitempty"`
+	WithMembers                    bool      `json:"with_members,omitempty"`
+	WithMemberDevices              bool      `json:"with_member_devices,omitempty"`
+	WithTeams                      bool      `json:"with_teams,omitempty"`
+	WithViews                      bool      `json:"with_views,omitempty"`
+	WithComments                   bool      `json:"with_comments,omitempty"`
+	WithWidgets                    bool      `json:"with_widgets,omitempty"`
+	WithViewTemplateWidgets        bool      `json:"with_view_template_widgets,omitempty"`
+	WithViewTemplateWidgetPointers bool      `json:"with_view_template_widget_pointers,omitempty"`
+	WithTickets                    bool      `json:"with_tickets,omitempty"`
+	WithTags                       bool      `json:"with_tags,omitempty"`
+	WithMetaTags                   bool      `json:"with_meta_tags,omitempty"`
+	Aggregate                      *string   `json:"aggregate,omitempty"`
+	GroupLimit                     *int      `json:"group_limit,omitempty"`
 }
 
 const (
@@ -141,3 +143,24 @@ const (
 	DefaultWithViewTemplateWidgetPointers = "false"
 	DefaultWithTickets                    = "false"
 )
+
+func SerializeArgs(args Args) (*string, error) {
+	argsData, err := json.Marshal(args)
+	if err != nil {
+		return nil, err
+	}
+	argsString := string(argsData)
+	return &argsString, nil
+}
+
+func DeserializeArgs(args string) (*Args, error) {
+	deserializedArgs := Args{}
+	if len(args) == 0 {
+		return &deserializedArgs, nil
+	}
+	err := json.Unmarshal([]byte(args), &deserializedArgs)
+	if err != nil {
+		return nil, err
+	}
+	return &deserializedArgs, nil
+}
