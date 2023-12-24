@@ -33,9 +33,15 @@ type Args struct {
 	Order                          *string   `json:"order,omitempty"`
 	Offset                         *int      `json:"offset,omitempty"`
 	Limit                          *int      `json:"limit,omitempty"`
+	Count                          *int      `json:"count,omitempty"`
+	Sort                           *string   `json:"sort,omitempty"`
+	Id                             *string   `json:"id,omitempty"`
 	IdGt                           *string   `json:"id_gt,omitempty"`
+	Timestamp                      *string   `json:"timestamp,omitempty"`
 	TimestampGt                    *string   `json:"timestamp_gt,omitempty"`
 	TimestampLt                    *string   `json:"timestamp_lt,omitempty"`
+	TimestampGte                   *string   `json:"timestamp_gte,omitempty"`
+	TimestampLte                   *string   `json:"timestamp_lte,omitempty"`
 	StartDatetime                  *string   `json:"start_datetime,omitempty"`
 	EndDatetime                    *string   `json:"end_datetime,omitempty"`
 	WithGroups                     bool      `json:"with_groups,omitempty"`
@@ -93,9 +99,15 @@ const (
 	Order                          = "order"
 	Offset                         = "offset"
 	Limit                          = "limit"
+	Count                          = "count"
+	Sort                           = "sort"
+	Id                             = "id"
 	IdGt                           = "id_gt"
+	Timestamp                      = "timestamp"
 	TimestampGt                    = "timestamp_gt"
 	TimestampLt                    = "timestamp_lt"
+	TimestampGte                   = "timestamp_gte"
+	TimestampLte                   = "timestamp_lte"
 	StartDatetime                  = "start_datetime"
 	EndDatetime                    = "end_datetime"
 	WithGroups                     = "with_groups"
