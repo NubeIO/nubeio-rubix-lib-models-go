@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	gorm.io/datatypes v1.0.6
+	github.com/NubeIO/lib-systemctl-go v0.3.1
 )
 
 require (

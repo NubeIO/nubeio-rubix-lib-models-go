@@ -1,15 +1,6 @@
 package model
 
-type QOS byte
-
-const (
-	// AtMostOnce means the broker will deliver at most once
-	AtMostOnce QOS = iota
-	// AtLeastOnce means the broker will deliver c message at least once
-	AtLeastOnce
-	// ExactlyOnce means the broker will deliver c message exactly once
-	ExactlyOnce
-)
+import "github.com/NubeIO/nubeio-rubix-lib-models-go/datatype"
 
 type MqttConnection struct {
 	CommonUUID
@@ -31,8 +22,8 @@ type MqttConnection struct {
 }
 
 type MqttBody struct {
-	Topic   string `json:"string"`
-	Qos     QOS    `json:"qos"`
-	Retain  bool   `json:"retain"`
-	Payload string `json:"payload"`
+	Topic   string       `json:"string"`
+	Qos     datatype.QOS `json:"qos"`
+	Retain  bool         `json:"retain"`
+	Payload string       `json:"payload"`
 }
