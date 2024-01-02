@@ -8,15 +8,15 @@ import (
 type PollRate string
 
 const (
-	RATE_FAST   PollRate = "fast"
-	RATE_NORMAL PollRate = "normal"
-	RATE_SLOW   PollRate = "slow"
+	RateFast   PollRate = "fast"
+	RateNormal PollRate = "normal"
+	RateSlow   PollRate = "slow"
 )
 
 var PollRateMap = map[PollRate]struct{}{
-	RATE_FAST:   {},
-	RATE_NORMAL: {},
-	RATE_SLOW:   {},
+	RateFast:   {},
+	RateNormal: {},
+	RateSlow:   {},
 }
 
 func (dt *PollRate) Validate() error {

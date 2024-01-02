@@ -8,17 +8,17 @@ import (
 type PollPriority string
 
 const (
-	PRIORITY_ASAP   PollPriority = "asap"
-	PRIORITY_HIGH   PollPriority = "high"
-	PRIORITY_NORMAL PollPriority = "normal"
-	PRIORITY_LOW    PollPriority = "low"
+	PriorityASAP   PollPriority = "asap"
+	PriorityHigh   PollPriority = "high"
+	PriorityNormal PollPriority = "normal"
+	PriorityLow    PollPriority = "low"
 )
 
 var PollPriorityMap = map[PollPriority]struct{}{
-	PRIORITY_ASAP:   {},
-	PRIORITY_HIGH:   {},
-	PRIORITY_NORMAL: {},
-	PRIORITY_LOW:    {},
+	PriorityASAP:   {},
+	PriorityHigh:   {},
+	PriorityNormal: {},
+	PriorityLow:    {},
 }
 
 func (dt *PollPriority) Validate() error {
