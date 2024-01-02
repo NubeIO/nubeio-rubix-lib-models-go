@@ -1,6 +1,9 @@
 package model
 
-import "gorm.io/datatypes"
+import (
+	"github.com/NubeIO/nubeio-rubix-lib-models-go/datatype"
+	"gorm.io/datatypes"
+)
 
 type ViewWidget struct {
 	CommonUUID
@@ -12,7 +15,7 @@ type ViewWidget struct {
 	Type           *string        `json:"type"`
 	Config         datatypes.JSON `json:"config"`
 	HostUUID       string         `json:"host_uuid,omitempty"`
-	Class          string         `json:"class,omitempty"`
+	Class          datatype.Class `json:"class,omitempty"`
 	HasDiffRW      *bool          `json:"has_diff_rw,omitempty"`
 	NetworkUUID    *string        `json:"network_uuid,omitempty"` // rubix-ce needs this
 	PointUUID      *string        `json:"point_uuid,omitempty"`
@@ -27,18 +30,4 @@ type ViewWidget struct {
 	WriteDeviceName  *string `json:"write_device_name,omitempty"`
 	WritePointName   *string `json:"write_point_name,omitempty"`
 	ScheduleName     *string `json:"schedule_name,omitempty"`
-}
-
-type Class string
-
-const (
-	ClassPoint    Class = "point"
-	ClassSchedule Class = "schedule"
-	ClassQuery    Class = "query"
-)
-
-var ClassMap = map[Class]int8{
-	ClassPoint:    0,
-	ClassSchedule: 0,
-	ClassQuery:    0,
 }

@@ -1,6 +1,9 @@
 package model
 
-import "gorm.io/datatypes"
+import (
+	"github.com/NubeIO/nubeio-rubix-lib-models-go/datatype"
+	"gorm.io/datatypes"
+)
 
 type ViewTemplateWidget struct {
 	CommonUUID
@@ -11,7 +14,7 @@ type ViewTemplateWidget struct {
 	Y                          int                          `json:"y"`
 	Type                       *string                      `json:"type"`
 	Config                     datatypes.JSON               `json:"config"`
-	Class                      string                       `json:"class,omitempty"`
+	Class                      datatype.Class               `json:"class,omitempty"`
 	HasDiffRW                  *bool                        `json:"has_diff_rw,omitempty"`
 	NetworkName                *string                      `json:"network_name,omitempty"`
 	DeviceName                 *string                      `json:"device_name,omitempty"`
