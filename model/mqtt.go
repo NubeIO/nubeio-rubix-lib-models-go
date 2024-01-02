@@ -1,7 +1,5 @@
 package model
 
-import "github.com/NubeIO/nubeio-rubix-lib-models-go/datatype"
-
 type MqttConnection struct {
 	CommonUUID
 	Enabled                       bool   `json:"enabled,omitempty"`
@@ -19,11 +17,4 @@ type MqttConnection struct {
 	AttemptReconnectSecs          int    `json:"attempt_reconnect_secs,omitempty"`
 	Timeout                       int    `json:"timeout,omitempty"`
 	IntegrationUUID               string `json:"integration_uuid" gorm:"type:varchar(255) references integrations;null;default:null"`
-}
-
-type MqttBody struct {
-	Topic   string       `json:"string"`
-	Qos     datatype.QOS `json:"qos"`
-	Retain  bool         `json:"retain"`
-	Payload string       `json:"payload"`
 }

@@ -1,4 +1,4 @@
-package model
+package dto
 
 // The Error contains error relevant information.
 type Error struct {

@@ -1,6 +1,7 @@
 package model
 
 import (
+	"github.com/NubeIO/nubeio-rubix-lib-models-go/datatype"
 	"time"
 )
 
@@ -112,4 +113,21 @@ type CommonFault struct {
 	MessageFail  string    `json:"message_fail,omitempty"`
 	LastOk       time.Time `json:"last_ok,omitempty"`
 	LastFail     time.Time `json:"last_fail,omitempty"`
+}
+
+type CommonDevice struct {
+	Manufacture string  `json:"manufacture,omitempty"`                  // nube
+	Model       string  `json:"model,omitempty"`                        // thml
+	AddressId   int     `json:"address_id,omitempty"`                   // for example a modbus address or bacnet address
+	ZeroMode    *bool   `json:"zero_mode,omitempty"`                    // if true means read from address 0 if false will read at 1
+	AddressUUID *string `json:"address_uuid" gorm:"type:varchar(255);"` // AAB1213
+	CommonIP
+}
+
+// HistoryConfig for configuring point histories
+type HistoryConfig struct {
+	CommonHistoryEnable
+	HistoryType         datatype.HistoryType `json:"history_type,omitempty"`
+	HistoryInterval     *int                 `json:"history_interval,omitempty"`
+	HistoryCOVThreshold *float64             `json:"history_cov_threshold,omitempty"`
 }

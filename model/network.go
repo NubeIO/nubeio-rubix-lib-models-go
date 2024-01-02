@@ -2,22 +2,6 @@ package model
 
 import "gorm.io/datatypes"
 
-type IPType struct {
-	REST string `json:"rest"`
-	UDP  string `json:"udp"`
-	MQTT string `json:"mqttClient"`
-}
-
-// IPNetwork type ip based network
-type IPNetwork struct {
-	IP       string `json:"ip"`
-	Port     string `json:"port"`
-	User     string `json:"user"`
-	Password string `json:"password"`
-	Token    string `json:"token"`
-	IPType
-}
-
 type Network struct {
 	CommonUUID
 	Name string `json:"name" gorm:"uniqueIndex:idx_networks_name_host_uuid"`
@@ -64,23 +48,4 @@ type Network struct {
 	HostUUID         *string `json:"host_uuid" gorm:"type:varchar(255) references hosts;default:null;uniqueIndex:idx_networks_name_host_uuid,expression:IFNULL(host_uuid\\,\"\")"`
 	CommonHistoryEnable
 	Config datatypes.JSON `json:"config"`
-}
-
-type NetworkMetaTag struct {
-	NetworkUUID string `json:"network_uuid,omitempty" gorm:"type:varchar(255) references networks;not null;default:null;primaryKey"`
-	Key         string `json:"key,omitempty" gorm:"primaryKey"`
-	Value       string `json:"value,omitempty"`
-}
-
-type NetworkTagForPostgresSync struct {
-	HostUUID    string `json:"host_uuid"`
-	NetworkUUID string `json:"network_uuid"`
-	Tag         string `json:"tag"`
-}
-
-type NetworkMetaTagForPostgresSync struct {
-	HostUUID    string `json:"host_uuid,omitempty"`
-	NetworkUUID string `json:"network_uuid,omitempty"`
-	Key         string `json:"key,omitempty"`
-	Value       string `json:"value,omitempty"`
 }

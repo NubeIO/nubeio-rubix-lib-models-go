@@ -8,15 +8,17 @@ import (
 type CreateStatus string
 
 const (
-	Creating     CreateStatus = "Creating"
-	Created      CreateStatus = "Created"
-	CreateFailed CreateStatus = "Failed"
+	CreateNotAvailable CreateStatus = "N/A"
+	Creating           CreateStatus = "Creating"
+	Created            CreateStatus = "Created"
+	CreateFailed       CreateStatus = "Failed"
 )
 
 var CreateStatusMap = map[CreateStatus]struct{}{
-	Creating:     {},
-	Created:      {},
-	CreateFailed: {},
+	CreateNotAvailable: {},
+	Creating:           {},
+	Created:            {},
+	CreateFailed:       {},
 }
 
 func (dt *CreateStatus) Validate() error {

@@ -1,4 +1,4 @@
-package model
+package dto
 
 var CommonNaming = struct {
 	NubeIO                    string

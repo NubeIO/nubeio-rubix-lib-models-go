@@ -1,4 +1,4 @@
-package model
+package dto
 
 const (
 	// StatusGreen everything is alright.

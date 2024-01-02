@@ -1,4 +1,4 @@
-package model
+package dto
 
 var NetworkRTUSpeed = struct {
 	_9600   int

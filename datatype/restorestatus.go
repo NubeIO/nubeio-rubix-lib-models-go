@@ -8,15 +8,17 @@ import (
 type RestoreStatus string
 
 const (
-	Restoring     RestoreStatus = "Restoring"
-	Restored      RestoreStatus = "Restored"
-	RestoreFailed RestoreStatus = "Failed"
+	RestoreNotAvailable RestoreStatus = "N/A"
+	Restoring           RestoreStatus = "Restoring"
+	Restored            RestoreStatus = "Restored"
+	RestoreFailed       RestoreStatus = "Failed"
 )
 
 var RestoreStatusMap = map[RestoreStatus]struct{}{
-	Restoring:     {},
-	Restored:      {},
-	RestoreFailed: {},
+	RestoreNotAvailable: {},
+	Restoring:           {},
+	Restored:            {},
+	RestoreFailed:       {},
 }
 
 func (dt *RestoreStatus) Validate() error {

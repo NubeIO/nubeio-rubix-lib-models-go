@@ -1,4 +1,4 @@
-package model
+package dto
 
 type PollQueueStatistics struct {
 	Enable      bool   `json:"enable"`

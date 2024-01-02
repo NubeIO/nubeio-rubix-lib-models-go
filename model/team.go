@@ -20,9 +20,3 @@ type Team struct {
 	Tickets  []*TicketTeam    `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Alerts   []*AlertTeam     `json:"alerts,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 }
-
-type TeamMetaTag struct {
-	TeamUUID string `json:"team_uuid,omitempty" gorm:"type:varchar(255) references teams;not null;default:null;primaryKey"`
-	Key      string `json:"key,omitempty" gorm:"primaryKey"`
-	Value    string `json:"value,omitempty"`
-}

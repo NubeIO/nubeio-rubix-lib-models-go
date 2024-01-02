@@ -2,15 +2,6 @@ package model
 
 import "gorm.io/datatypes"
 
-type CommonDevice struct {
-	Manufacture string  `json:"manufacture,omitempty"`                  // nube
-	Model       string  `json:"model,omitempty"`                        // thml
-	AddressId   int     `json:"address_id,omitempty"`                   // for example a modbus address or bacnet address
-	ZeroMode    *bool   `json:"zero_mode,omitempty"`                    // if true means read from address 0 if false will read at 1
-	AddressUUID *string `json:"address_uuid" gorm:"type:varchar(255);"` // AAB1213
-	CommonIP
-}
-
 type Device struct {
 	CommonUUID
 	Name string `json:"name" gorm:"uniqueIndex:idx_devices_name_network_uuid"`
@@ -47,23 +38,4 @@ type Device struct {
 	CommonSourceUUID
 	CommonHistoryEnable
 	Config datatypes.JSON `json:"config"`
-}
-
-type DeviceMetaTag struct {
-	DeviceUUID string `json:"device_uuid,omitempty" gorm:"type:varchar(255) references devices;not null;default:null;primaryKey"`
-	Key        string `json:"key,omitempty" gorm:"primaryKey"`
-	Value      string `json:"value,omitempty"`
-}
-
-type DeviceTagForPostgresSync struct {
-	HostUUID   string `json:"host_uuid"`
-	DeviceUUID string `json:"device_uuid"`
-	Tag        string `json:"tag"`
-}
-
-type DeviceMetaTagForPostgresSync struct {
-	HostUUID   string `json:"host_uuid,omitempty"`
-	DeviceUUID string `json:"device_uuid,omitempty"`
-	Key        string `json:"key,omitempty"`
-	Value      string `json:"value,omitempty"`
 }

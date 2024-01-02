@@ -1,7 +1,5 @@
 package model
 
-import "time"
-
 type Host struct {
 	UUID                 string  `json:"uuid" gorm:"primaryKey"`
 	GlobalUUID           string  `json:"global_uuid"`
@@ -29,11 +27,4 @@ type Host struct {
 	Comments []*HostComment `json:"comments,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Views    []*View        `json:"views,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Networks []*Network     `json:"networks,omitempty" gorm:"constraint:OnDelete:CASCADE"`
-}
-
-type HostComment struct {
-	UUID      string    `json:"uuid" gorm:"primaryKey"`
-	HostUUID  string    `json:"host_uuid,omitempty" gorm:"type:varchar(255) references hosts;not null;"`
-	Comment   string    `json:"comment"`
-	UpdatedAt time.Time `json:"date,omitempty"`
 }
