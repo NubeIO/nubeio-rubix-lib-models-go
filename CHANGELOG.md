@@ -1,4 +1,8 @@
 # CHANGELOG
+## [v1.13.0](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.6.1) (2023-06-07)
+
+- Add `PollOnStartup` property to Points model
+
 ## [v1.6.1](https://github.com/NubeIO/nubeio-rubix-lib-models-go/tree/v1.6.1) (2023-06-07)
 
 - Add device timeout property for bacnet
