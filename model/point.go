@@ -67,6 +67,7 @@ type Point struct {
 	ReadPollRequired       *bool                           `json:"read_required,omitempty"`
 	PollPriority           datatype.PollPriority           `json:"poll_priority"`
 	PollRate               datatype.PollRate               `json:"poll_rate"`
+	PollOnStartup          *bool                           `json:"poll_on_startup,omitempty"` // This property was added late, should poll-on-startup when this property is nil or true.
 	PointState             datatype.PointState             `json:"point_state,omitempty"`
 	BACnetWriteToPV        *bool                           `json:"bacnet_write_to_pv,omitempty"`
 	HistoryConfig
