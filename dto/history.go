@@ -1,6 +1,9 @@
 package dto
 
-import "time"
+import (
+	"github.com/NubeIO/nubeio-rubix-lib-models-go/model"
+	"time"
+)
 
 type HistoryRequest struct {
 	Filter        *string `json:"filter"`
@@ -54,4 +57,9 @@ type HistoryTag struct {
 type HistoryMetaTag struct {
 	Key   string `json:"key"`
 	Value string `json:"value"`
+}
+
+type HistorySync struct {
+	PointHistories []*model.PointHistory `json:"point_histories"`
+	MetricLogs     []*model.MetricLog    `json:"metric_logs"`
 }

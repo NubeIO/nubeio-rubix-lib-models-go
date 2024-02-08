@@ -65,6 +65,10 @@ type Args struct {
 	WithMetaTags                   bool      `json:"with_meta_tags,omitempty"`
 	Aggregate                      *string   `json:"aggregate,omitempty"`
 	GroupLimit                     *int      `json:"group_limit,omitempty"`
+	PointHistoryId                 *string   `json:"point_history_id,omitempty"`
+	PointHistoryTimestamp          *string   `json:"point_history_timestamp,omitempty"`
+	MetricLogId                    *string   `json:"metric_log_id,omitempty"`
+	MetricLogTimestamp             *string   `json:"metric_log_timestamp,omitempty"`
 }
 
 const (
@@ -130,6 +134,10 @@ const (
 	WithTags                       = "with_tags"
 	WithMetaTags                   = "with_meta_tags"
 	GroupLimit                     = "group_limit"
+	PointHistoryId                 = "point_history_id"
+	PointHistoryTimestamp          = "point_history_timestamp"
+	MetricLogId                    = "metric_log_id"
+	MetricLogTimestamp             = "metric_log_timestamp"
 )
 
 const (
