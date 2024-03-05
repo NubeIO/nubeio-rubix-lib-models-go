@@ -7,7 +7,9 @@ import (
 
 type Email struct {
 	CommonUUID
-	To          string               `json:"to"` // ; seperated emails
+	To          string               `json:"to"`  // ; seperated emails
+	Cc          *string              `json:"cc"`  // ; seperated emails
+	Bcc         *string              `json:"bcc"` // ; seperated emails
 	Subject     string               `json:"subject"`
 	Body        string               `json:"body"`
 	Status      datatype.EmailStatus `json:"status"`
