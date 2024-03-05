@@ -18,6 +18,8 @@ type Alert struct {
 	Body         string                   `json:"body,omitempty"`
 	Notified     *bool                    `json:"notified,omitempty" gorm:"default:false"`
 	NotifiedAt   *time.Time               `json:"notified_at,omitempty"`
+	Emailed      *bool                    `json:"emailed,omitempty" gorm:"default:false"`
+	EmailedAt    *time.Time               `json:"emailed_at,omitempty"`
 	CreatedAt    *time.Time               `json:"created_at,omitempty"`
 	LastUpdated  *time.Time               `json:"last_updated,omitempty"`
 	Tags         []*Tag                   `json:"tags,omitempty" gorm:"many2many:alerts_tags;constraint:OnDelete:CASCADE"`

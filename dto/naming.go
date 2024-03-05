@@ -37,6 +37,7 @@ var CommonNaming = struct {
 	AlertTransaction          string
 	Email                     string
 	EmailAttachment           string
+	AlertCondition            string
 }{
 	NubeIO:                    "Nube-IO",
 	Plugin:                    "plugin",
@@ -74,6 +75,7 @@ var CommonNaming = struct {
 	AlertTransaction:          "alert_transaction",
 	Email:                     "email",
 	EmailAttachment:           "email_attachment",
+	AlertCondition:            "alert_condition",
 }
 
 var ThingClass = struct {
