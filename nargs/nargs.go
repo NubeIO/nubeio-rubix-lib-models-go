@@ -69,6 +69,7 @@ type Args struct {
 	PointHistoryTimestamp          *string   `json:"point_history_timestamp,omitempty"`
 	MetricLogId                    *string   `json:"metric_log_id,omitempty"`
 	MetricLogTimestamp             *string   `json:"metric_log_timestamp,omitempty"`
+	WithAlertConditions            bool      `json:"with_alert_conditions,omitempty"`
 }
 
 const (
@@ -138,6 +139,7 @@ const (
 	PointHistoryTimestamp          = "point_history_timestamp"
 	MetricLogId                    = "metric_log_id"
 	MetricLogTimestamp             = "metric_log_timestamp"
+	WithAlertConditions            = "with_alert_conditions"
 )
 
 const (
@@ -162,6 +164,7 @@ const (
 	DefaultWithViewTemplateWidgets        = "false"
 	DefaultWithViewTemplateWidgetPointers = "false"
 	DefaultWithTickets                    = "false"
+	DefaultWithAlertConditions            = "false"
 )
 
 func SerializeArgs(args Args) (*string, error) {
