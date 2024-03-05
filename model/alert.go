@@ -16,6 +16,7 @@ type Alert struct {
 	Target       datatype.AlertTarget     `json:"target,omitempty"`
 	Title        string                   `json:"title,omitempty"`
 	Body         string                   `json:"body,omitempty"`
+	Source       *string                  `json:"source_uuid,omitempty"`
 	Notified     *bool                    `json:"notified,omitempty" gorm:"default:false"`
 	NotifiedAt   *time.Time               `json:"notified_at,omitempty"`
 	Emailed      *bool                    `json:"emailed,omitempty" gorm:"default:false"`
