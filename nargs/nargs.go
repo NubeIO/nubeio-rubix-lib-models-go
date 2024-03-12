@@ -70,6 +70,10 @@ type Args struct {
 	MetricLogId                    *string   `json:"metric_log_id,omitempty"`
 	MetricLogTimestamp             *string   `json:"metric_log_timestamp,omitempty"`
 	WithAlertConditions            bool      `json:"with_alert_conditions,omitempty"`
+	EntityUUID                     *string   `json:"entity_uuid,omitempty"`
+	CreatedAt                      *string   `json:"created_at"`
+	LastUpdated                    *string   `json:"last_updated"`
+	Title                          *string   `json:"title"`
 }
 
 const (
@@ -140,6 +144,10 @@ const (
 	MetricLogId                    = "metric_log_id"
 	MetricLogTimestamp             = "metric_log_timestamp"
 	WithAlertConditions            = "with_alert_conditions"
+	EntityUUID                     = "entity_uuid"
+	CreatedAt                      = "created_at"
+	LastUpdated                    = "last_updated"
+	Title                          = "title"
 )
 
 const (
