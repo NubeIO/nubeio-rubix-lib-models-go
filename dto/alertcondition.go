@@ -4,7 +4,7 @@ import (
 	"github.com/NubeIO/nubeio-rubix-lib-models-go/model"
 )
 
-type AlertConditionDto struct {
+type AlertCondition struct {
 	UUID            string                         `json:"uuid"`
 	Name            string                         `json:"name"`
 	AlertTypes      []string                       `json:"alert_types"`
