@@ -47,19 +47,25 @@ type PointHistoryInterval struct {
 }
 
 type PointForPostgresSync struct {
-	UUID         string `json:"uuid"`
-	Name         string `json:"name"`
-	DeviceUUID   string `json:"device_uuid,omitempty"`
-	DeviceName   string `json:"device_name,omitempty"`
-	NetworkUUID  string `json:"network_uuid"`
-	NetworkName  string `json:"network_name"`
-	GlobalUUID   string `json:"global_uuid"`
-	HostUUID     string `json:"host_uuid"`
-	HostName     string `json:"host_name"`
-	GroupUUID    string `json:"group_uuid"`
-	GroupName    string `json:"group_name"`
-	LocationUUID string `json:"location_uuid"`
-	LocationName string `json:"location_name"`
+	UUID                string `json:"uuid"`
+	Name                string `json:"name"`
+	Description         string `json:"description"`
+	DeviceUUID          string `json:"device_uuid,omitempty"`
+	DeviceName          string `json:"device_name,omitempty"`
+	DeviceDescription   string `json:"device_description,omitempty"`
+	NetworkUUID         string `json:"network_uuid"`
+	NetworkName         string `json:"network_name"`
+	NetworkDescription  string `json:"network_description"`
+	GlobalUUID          string `json:"global_uuid"`
+	HostUUID            string `json:"host_uuid"`
+	HostName            string `json:"host_name"`
+	HostDescription     string `json:"host_description"`
+	GroupUUID           string `json:"group_uuid"`
+	GroupName           string `json:"group_name"`
+	GroupDescription    string `json:"group_description"`
+	LocationUUID        string `json:"location_uuid"`
+	LocationName        string `json:"location_name"`
+	LocationDescription string `json:"location_description"`
 }
 
 type PointTagForPostgresSync struct {

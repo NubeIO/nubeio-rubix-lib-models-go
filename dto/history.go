@@ -17,20 +17,26 @@ type HistoryResponse struct {
 }
 
 type HistoryData struct {
-	LocationUUID string          `json:"location_uuid"`
-	LocationName string          `json:"location_name"`
-	GroupUUID    string          `json:"group_uuid"`
-	GroupName    string          `json:"group_name"`
-	HostUUID     string          `json:"host_uuid"`
-	HostName     string          `json:"host_name"`
-	GlobalUUID   string          `json:"global_uuid"`
-	NetworkUUID  string          `json:"network_uuid"`
-	NetworkName  string          `json:"network_name"`
-	DeviceUUID   string          `json:"device_uuid"`
-	DeviceName   string          `json:"device_name"`
-	PointUUID    string          `json:"point_uuid"`
-	PointName    string          `json:"point_name"`
-	Values       []*HistoryValue `json:"values"`
+	LocationUUID        string          `json:"location_uuid"`
+	LocationName        string          `json:"location_name"`
+	LocationDescription string          `json:"location_description"`
+	GroupUUID           string          `json:"group_uuid"`
+	GroupName           string          `json:"group_name"`
+	GroupDescription    string          `json:"group_description"`
+	HostUUID            string          `json:"host_uuid"`
+	HostName            string          `json:"host_name"`
+	HostDescription     string          `json:"host_description"`
+	GlobalUUID          string          `json:"global_uuid"`
+	NetworkUUID         string          `json:"network_uuid"`
+	NetworkName         string          `json:"network_name"`
+	NetworkDescription  string          `json:"network_description"`
+	DeviceUUID          string          `json:"device_uuid"`
+	DeviceName          string          `json:"device_name"`
+	DeviceDescription   string          `json:"device_description"`
+	PointUUID           string          `json:"point_uuid"`
+	PointName           string          `json:"point_name"`
+	PointDescription    string          `json:"point_description"`
+	Values              []*HistoryValue `json:"values"`
 }
 
 type HistoryValue struct {
