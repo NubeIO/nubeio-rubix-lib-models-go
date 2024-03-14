@@ -59,8 +59,8 @@ type Point struct {
 	UnitTo                 *string                         `json:"unit_to,omitempty"` // with take the unit and convert to, this would affect the presentValue and the original value will be stored in the raw
 	Priority               *Priority                       `json:"priority,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tags                   []*Tag                          `json:"tags,omitempty" gorm:"many2many:points_tags;constraint:OnDelete:CASCADE"`
-	ValueUpdatedFlag       *bool                           `json:"value_updated_flag,omitempty"`      // This is used when a plugin updates the PresentValue (not from priority array) and it triggers UpdatePointValue() to broadcast to producers. Should only be set to FALSE from UpdatePointValue().
-	PointPriorityArrayMode datatype.PointPriorityArrayMode `json:"point_priority_use_type,omitempty"` // This configures how the point handles the priority array and present value.
+	ValueUpdatedFlag       *bool                           `json:"value_updated_flag,omitempty"`        // This is used when a plugin updates the PresentValue (not from priority array) and it triggers UpdatePointValue() to broadcast to producers. Should only be set to FALSE from UpdatePointValue().
+	PointPriorityArrayMode datatype.PointPriorityArrayMode `json:"point_priority_array_mode,omitempty"` // This configures how the point handles the priority array and present value.
 	WriteMode              datatype.WriteMode              `json:"write_mode,omitempty"`
 	ReadWriteType          datatype.ReadWriteType          `json:"read_write_type,omitempty"`
 	WritePollRequired      *bool                           `json:"write_required,omitempty"`
