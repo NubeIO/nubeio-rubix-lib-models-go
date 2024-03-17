@@ -86,15 +86,16 @@ type UpdatePointOpts struct {
 }
 
 type PointWriter struct {
-	Priority           *map[string]*float64 `json:"priority"`
-	OriginalValue      *float64             `json:"original_value"`
-	UpdatePresentValue bool                 `json:"update_present_value"`
-	ForceWrite         bool                 `json:"force_write"`
-	Message            string               `json:"message"`
-	Fault              bool                 `json:"fault"`
-	PollState          datatype.PointState  `json:"poll_state"`
-	Timestamp          *time.Time           `json:"timestamp"`
+	Priority                 *map[string]*float64 `json:"priority"`
+	OriginalValue            *float64             `json:"original_value"`
+	IgnorePresentValueUpdate bool                 `json:"ignore_present_value_update"` // modbus, bacnetmaster uses it
+	ForceWrite               bool                 `json:"force_write"`
+	Message                  string               `json:"message"`
+	Fault                    bool                 `json:"fault"`
+	PollState                datatype.PointState  `json:"poll_state"`
+	Timestamp                *time.Time           `json:"timestamp"`
 }
+
 type PointWriteResponse struct {
 	Point                model.Point `json:"point"`
 	IsPresentValueChange bool        `json:"is_present_value_change"`
