@@ -37,5 +37,6 @@ type Device struct {
 	ConnectionMessage        *string          `json:"connection_message" gorm:""`
 	CommonSourceUUID
 	CommonHistoryEnable
-	Config datatypes.JSON `json:"config"`
+	Config  datatypes.JSON `json:"config"`
+	IsClone *bool          `json:"is_clone" gorm:"default:false"`
 }
