@@ -74,6 +74,7 @@ type Args struct {
 	CreatedAt                      *string   `json:"created_at"`
 	LastUpdated                    *string   `json:"last_updated"`
 	Title                          *string   `json:"title"`
+	ShowClones                     bool      `json:"show_clones,omitempty"`
 }
 
 const (
@@ -148,6 +149,7 @@ const (
 	CreatedAt                      = "created_at"
 	LastUpdated                    = "last_updated"
 	Title                          = "title"
+	ShowClones                     = "show_clones"
 )
 
 const (
@@ -173,6 +175,7 @@ const (
 	DefaultWithViewTemplateWidgetPointers = "false"
 	DefaultWithTickets                    = "false"
 	DefaultWithAlertConditions            = "false"
+	DefaultShowClones                     = "false"
 )
 
 func SerializeArgs(args Args) (*string, error) {

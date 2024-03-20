@@ -79,6 +79,7 @@ type Point struct {
 	LastHistoryValue     *float64       `json:"last_history_value,omitempty"`
 	LastHistoryTimestamp *time.Time     `json:"last_history_timestamp,omitempty"`
 	Config               datatypes.JSON `json:"config"`
+	IsClone              *bool          `json:"is_clone" gorm:"default:false"`
 }
 
 // GetPntType find the type of point as in voltage_dc
