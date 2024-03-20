@@ -75,6 +75,7 @@ type Args struct {
 	LastUpdated                    *string   `json:"last_updated"`
 	Title                          *string   `json:"title"`
 	ShowClones                     bool      `json:"show_clones,omitempty"`
+	Source                         *string   `json:"source,omitempty"`
 }
 
 const (
@@ -150,6 +151,7 @@ const (
 	LastUpdated                    = "last_updated"
 	Title                          = "title"
 	ShowClones                     = "show_clones"
+	Source                         = "source"
 )
 
 const (
