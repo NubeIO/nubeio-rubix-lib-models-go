@@ -6,6 +6,14 @@ import (
 	"time"
 )
 
+// used for mqtt topic ob point publish "rubix/points/value"
+type PointCovPayload struct {
+	Value    *float64 `json:"value"`
+	ValueRaw *float64 `json:"value_raw"`
+	Ts       string   `json:"ts"`
+	Priority *int     `json:"priority"`
+}
+
 type PublishPointList struct {
 	PluginName  string `json:"plugin_name"`
 	NetworkName string `json:"network_name"`
