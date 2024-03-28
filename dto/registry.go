@@ -4,6 +4,7 @@ type DeviceInfo struct {
 	GlobalUUID string  `json:"global_uuid"`
 	Version    string  `json:"version"`
 	Type       string  `json:"type"`
+	Timezone   string  `json:"timezone"`
 	ROS        ROSInfo `json:"ros"`
 }
 
