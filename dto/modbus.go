@@ -37,6 +37,7 @@ type CommissioningToolRawByte struct {
 
 type CommissioningToolDataInterpretation struct {
 	Endianness      string                             `json:"endianness"`
+	EndiannessName  string                             `json:"endianness_name"`
 	Interpretations []*CommissioningToolInterpretation `json:"interpretations"`
 }
 
