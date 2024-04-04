@@ -15,14 +15,17 @@ type CommissioningToolResponse struct {
 }
 
 type CommissioningToolPollRequest struct {
-	Type                          string  `json:"type"`
-	BaudRate                      *uint   `json:"baud_rate"`
-	Parity                        *string `json:"parity"`
-	StopBit                       *uint   `json:"stop_bit"`
-	DeviceAddress                 int     `json:"device_address"`
-	ModbusRegisterType            string  `json:"modbus_register_type"`
-	ModbusRegisterStartingAddress uint16  `json:"modbus_register_starting_address"`
-	ModbusRegisterCount           uint16  `json:"modbus_register_count"`
+	Type                          string `json:"type"`
+	TCPHostIP                     string `json:"tcp_host_ip"`
+	TCPPort                       string `json:"tcp_port"`
+	SerialPort                    string `json:"serial_port"`
+	SerialBaudRate                string `json:"serial_baud_rate"`
+	SerialParity                  string `json:"serial_parity"`
+	SerialStopBit                 string `json:"serial_stop_bit"`
+	DeviceAddress                 string `json:"device_address"`
+	ModbusRegisterType            string `json:"modbus_register_type"`
+	ModbusRegisterStartingAddress uint16 `json:"modbus_register_starting_address"`
+	ModbusRegisterCount           uint16 `json:"modbus_register_count"`
 }
 
 type CommissioningToolPollResponse struct {
