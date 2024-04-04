@@ -26,6 +26,7 @@ type CommissioningToolPollRequest struct {
 	ModbusRegisterType            string `json:"modbus_register_type"`
 	ModbusRegisterStartingAddress uint16 `json:"modbus_register_starting_address"`
 	ModbusRegisterCount           uint16 `json:"modbus_register_count"`
+	ZeroMode                      string `json:"zero_mode"`
 }
 
 type CommissioningToolPollResponse struct {
