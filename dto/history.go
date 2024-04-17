@@ -11,9 +11,9 @@ type HistoryRequest struct {
 }
 
 type HistoryResponse struct {
-	Data     []*HistoryData   `json:"data"`
-	Tags     *HistoryTags     `json:"tags,omitempty"`
-	MetaTags *HistoryMetaTags `json:"meta_tags,omitempty"`
+	Data     []*HistoryData       `json:"data"`
+	Tags     *HostHistoryTags     `json:"tags,omitempty"`
+	MetaTags *HostHistoryMetaTags `json:"meta_tags,omitempty"`
 }
 
 type HistoryData struct {
@@ -44,10 +44,18 @@ type HistoryValue struct {
 	Timestamp time.Time `json:"timestamp"`
 }
 
+type HostHistoryTags struct {
+	Host map[string]*HistoryTags `json:"host"`
+}
+
 type HistoryTags struct {
 	Network map[string][]*HistoryTag `json:"network,omitempty"`
 	Device  map[string][]*HistoryTag `json:"device,omitempty"`
 	Point   map[string][]*HistoryTag `json:"point,omitempty"`
+}
+
+type HostHistoryMetaTags struct {
+	Host map[string]*HistoryMetaTags `json:"host"`
 }
 
 type HistoryMetaTags struct {
