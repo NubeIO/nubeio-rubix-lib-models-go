@@ -110,3 +110,8 @@ type PointWriteResponse struct {
 	IsWriteValueChange   bool        `json:"is_write_value_change"`
 	IsPriorityChanged    bool        `json:"is_priority_changed"`
 }
+
+type PointForHistorySync struct {
+	HostUUID   string `json:"host_uuid"`
+	SourceUUID string `json:"source_uuid"`
+}
