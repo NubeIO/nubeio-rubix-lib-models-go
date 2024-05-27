@@ -61,10 +61,10 @@ type Point struct {
 	Tags                   []*Tag                          `json:"tags,omitempty" gorm:"many2many:points_tags;constraint:OnDelete:CASCADE"`
 	ValueUpdatedFlag       *bool                           `json:"value_updated_flag,omitempty"`        // This is used when a plugin updates the PresentValue (not from priority array) and it triggers UpdatePointValue() to broadcast to producers. Should only be set to FALSE from UpdatePointValue().
 	PointPriorityArrayMode datatype.PointPriorityArrayMode `json:"point_priority_array_mode,omitempty"` // This configures how the point handles the priority array and present value.
-	WriteMode              datatype.WriteMode              `json:"write_mode,omitempty"`
 	ReadWriteType          datatype.ReadWriteType          `json:"read_write_type,omitempty"`
-	WritePollRequired      *bool                           `json:"write_required,omitempty"`
+	WriteMode              datatype.WriteMode              `json:"write_mode,omitempty"`
 	ReadPollRequired       *bool                           `json:"read_required,omitempty"`
+	WritePollRequired      *bool                           `json:"write_required,omitempty"`
 	PollPriority           datatype.PollPriority           `json:"poll_priority"`
 	PollRate               datatype.PollRate               `json:"poll_rate"`
 	PollOnStartup          *bool                           `json:"poll_on_startup,omitempty"` // This property was added late, should poll-on-startup when this property is nil or true.

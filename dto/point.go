@@ -115,3 +115,8 @@ type PointForHistorySync struct {
 	HostUUID   string `json:"host_uuid"`
 	SourceUUID string `json:"source_uuid"`
 }
+
+type PointPollState struct {
+	ReadPollRequired  *bool `json:"read_required,omitempty"`
+	WritePollRequired *bool `json:"write_required,omitempty"`
+}
