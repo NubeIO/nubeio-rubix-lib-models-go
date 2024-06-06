@@ -74,7 +74,6 @@ type Point struct {
 	MetaTags          []*PointMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Connection        string          `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage *string         `json:"connection_message" gorm:""`
-	PointHistories    []*PointHistory `json:"point_histories,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	CommonSourceUUID
 	LastHistoryValue     *float64       `json:"last_history_value,omitempty"`
 	LastHistoryTimestamp *time.Time     `json:"last_history_timestamp,omitempty"`
