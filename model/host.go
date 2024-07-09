@@ -23,6 +23,7 @@ type Host struct {
 	Timezone             string  `json:"timezone"`
 	ROSVersion           string  `json:"ros_version"`
 	ROSRestartExpression *string `json:"ros_restart_expression,omitempty"`
+	RebootExpression     *string `json:"reboot_expression,omitempty"`
 	CommonHistoryEnable
 	Tags     []*Tag         `json:"tags,omitempty" gorm:"many2many:hosts_tags;constraint:OnDelete:CASCADE"`
 	Comments []*HostComment `json:"comments,omitempty" gorm:"constraint:OnDelete:CASCADE"`

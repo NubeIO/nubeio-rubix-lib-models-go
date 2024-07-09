@@ -1,11 +1,12 @@
 package dto
 
 type DeviceInfo struct {
-	GlobalUUID string  `json:"global_uuid"`
-	Version    string  `json:"version"`
-	Type       string  `json:"type"`
-	Timezone   string  `json:"timezone"`
-	ROS        ROSInfo `json:"ros"`
+	GlobalUUID       string  `json:"global_uuid"`
+	Version          string  `json:"version"`
+	Type             string  `json:"type"`
+	Timezone         string  `json:"timezone"`
+	RebootExpression *string `json:"reboot_expression,omitempty"`
+	ROS              ROSInfo `json:"ros"`
 }
 
 type ProductInfo struct {
