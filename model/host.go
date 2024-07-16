@@ -20,6 +20,7 @@ type Host struct {
 	ReceivedBytes        int     `json:"received_bytes"`
 	SentBytes            int     `json:"sent_bytes"`
 	ConnectedSince       string  `json:"connected_since"`
+	DisconnectedSince    string  `json:"disconnected_since"`
 	Timezone             string  `json:"timezone"`
 	ROSVersion           string  `json:"ros_version"`
 	ROSRestartExpression *string `json:"ros_restart_expression,omitempty"`
