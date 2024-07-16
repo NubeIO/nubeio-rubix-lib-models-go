@@ -7,14 +7,14 @@ import (
 
 type Alert struct {
 	UUID         string                   `json:"uuid" gorm:"primarykey"`
-	HostUUID     string                   `json:"host_uuid"`
-	EntityType   datatype.AlertEntityType `json:"entity_type"`           // Device
-	EntityUUID   string                   `json:"entity_uuid,omitempty"` // dev_abc123
-	Type         datatype.AlertType       `json:"type"`                  // Ping
-	Status       datatype.AlertStatus     `json:"status" gorm:"index"`   // Active
-	Severity     datatype.AlertSeverity   `json:"severity"`              // Crucial
+	HostUUID     string                   `json:"host_uuid" gorm:"uniqueIndex:idx_alerts_host_uuid_entity_type_entity_uuid_type_title"`
+	EntityType   datatype.AlertEntityType `json:"entity_type" gorm:"uniqueIndex:idx_alerts_host_uuid_entity_type_entity_uuid_type_title"`           // Device
+	EntityUUID   string                   `json:"entity_uuid,omitempty" gorm:"uniqueIndex:idx_alerts_host_uuid_entity_type_entity_uuid_type_title"` // dev_abc123
+	Type         datatype.AlertType       `json:"type" gorm:"uniqueIndex:idx_alerts_host_uuid_entity_type_entity_uuid_type_title"`                  // Ping
+	Status       datatype.AlertStatus     `json:"status" gorm:"index"`                                                                              // Active
+	Severity     datatype.AlertSeverity   `json:"severity"`                                                                                         // Crucial
 	Target       datatype.AlertTarget     `json:"target,omitempty"`
-	Title        string                   `json:"title,omitempty"`
+	Title        string                   `json:"title,omitempty" gorm:"uniqueIndex:idx_alerts_host_uuid_entity_type_entity_uuid_type_title"`
 	Body         string                   `json:"body,omitempty"`
 	Source       *string                  `json:"source,omitempty"`
 	Notified     *bool                    `json:"notified,omitempty" gorm:"default:false"`
