@@ -49,3 +49,15 @@ type CommissioningToolInterpretation struct {
 	DateType string      `json:"date_type"`
 	Values   interface{} `json:"values"`
 }
+
+type ManualPointWriteValue struct {
+	NetworkUUID string  `json:"network_uuid"`
+	DeviceUUID  string  `json:"device_uuid"`
+	PointUUID   string  `json:"point_uuid"`
+	WriteValue  float64 `json:"write_value"`
+}
+
+type ManualPointWriteValueResponse struct {
+	Error           string `json:"error"`
+	WriteSuccessful bool   `json:"write_successful"`
+}
