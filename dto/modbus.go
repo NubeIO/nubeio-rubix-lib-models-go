@@ -51,10 +51,14 @@ type CommissioningToolInterpretation struct {
 }
 
 type ManualPointWriteValue struct {
-	NetworkUUID string  `json:"network_uuid"`
-	DeviceUUID  string  `json:"device_uuid"`
-	PointUUID   string  `json:"point_uuid"`
-	WriteValue  float64 `json:"write_value"`
+	NetworkUUID     string  `json:"network_uuid"`
+	DeviceUUID      string  `json:"device_uuid"`
+	PointUUID       string  `json:"point_uuid"`
+	RegisterAddress int     `json:"register_address"`
+	RegisterType    string  `json:"register_type"`
+	DataType        string  `json:"data_type"`
+	ObjectEncoding  string  `json:"object_encoding"`
+	WriteValue      float64 `json:"write_value"`
 }
 
 type ManualPointWriteValueResponse struct {
