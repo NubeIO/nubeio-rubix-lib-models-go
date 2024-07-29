@@ -57,6 +57,7 @@ type ManualPointWriteValue struct {
 	RegisterAddress int     `json:"register_address"`
 	RegisterType    string  `json:"register_type"`
 	DataType        string  `json:"data_type"`
+	ObjectEncoding  string  `json:"object_encoding"`
 	WriteValue      float64 `json:"write_value"`
 }
 
