@@ -102,6 +102,7 @@ type PointWriter struct {
 	Fault                    bool                 `json:"fault"`
 	PollState                datatype.PointState  `json:"poll_state"`
 	Timestamp                *time.Time           `json:"timestamp"`
+	AddressUUID              *string              `json:"address_uuid"`
 }
 
 type PointWriteResponse struct {
