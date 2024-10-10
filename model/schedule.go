@@ -32,4 +32,5 @@ type Schedule struct {
 	GlobalUUID        string  `json:"global_uuid"`
 	Connection        string  `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage *string `json:"connection_message" gorm:""`
+	NullableOutput    *bool   `json:"nullable_output"`
 }
