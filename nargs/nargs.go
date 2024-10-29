@@ -76,6 +76,7 @@ type Args struct {
 	Title                          *string   `json:"title"`
 	ShowClones                     bool      `json:"show_clones,omitempty"`
 	Source                         *string   `json:"source,omitempty"`
+	PointState                     *string   `json:"point_state,omitempty"`
 }
 
 const (
@@ -152,6 +153,7 @@ const (
 	Title                          = "title"
 	ShowClones                     = "show_clones"
 	Source                         = "source"
+	PointState                     = "point_state"
 )
 
 const (
