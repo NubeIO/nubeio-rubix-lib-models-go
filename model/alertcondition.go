@@ -6,6 +6,7 @@ type AlertCondition struct {
 	AlertTypes      string                   `json:"alert_types"`
 	AlertStatuses   string                   `json:"alert_statuses"`
 	AlertSeverities string                   `json:"alert_severities"`
+	HostUUIDs       string                   `json:"host_uuids"`
 	Tags            []*Tag                   `json:"tags,omitempty" gorm:"many2many:alert_conditions_tags;constraint:OnDelete:CASCADE"`
 	MetaTags        []*AlertConditionMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Teams           []*AlertConditionTeam    `json:"teams,omitempty" gorm:"constraint:OnDelete:CASCADE"`

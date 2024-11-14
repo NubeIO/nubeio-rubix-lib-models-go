@@ -10,6 +10,7 @@ type AlertCondition struct {
 	AlertTypes      []string                       `json:"alert_types"`
 	AlertStatuses   []string                       `json:"alert_statuses"`
 	AlertSeverities []string                       `json:"alert_severities"`
+	HostUUIDs       []string                       `json:"host_uuids"`
 	Tags            []*model.Tag                   `json:"tags,omitempty"`
 	MetaTags        []*model.AlertConditionMetaTag `json:"meta_tags,omitempty"`
 	Teams           []*model.AlertConditionTeam    `json:"teams,omitempty"`
