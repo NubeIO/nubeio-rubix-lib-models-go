@@ -71,15 +71,17 @@ type Args struct {
 	MetricLogTimestamp             *string   `json:"metric_log_timestamp,omitempty"`
 	WithAlertConditions            bool      `json:"with_alert_conditions,omitempty"`
 	EntityUUID                     *string   `json:"entity_uuid,omitempty"`
-	EntityType                     *string   `json:"entity_type,omitempty"`
 	CreatedAt                      *string   `json:"created_at"`
 	LastUpdated                    *string   `json:"last_updated"`
 	Title                          *string   `json:"title"`
 	ShowClones                     bool      `json:"show_clones,omitempty"`
 	Source                         *string   `json:"source,omitempty"`
 	PointState                     *string   `json:"point_state,omitempty"`
-	Type                           *string   `json:"type,omitempty"`
-	Severity                       *string   `json:"severity,omitempty"`
+	HostUUIDs                      *[]string `json:"host_uuids"`
+	Sources                        *[]string `json:"sources"`
+	EntityTypes                    *[]string `json:"entity_types,omitempty"`
+	Types                          *[]string `json:"types,omitempty"`
+	Severities                     *[]string `json:"severities,omitempty"`
 }
 
 const (
@@ -151,13 +153,13 @@ const (
 	MetricLogTimestamp             = "metric_log_timestamp"
 	WithAlertConditions            = "with_alert_conditions"
 	EntityUUID                     = "entity_uuid"
-	EntityType                     = "entity_type"
 	CreatedAt                      = "created_at"
 	LastUpdated                    = "last_updated"
 	Title                          = "title"
 	ShowClones                     = "show_clones"
 	Source                         = "source"
 	PointState                     = "point_state"
+	EntityType                     = "entity_type"
 	Type                           = "type"
 	Severity                       = "severity"
 )
