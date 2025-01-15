@@ -21,7 +21,7 @@ type Alert struct {
 	EmailedAt          *time.Time               `json:"emailed_at,omitempty"`
 	AcknowledgeTimeout *time.Time               `json:"acknowledge_timeout,omitempty"`
 	CreatedAt          *time.Time               `json:"created_at,omitempty"`
-	LastUpdated        *time.Time               `json:"last_updated,omitempty"`
+	LastUpdated        *time.Time               `json:"last_updated,omitempty" gorm:"autoUpdateTime:true"`
 	Tags               []*Tag                   `json:"tags,omitempty" gorm:"many2many:alerts_tags;constraint:OnDelete:CASCADE"`
 	MetaTags           []*AlertMetaTag          `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Tickets            []*Ticket                `json:"tickets,omitempty" gorm:"constraint:OnDelete:CASCADE"`
