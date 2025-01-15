@@ -72,7 +72,15 @@ type Args struct {
 	WithAlertConditions            bool      `json:"with_alert_conditions,omitempty"`
 	EntityUUID                     *string   `json:"entity_uuid,omitempty"`
 	CreatedAt                      *string   `json:"created_at"`
+	CreatedAtGt                    *string   `json:"created_at_gt"`
+	CreatedAtGte                   *string   `json:"created_at_gte"`
+	CreatedAtLt                    *string   `json:"created_at_lt"`
+	CreatedAtLte                   *string   `json:"created_at_lte"`
 	LastUpdated                    *string   `json:"last_updated"`
+	LastUpdatedGt                  *string   `json:"last_updated_gt"`
+	LastUpdatedGte                 *string   `json:"last_updated_gte"`
+	LastUpdatedLt                  *string   `json:"last_updated_lt"`
+	LastUpdatedLte                 *string   `json:"last_updated_lte"`
 	Title                          *string   `json:"title"`
 	ShowClones                     bool      `json:"show_clones,omitempty"`
 	Source                         *string   `json:"source,omitempty"`
@@ -154,7 +162,15 @@ const (
 	WithAlertConditions            = "with_alert_conditions"
 	EntityUUID                     = "entity_uuid"
 	CreatedAt                      = "created_at"
+	CreatedAtGt                    = "created_at_gt"
+	CreatedAtGte                   = "created_at_gte"
+	CreatedAtLt                    = "created_at_lt"
+	CreatedAtLte                   = "created_at_lte"
 	LastUpdated                    = "last_updated"
+	LastUpdatedGt                  = "last_updated_gt"
+	LastUpdatedGte                 = "last_updated_gte"
+	LastUpdatedLt                  = "last_updated_lt"
+	LastUpdatedLte                 = "last_updated_lte"
 	Title                          = "title"
 	ShowClones                     = "show_clones"
 	Source                         = "source"
