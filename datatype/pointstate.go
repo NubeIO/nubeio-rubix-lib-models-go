@@ -12,6 +12,7 @@ const (
 	PointStatePollOk           PointState = "poll-ok"
 	PointStateWriteOk          PointState = "write-ok"
 	PointStateApiWritePending  PointState = "api-write-pending"
+	PointStateApiWriteFailed   PointState = "api-write-failed"
 	PointStateApiUpdatePending PointState = "api-update-pending"
 )
 
@@ -20,6 +21,7 @@ var PointStateMap = map[PointState]struct{}{
 	PointStatePollOk:           {},
 	PointStateWriteOk:          {},
 	PointStateApiWritePending:  {},
+	PointStateApiWriteFailed:   {},
 	PointStateApiUpdatePending: {},
 }
 
