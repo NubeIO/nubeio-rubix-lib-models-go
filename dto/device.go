@@ -12,3 +12,8 @@ type DeviceMetaTagForPostgresSync struct {
 	Key        string `json:"key,omitempty"`
 	Value      string `json:"value,omitempty"`
 }
+
+type SwapDevicePosition struct {
+	UUID1 string `json:"uuid1"`
+	UUID2 string `json:"uuid2"`
+}
