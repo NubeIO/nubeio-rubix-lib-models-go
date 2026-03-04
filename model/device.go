@@ -42,4 +42,5 @@ type Device struct {
 	DisableGrouping   *bool          `json:"disable_grouping" gorm:"default:false"`
 	EnableConcurrency *bool          `json:"enable_concurrency" gorm:"default:false"`
 	ConcurrencyLimit  *int           `json:"concurrency_limit" gorm:"default:10"`
+	Position          int            `json:"position" gorm:"default:0"`
 }
