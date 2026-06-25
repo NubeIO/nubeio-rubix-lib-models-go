@@ -18,6 +18,7 @@ const (
 	ObjTypeEnumInput    ObjectType = "multi_state_input"
 	ObjTypeEnumOutput   ObjectType = "multi_state_output"
 	ObjTypeEnumValue    ObjectType = "multi_state_value"
+	ObjTypeIntegerValue ObjectType = "integer_value"
 	ObjAnalogInput      ObjectType = "analogInput"
 	ObjAnalogOutput     ObjectType = "analogOutput"
 	ObjAnalogValue      ObjectType = "analogValue"
@@ -27,6 +28,7 @@ const (
 	ObjEnumInput        ObjectType = "multiStateInput"
 	ObjEnumOutput       ObjectType = "multiStateOutput"
 	ObjEnumValue        ObjectType = "multiStateValue"
+	ObjIntegerValue     ObjectType = "integerValue"
 
 	// modbus
 	ObjTypeReadCoil           ObjectType = "read_coil"
@@ -71,9 +73,11 @@ var ObjectTypesMap = map[ObjectType]struct{}{
 	ObjBinaryInput:      {},
 	ObjBinaryOutput:     {},
 	ObjBinaryValue:      {},
+	ObjIntegerValue:     {},
 	ObjTypeEnumInput:    {},
 	ObjTypeEnumOutput:   {},
 	ObjTypeEnumValue:    {},
+	ObjTypeIntegerValue: {},
 	// modbus
 	ObjTypeReadCoil:           {},
 	ObjTypeReadCoils:          {},
