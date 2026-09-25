@@ -21,13 +21,13 @@ type PollQueueStatistics struct {
 	ErrorPollCount   int64 `json:"error_poll_count"`
 
 	// Execution and scheduler percentiles
-	PollDurationP01 string `json:"poll_duration_p01"`
-	PollDurationP50 string `json:"poll_duration_p50"`
-	PollDurationP99 string `json:"poll_duration_p99"`
-	QueueWaitP50    string `json:"queue_wait_p50"`
-	QueueWaitP99    string `json:"queue_wait_p99"`
-	ScheduleLagP50  string `json:"schedule_lag_p50"`
-	ScheduleLagP99  string `json:"schedule_lag_p99"`
+	PollDurationFast    string `json:"poll_duration_fast"`    // p01 of poll duration
+	PollDurationNormal  string `json:"poll_duration_normal"`  // p50 of poll duration
+	PollDurationSlow    string `json:"poll_duration_slow"`    // p99 of poll duration
+	QueueNormalWait     string `json:"queue_normal_wait"`     // p50 of time spent waiting in the queue
+	QueueSlowWait       string `json:"queue_slow_wait"`       // p99 of time spent waiting in the queue
+	ScheduleDelayNormal string `json:"schedule_delay_normal"` // p50 of delay past the scheduled poll time
+	ScheduleDelayLong   string `json:"schedule_delay_long"`   // p99 of delay past the scheduled poll time
 
 	EnabledTime string `json:"enabled_time"`
 }
