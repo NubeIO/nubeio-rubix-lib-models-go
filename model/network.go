@@ -45,7 +45,7 @@ type Network struct {
 	CommonSourceUUID
 	SourcePluginName *string `json:"source_plugin_name"`
 	IsClone          *bool   `json:"is_clone" gorm:"default:false"`
-	HostUUID         *string `json:"host_uuid" gorm:"type:varchar(255) references hosts;default:null;uniqueIndex:idx_networks_name_host_uuid,expression:IFNULL(host_uuid\\,\"\")"`
+	HostUUID         *string `json:"host_uuid" gorm:"type:varchar(255) references hosts;default:null;uniqueIndex:idx_networks_name_host_uuid,expression:IFNULL(host_uuid\\,\"\");index:idx_networks_host_uuid"`
 	CommonHistoryEnable
 	Config           datatypes.JSON `json:"config"`
 	IgnoreFaultyData bool           `json:"ignore_faulty_data" gorm:"default:false"`
