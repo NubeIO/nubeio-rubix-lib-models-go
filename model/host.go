@@ -27,6 +27,7 @@ type Host struct {
 	RebootExpression     *string `json:"reboot_expression,omitempty"`
 	CommonHistoryEnable
 	Tags     []*Tag         `json:"tags,omitempty" gorm:"many2many:hosts_tags;constraint:OnDelete:CASCADE"`
+	MetaTags []*HostMetaTag `json:"meta_tags,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Comments []*HostComment `json:"comments,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Views    []*View        `json:"views,omitempty" gorm:"constraint:OnDelete:CASCADE"`
 	Networks []*Network     `json:"networks,omitempty" gorm:"constraint:OnDelete:CASCADE"`
