@@ -43,6 +43,7 @@ type Network struct {
 	ConnectionMessage         *string           `json:"connection_message" gorm:""`
 	SupportsDevicePing        bool              `json:"supports_device_ping"`
 	CommonSourceUUID
+	CommonSourceHistoryEnable
 	SourcePluginName *string `json:"source_plugin_name"`
 	IsClone          *bool   `json:"is_clone" gorm:"default:false"`
 	HostUUID         *string `json:"host_uuid" gorm:"type:varchar(255) references hosts;default:null;uniqueIndex:idx_networks_name_host_uuid,expression:IFNULL(host_uuid\\,\"\");index:idx_networks_host_uuid"`

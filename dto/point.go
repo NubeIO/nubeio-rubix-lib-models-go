@@ -74,6 +74,11 @@ type PointForPostgresSync struct {
 	LocationUUID        string `json:"location_uuid"`
 	LocationName        string `json:"location_name"`
 	LocationDescription string `json:"location_description"`
+	// Enabled is network.enable AND device.enable AND point.enable. HistoryEnabled is whether the edge records this
+	// point's history (network history_enable IS TRUE, device and point IS NOT FALSE). Pointers on purpose: nil means
+	// unknown (an older rubix-os, or a clone not re-synced yet), which must not read as false (disabled).
+	Enabled        *bool `json:"enabled,omitempty"`
+	HistoryEnabled *bool `json:"history_enabled,omitempty"`
 }
 
 type PointTagForPostgresSync struct {

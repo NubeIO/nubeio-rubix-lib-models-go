@@ -105,6 +105,14 @@ type CommonHistoryEnable struct {
 	HistoryEnable *bool `json:"history_enable" gorm:"default:false"`
 }
 
+// CommonSourceHistoryEnable keeps the edge's history_enable on a cloned network, device or point. The clone forces its
+// own history_enable to false (the supervisor must not record history itself), so without this the cloud copy cannot
+// tell which points the edge records. Stored already resolved: a network's NULL as false, a device's or point's NULL as
+// true (the edge treats them that way), so NULL here only means "not captured yet" (cloned before this field existed).
+type CommonSourceHistoryEnable struct {
+	SourceHistoryEnable *bool `json:"source_history_enable,omitempty"`
+}
+
 type CommonFault struct {
 	InFault      bool      `json:"fault,omitempty"`
 	MessageLevel string    `json:"message_level,omitempty"`
