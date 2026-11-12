@@ -79,6 +79,35 @@ type PointForPostgresSync struct {
 	// unknown (an older rubix-os, or a clone not re-synced yet), which must not read as false (disabled).
 	Enabled        *bool `json:"enabled,omitempty"`
 	HistoryEnabled *bool `json:"history_enabled,omitempty"`
+	// How the edge reads and records the point, from its network, device and point settings (network fields first,
+	// then device, then point). nil / empty when rubix-os doesn't send them. NetworkPluginName is the edge's plugin
+	// (source_plugin_name on a clone). HistoryInterval is in minutes.
+	NetworkIgnoreFaultyData *bool    `json:"network_ignore_faulty_data,omitempty"`
+	NetworkPluginName       string   `json:"network_plugin_name,omitempty"`
+	NetworkSerialPort       string   `json:"network_serial_port,omitempty"`
+	NetworkTransportType    string   `json:"network_transport_type,omitempty"`
+	DeviceAddressID         *int     `json:"device_address_id,omitempty"`
+	DeviceAddressUUID       string   `json:"device_address_uuid,omitempty"`
+	DeviceHost              string   `json:"device_host,omitempty"`
+	DeviceModel             string   `json:"device_model,omitempty"`
+	DevicePort              *int     `json:"device_port,omitempty"`
+	AddressID               *int     `json:"address_id,omitempty"`
+	DataType                string   `json:"data_type,omitempty"`
+	Decimal                 *int     `json:"decimal,omitempty"`
+	HistoryCOVThreshold     *float64 `json:"history_cov_threshold,omitempty"`
+	HistoryInterval         *int     `json:"history_interval,omitempty"`
+	HistoryType             string   `json:"history_type,omitempty"`
+	IoNumber                string   `json:"io_number,omitempty"`
+	MultiplicationFactor    *float64 `json:"multiplication_factor,omitempty"`
+	ObjectEncoding          string   `json:"object_encoding,omitempty"`
+	ObjectType              string   `json:"object_type,omitempty"`
+	Offset                  *float64 `json:"offset,omitempty"`
+	ScaleEnable             *bool    `json:"scale_enable,omitempty"`
+	ScaleInMax              *float64 `json:"scale_in_max,omitempty"`
+	ScaleInMin              *float64 `json:"scale_in_min,omitempty"`
+	ScaleOutMax             *float64 `json:"scale_out_max,omitempty"`
+	ScaleOutMin             *float64 `json:"scale_out_min,omitempty"`
+	WriteMode               string   `json:"write_mode,omitempty"`
 }
 
 type PointTagForPostgresSync struct {
