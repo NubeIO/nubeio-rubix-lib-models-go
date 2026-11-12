@@ -75,6 +75,7 @@ type Point struct {
 	Connection        string          `json:"connection" gorm:"default:Connected"`
 	ConnectionMessage *string         `json:"connection_message" gorm:""`
 	CommonSourceUUID
+	CommonSourceHistoryEnable
 	LastHistoryValue     *float64       `json:"last_history_value,omitempty"`
 	LastHistoryTimestamp *time.Time     `json:"last_history_timestamp,omitempty"`
 	Config               datatypes.JSON `json:"config"`
